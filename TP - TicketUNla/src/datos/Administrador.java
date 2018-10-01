@@ -1,6 +1,5 @@
 package datos;
 
-import enumerados.TipoAdministrador;
 
 
 public class Administrador extends Usuario{

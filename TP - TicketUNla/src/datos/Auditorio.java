@@ -2,7 +2,7 @@ package datos;
 
 import java.util.Set;
 
-import enumerados.TipoAuditorio;
+
 
 public class Auditorio {
 	private int idAuditorio;

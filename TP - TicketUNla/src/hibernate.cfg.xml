@@ -15,6 +15,7 @@
 	<!-- Mapeo Entidades -->
 	<mapping resource="mapeos/Funcion.hbm.xml"/>
 	<mapping resource="mapeos/Evento.hbm.xml"/>
+	<mapping resource="mapeos/Auditorio.hbm.xml"/>
 	
 </session-factory>
 </hibernate-configuration>

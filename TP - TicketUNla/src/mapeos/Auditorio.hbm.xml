@@ -6,11 +6,11 @@
 			<generator class="identity" />
 		</id>
 		<property column = "nombre" name = "nombre" type = "string" />
-		<property column = "tipo" name = "tipo" type = "TipoAuditorio" />
-		<set name="funciones" table="funcion" 
+		<one-to-one name="tipoAuditorio" class="datos.TipoAuditorio"></one-to-one>
+		<set name="eventos" table="evento" 
 			inverse="true" fetch="select" cascade = "all">
-			<key column="idFuncion" not-null="true" />
-			<one-to-many class="datos.Funcion" />
+			<key column="idEvento" not-null="true" />
+			<one-to-many class="datos.Evento" />
 		</set>
 		<set name="sectores" table="sector" 
 			inverse="true" fetch="select" cascade = "all">

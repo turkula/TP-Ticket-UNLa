@@ -1,7 +1,7 @@
 package datos;
 import java.util.GregorianCalendar;
 
-import enumerados.TipoCliente;
+
 public class Cliente extends Usuario{
 	private  TipoCliente tipo;
 	private GregorianCalendar fechaNacimiento;

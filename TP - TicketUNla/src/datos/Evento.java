@@ -2,7 +2,7 @@ package datos;
 
 import java.util.Set;
 
-import enumerados.TipoEvento;
+
 
 public class Evento {
 	private int idEvento;
@@ -12,8 +12,6 @@ public class Evento {
 	private Auditorio auditorio;
 	
 	
-
-
 	public Evento(String descripcion, TipoEvento tipo, Set<Funcion> funciones, Auditorio auditorio) {
 		super();
 		this.descripcion = descripcion;

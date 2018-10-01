@@ -7,7 +7,7 @@ import datos.Auditorio;
 
 import datos.Evento;
 import datos.Sector;
-import enumerados.TipoAuditorio;
+
 
 
 public class AuditorioABM {

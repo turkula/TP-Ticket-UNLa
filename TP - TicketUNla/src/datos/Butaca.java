@@ -1,6 +1,7 @@
 package datos;
 
 public class Butaca {
+	private int idButaca;
 	private int fila;
 	private int columna;
 	

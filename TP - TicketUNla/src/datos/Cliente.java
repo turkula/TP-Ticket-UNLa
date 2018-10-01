@@ -1,23 +1,16 @@
 package datos;
-import java.util.GregorianCalendar;
 
-import enumerados.TipoCliente;
+import java.util.GregorianCalendar;
 public class Cliente extends Usuario{
-	private  TipoCliente tipo;
+	private enum tipoCliente{ESTUDIANTE,NORMAL, JUBILADO};
 	private GregorianCalendar fechaNacimiento;
 	
-	
-	
-	public Cliente(String nombreUsuario, String clave, TipoCliente tipo, GregorianCalendar fechaNacimiento) {
-		super(nombreUsuario, clave);
-		this.tipo = tipo;
+	public Cliente() {
+		
+	}
+	public Cliente(GregorianCalendar fechaNacimiento) {
+		super();
 		this.fechaNacimiento = fechaNacimiento;
-	}
-	public TipoCliente getTipo() {
-		return tipo;
-	}
-	public void setTipo(TipoCliente tipo) {
-		this.tipo = tipo;
 	}
 	public GregorianCalendar getFechaNacimiento() {
 		return fechaNacimiento;
@@ -25,11 +18,6 @@ public class Cliente extends Usuario{
 	public void setFechaNacimiento(GregorianCalendar fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	@Override
-	public String toString() {
-		return "Cliente [tipo=" + tipo + ", fechaNacimiento=" + fechaNacimiento + "]";
-	}
-	
 	
 	
 	

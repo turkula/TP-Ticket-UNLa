@@ -7,45 +7,20 @@ import java.util.Set;
 
 public class Funcion {
 	private int idFuncion;
-	private String descripcion;
 	private GregorianCalendar fechaHora;
 	private Evento evento;
-	private Set<Tarifa> tarifas;
-	private Set<Descuento> descuentos;
+	private Set<Tarifa>tarifas;
+	private Set<Descuento>descuentos;
 	
 	public Funcion() {
 		
 	}
-
-
-
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-
-
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-
-
-
-	public Funcion(String descripcion, GregorianCalendar fechaHora, Evento evento, Set<Tarifa> tarifas,
-			Set<Descuento> descuentos) {
+	
+	public Funcion(GregorianCalendar fechaHora, Evento evento) {
 		super();
-		this.descripcion = descripcion;
 		this.fechaHora = fechaHora;
 		this.evento = evento;
-		this.tarifas = tarifas;
-		this.descuentos = descuentos;
 	}
-
-
-
 
 	public int getIdFuncion() {
 		return idFuncion;

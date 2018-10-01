@@ -8,7 +8,7 @@ import dao.EventoDao;
 
 import datos.Evento;
 import datos.Funcion;
-import enumerados.TipoEvento;
+
 import datos.Auditorio;
 	
 

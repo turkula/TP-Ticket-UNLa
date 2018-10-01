@@ -6,9 +6,6 @@ public class Reserva {
 	private int idReserva;
 	private Set<Ticket>tickets; //modificar en el diagrama por ubicaciones ELIMINA CLASE UBICACION
 
-	public Reserva() {
-		super();
-	}
 
 	public Reserva() {
 		super();

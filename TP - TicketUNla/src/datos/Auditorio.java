@@ -11,9 +11,8 @@ public class Auditorio {
 	private Set<Evento>eventos;
 	private Set<Sector>sectores;
 	
-	public Auditorio(int idAuditorio, String nombre, TipoAuditorio tipo, Set<Evento> eventos, Set<Sector> sectores) {
+	public Auditorio(String nombre, TipoAuditorio tipo, Set<Evento> eventos, Set<Sector> sectores) {
 		super();
-		this.idAuditorio = idAuditorio;
 		this.nombre = nombre;
 		this.tipo = tipo;
 		this.eventos = eventos;

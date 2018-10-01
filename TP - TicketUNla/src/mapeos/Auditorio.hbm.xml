@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="datos.Auditorio" table="auditorio">
+		<id column="idAuditorio" name="idAuditorio">
+			<generator class="identity" />
+		</id>
+		<property column = "nombre" name = "nombre" type = "string" />
+		<property column = "tipo" name = "tipo" type = "TipoAuditorio" />
+		<set name="funciones" table="funcion" 
+			inverse="true" fetch="select" cascade = "all">
+			<key column="idFuncion" not-null="true" />
+			<one-to-many class="datos.Funcion" />
+		</set>
+		<set name="sectores" table="sector" 
+			inverse="true" fetch="select" cascade = "all">
+			<key column="idSector" not-null="true" />
+			<one-to-many class="datos.Sector" />
+		</set>
+	</class>
+</hibernate-mapping>

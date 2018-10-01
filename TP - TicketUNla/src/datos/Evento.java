@@ -11,13 +11,19 @@ public class Evento {
 	private Set<Funcion>funciones;
 	private Auditorio auditorio;
 	
-	public Evento(int idEvento, String descripcion, TipoEvento tipo, Set<Funcion> funciones, Auditorio auditorio) {
+	
+
+
+	public Evento(String descripcion, TipoEvento tipo, Set<Funcion> funciones, Auditorio auditorio) {
 		super();
-		this.idEvento = idEvento;
 		this.descripcion = descripcion;
 		this.tipo = tipo;
 		this.funciones = funciones;
 		this.auditorio = auditorio;
+	}
+
+	public Evento() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getIdEvento() {

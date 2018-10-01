@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="datos.Funcion" table="funcion">
+		<id column="idFuncion" name="idFuncion">
+			<generator class="identity" />
+		</id>
+		<property column = "descripcion" name = "descripcion" type = "string" />
+		<property column = "fechaHora" name = "fechaHora" type = "gregorianCalendar" />
+		<property column = "evento" name = "evento" type = "Evento" />
+		<set name="tarifas" table="tarifa" 
+			inverse="true" fetch="select" cascade = "all">
+			<key column="idTarifa" not-null="true" />
+			<one-to-many class="datos.Tarifa" />
+		</set>
+		<set name="descuentos" table="descuento" 
+			inverse="true" fetch="select" cascade = "all">
+			<key column="idEvento" not-null="true" />
+			<one-to-many class="datos.Evento" />
+		</set>
+		<many-to-one name = "evento" class = "datos.Evento"
+				column = "idEvento" not-null = "true" />
+	</class>
+</hibernate-mapping>

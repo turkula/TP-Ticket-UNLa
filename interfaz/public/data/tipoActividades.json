@@ -1,0 +1,287 @@
+[
+  {
+    "name": "Abastecimiento y Logística",
+    "childrens": [
+      "Abastecimiento",
+      "Almacén / Depósito / Expedición",
+      "Asistente de Tráfico",
+      "Compras",
+      "Distribución",
+      "Logística",
+      "Transporte"
+    ]
+  },
+  {
+    "name": "Administración, Contabilidad y Finanzas",
+    "childrens": [
+      "Administración",
+      "Análisis de Riesgos",
+      "Auditoría",
+      "Clearing",
+      "Consultoria",
+      "Contabilidad",
+      "Control de Gestión",
+      "Corporate Finance / Banca Inversión",
+      "Créditos y Cobranzas",
+      "Cuentas Corrientes",
+      "Evaluación Económica",
+      "Facturación",
+      "Finanzas",
+      "Finanzas Internacionales",
+      "Impuestos",
+      "Inversiones / Proyectos de Inversión",
+      "Mercado de Capitales",
+      "Organización y Métodos",
+      "Planeamiento económico-financiero",
+      "Tesorería"
+    ]
+  },
+  {
+    "name": "Aduana y Comercio Exterior",
+    "childrens": [
+      "Apoderado Aduanal",
+      "Compras Internacionales/Importación",
+      "Consultorías Comercio Exterior",
+      "Ventas Internacionales/Exportación"
+    ]
+  },
+  {
+    "name": "Atención al Cliente, Call Center y Telemarketing",
+    "childrens": [
+      "Atención al Cliente",
+      "Call Center",
+      "Telemarketing"
+    ]
+  },
+  {
+    "name": "Comercial, Ventas y Negocios",
+    "childrens": [
+      "Comercial",
+      "Comercio Exterior",
+      "Desarrollo de Negocios",
+      "Negocios Internacionales",
+      "Planeamiento comercial",
+      "Ventas"
+    ]
+  },
+  {
+    "name": "Comunicación, Relaciones Institucionales y Públicas",
+    "childrens": [
+      "Comunicacion",
+      "Comunicaciones Externas",
+      "Comunicaciones Internas",
+      "Periodismo",
+      "Relaciones Institucionales/Publicas",
+      "Responsabilidad Social"
+    ]
+  },
+  {
+    "name": "Diseño",
+    "childrens": [
+      "Diseño",
+      "Diseño Gráfico",
+      "Diseño Industrial",
+      "Diseño Multimedia",
+      "Diseño Textil e Indumentaria",
+      "Diseño Web",
+      "Diseño de Interiores / Decoración"
+    ]
+  },
+  {
+    "name": "Educación, Docencia e Investigación",
+    "childrens": [
+      "Bienestar Estudiantil",
+      "Educación",
+      "Educación especial",
+      "Educación/ Docentes",
+      "Idiomas",
+      "Investigación y Desarrollo",
+      "Psicopedagogía"
+    ]
+  },
+  {
+    "name": "Gastronomía y Turismo",
+    "childrens": [
+      "Camareros",
+      "Casinos",
+      "Gastronomia",
+      "Hotelería",
+      "Turismo"
+    ]
+  },
+  {
+    "name": "Gerencia y Dirección General",
+    "childrens": [
+      "Dirección",
+      "Gerencia / Dirección General"
+    ]
+  },
+  {
+    "name": "Ingeniería Civil y Construcción",
+    "childrens": [
+      "Arquitectura",
+      "Construcción",
+      "Dirección de Obra",
+      "Ingeniería Civil",
+      "Instrumentación",
+      "Operaciones",
+      "Seguridad e Higiene",
+      "Topografía",
+      "Urbanismo"
+    ]
+  },
+  {
+    "name": "Ingenierías",
+    "childrens": [
+      "Ingeniería  Automotriz",
+      "Ingeniería  Eléctrica y Electrónica",
+      "Ingeniería  Industrial",
+      "Ingeniería  Mecánica",
+      "Ingeniería  Metalurgica",
+      "Ingeniería  Textil",
+      "Ingeniería Agrónoma",
+      "Ingeniería Electromecánica",
+      "Ingeniería Oficina Técnica / Proyecto",
+      "Ingeniería Química",
+      "Ingeniería de Procesos",
+      "Ingeniería de Producto",
+      "Ingeniería de Ventas",
+      "Ingeniería en Alimentos",
+      "Otras Ingenierias"
+    ]
+  },
+  {
+    "name": "Legales",
+    "childrens": [
+      "Asesoría Legal Internacional",
+      "Garantías",
+      "Legal"
+    ]
+  },
+  {
+    "name": "Marketing y Publicidad",
+    "childrens": [
+      "Business Intelligence",
+      "Community Management",
+      "Creatividad",
+      "E-commerce",
+      "Marketing",
+      "Media Planning",
+      "Mercadotecnia Internacional",
+      "Multimedia",
+      "Producto"
+    ]
+  },
+  {
+    "name": "Minería, Petróleo y Gas",
+    "childrens": [
+      "Exploración Minera y Petroquimica",
+      "Ingeniería Geológica",
+      "Ingeniería en Minas",
+      "Ingeniería en Petróleo y Petroquímica",
+      "Instrumentación Minera",
+      "Medio Ambiente",
+      "Mineria/Petroleo/Gas",
+      "Seguridad Industrial"
+    ]
+  },
+  {
+    "name": "Oficios y Otros",
+    "childrens": [
+      "Aeropuertos",
+      "Arte y Cultura",
+      "Back Office",
+      "Cadetería",
+      "Caja",
+      "Estética y Cuidado Personal",
+      "Independientes",
+      "Jóvenes Profesionales",
+      "Mantenimiento y Limpieza",
+      "Oficios y Profesiones",
+      "Otros",
+      "Packaging",
+      "Pasantía / Trainee",
+      "Planeamiento",
+      "Promotoras/es",
+      "Prácticas Profesionales",
+      "Seguridad",
+      "Servicios",
+      "Trabajo Social",
+      "Traduccion",
+      "Transporte"
+    ]
+  },
+  {
+    "name": "Producción y Manufactura",
+    "childrens": [
+      "Calidad",
+      "Mantenimiento",
+      "Producción",
+      "Programación de producción"
+    ]
+  },
+  {
+    "name": "Recursos Humanos y Capacitación",
+    "childrens": [
+      "Administración de Personal",
+      "Capacitación",
+      "Capacitación Comercio Exterior",
+      "Compensación y Planilla",
+      "Recursos Humanos",
+      "Selección"
+    ]
+  },
+  {
+    "name": "Salud, Medicina y Farmacia",
+    "childrens": [
+      "Bioquímica",
+      "Farmacéutica",
+      "Laboratorio",
+      "Medicina",
+      "Química",
+      "Salud",
+      "Veterinaria"
+    ]
+  },
+  {
+    "name": "Secretarias y Recepción",
+    "childrens": [
+      "Asistente",
+      "Recepcionista",
+      "Secretaria",
+      "Telefonista"
+    ]
+  },
+  {
+    "name": "Seguros",
+    "childrens": [
+      "Administracion de Seguros",
+      "Auditoría de Seguros",
+      "Seguros",
+      "Tecnico de Seguros",
+      "Venta de Seguros"
+    ]
+  },
+  {
+    "name": "Tecnología, Sistemas y Telecomunicaciones",
+    "childrens": [
+      "Administración de Base de Datos",
+      "Análisis Funcional",
+      "Business Intelligence",
+      "Data Entry",
+      "Data Warehousing",
+      "Infraestructura",
+      "Internet",
+      "Liderazgo de Proyecto",
+      "Programación",
+      "Redes",
+      "Seguridad Informática",
+      "Sistemas",
+      "Soporte Técnico",
+      "Tecnologia / Sistemas",
+      "Tecnologías de la Información",
+      "Telecomunicaciones",
+      "Testing / QA / QC"
+    ]
+  }
+]

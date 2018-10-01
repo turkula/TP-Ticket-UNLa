@@ -3,14 +3,13 @@ package datos;
 import java.time.LocalTime;
 
 public class Dia extends Descuento{
+	private int id;
 	private LocalTime dia;
 
-	public Dia() {
-		super();
-	}
+	public Dia() {}
 
-	public Dia(LocalTime dia) {
-		super();
+	public Dia(int porcentaje,boolean usado,Sector sector,LocalTime dia) {
+		super(porcentaje,usado,sector);
 		this.dia = dia;
 	}
 

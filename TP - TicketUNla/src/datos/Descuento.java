@@ -7,9 +7,7 @@ public class Descuento {
 	private Sector sector;
 
 	
-	public Descuento() {
-		super();
-	}
+	public Descuento() { }
 
 	public Descuento(int porcentaje, boolean usado, Sector sector) {
 		super();

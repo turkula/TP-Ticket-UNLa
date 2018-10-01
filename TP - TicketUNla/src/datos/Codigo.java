@@ -1,14 +1,13 @@
 package datos;
 
 public class Codigo extends Descuento{
+	private int idCodigo;
 	private String codigo;
 
-	public Codigo() {
-		super();
-	}
+	public Codigo() {}
 
-	public Codigo(String codigo) {
-		super();
+	public Codigo(int porcentaje,boolean usado,Sector sector,String codigo) {
+		super(porcentaje,usado,sector);
 		this.codigo = codigo;
 	}
 

@@ -9,7 +9,7 @@
 		<one-to-one name="tipoEvento" class="datos.TipoEvento"></one-to-one>
 		<set name="funciones" table="funcion" 
 			inverse="true" fetch="select" cascade = "all">
-			<key column="idevento" not-null="true" />
+			<key column="idEvento" not-null="true" />
 			<one-to-many class="datos.Funcion" />
 		</set>
 		<many-to-one name = "auditorio" class = "datos.Auditorio"

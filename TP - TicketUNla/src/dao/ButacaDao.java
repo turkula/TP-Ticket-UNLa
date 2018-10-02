@@ -7,10 +7,10 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
-import datos.Cliente;
-import datos.Empleado;
-import datos.Persona;
-import datos.Sucursal;
+
+
+import datos.Butaca;
+
 
 public class ButacaDao {
 	private static Session session;
@@ -27,7 +27,7 @@ public class ButacaDao {
 		throw new HibernateException("ERROR en la capa de acceso a datos", he);
 	}
 
-	public int agregar(Persona objeto) {
+	public int agregar(Butaca objeto) {
 		int id = 0;
 		try {
 			iniciaOperacion();
@@ -42,7 +42,7 @@ public class ButacaDao {
 		return id;
 	}
 
-	public void actualizar(Persona objeto) throws HibernateException {
+	public void actualizar(Butaca objeto) throws HibernateException {
 		try {
 			iniciaOperacion();
 			session.update(objeto);
@@ -55,7 +55,7 @@ public class ButacaDao {
 		}
 	}
 
-	public void eliminar(Persona objeto) throws HibernateException {
+	public void eliminar(Butaca objeto) throws HibernateException {
 		try {
 			iniciaOperacion();
 			session.delete(objeto);
@@ -69,11 +69,11 @@ public class ButacaDao {
 	}
 
 	
-	public Persona traer(long idPersona) throws HibernateException {
-		Persona objeto = null;
+	public Butaca traer(long idButaca) throws HibernateException {
+		Butaca objeto = null;
 		try {
 			iniciaOperacion();
-			objeto = (Persona) session.get(Persona.class, idPersona);
+			objeto = (Butaca) session.get(Butaca.class, idButaca);
 		} finally {
 			session.close();
 		}
@@ -85,7 +85,7 @@ public class ButacaDao {
 		List<Cliente> objeto = null;
 		try {
 			iniciaOperacion();
-			String hql = "from Cliente c order by c.idPersona";  
+			String hql = "from Cliente c order by c.idButaca";  
 			objeto = (List<Cliente>) session.createQuery(hql).list();
 		} finally {
 			session.close();
@@ -98,7 +98,7 @@ public class ButacaDao {
 		List<Empleado> objeto = null;
 		try {
 			iniciaOperacion();
-			String hql = "from Empleado e order by e.idPersona";
+			String hql = "from Empleado e order by e.idButaca";
 			objeto = (List<Empleado>) session.createQuery(hql).list();
 		} finally {
 			session.close();

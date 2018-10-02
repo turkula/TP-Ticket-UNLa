@@ -5,6 +5,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import datos.Sector;
+
 import java.util.List;
 
 

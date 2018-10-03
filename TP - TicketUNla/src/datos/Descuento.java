@@ -9,11 +9,11 @@ public class Descuento {
 	
 	public Descuento() { }
 
-	public Descuento(int porcentaje, boolean usado, Sector sector) {
+	public Descuento(int porcentaje) {
 		super();
 		this.porcentaje = porcentaje;
-		this.usado = usado;
-		this.sector = sector;
+		this.usado = true;
+//		this.sector = sector;
 	}
 
 	public int getIdDescuento() {

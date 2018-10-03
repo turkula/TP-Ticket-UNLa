@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="datos.Evento" table="evento">
+		<id column="idevento" name="idevento">
+			<generator class="identity" />
+		</id>
+		<property column = "descripcion" name = "descripcion" type = "string" />
+		<one-to-one name="tipoEvento" class="datos.TipoEvento"></one-to-one>
+		<set name="funciones" table="funcion" 
+			inverse="true" fetch="select" cascade = "all">
+			<key column="idEvento" not-null="true" />
+			<one-to-many class="datos.Funcion" />
+		</set>
+		<many-to-one name = "auditorio" class = "datos.Auditorio"
+				column = "idAuditorio" not-null = "true" />
+	</class>
+</hibernate-mapping>

@@ -7,7 +7,7 @@
 		</id>
 		<property column = "nombre" name = "nombre" type = "string" />
 		<one-to-one name="tipoAuditorio" class="datos.TipoAuditorio"></one-to-one>
-  		<set name="eventos" table="evento" 
+		<set name="eventos" table="evento" 
 			inverse="true" fetch="select" cascade = "all">
 			<key column="idEvento" not-null="true" />
 			<one-to-many class="datos.Evento" />

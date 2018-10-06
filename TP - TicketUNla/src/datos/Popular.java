@@ -3,9 +3,12 @@ package datos;
 public class Popular extends Sector{
 	private int cantidadMaxima;
 
+	public Popular() {
+		super();
+	}
 
-	public Popular(String descripcion, int cantidadMaxima) {
-		super(descripcion);
+	public Popular(int cantidadMaxima) {
+		super();
 		this.cantidadMaxima = cantidadMaxima;
 	}
 

@@ -4,7 +4,10 @@ public class Sector {
 	private int idSector;
 	private String descripcion;
 	
-
+	
+	public Sector() {
+		super();
+	}
 
 
 	public Sector(String descripcion) {

@@ -11,13 +11,13 @@
 	<property name="show_sql">true</property> <!-- en true muestra hql en consola -->
 	
     <!-- <property name="hbm2ddl.auto">create-drop</property> -->
-	<property name="hbm2ddl.auto">create-drop</property>
-	<!-- Mapeo Entidades<mapping resource="mapeos/Funcion.hbm.xml"/>-->
-		
+	
+	<!-- Mapeo Entidades -->
+	<mapping resource="mapeos/Funcion.hbm.xml"/>
+	<mapping resource="mapeos/Evento.hbm.xml"/>
+	<mapping resource="mapeos/Auditorio.hbm.xml"/>
 	<mapping resource="mapeos/TipoAuditorio.hbm.xml"/>
 	<mapping resource="mapeos/TipoEvento.hbm.xml"/>
-	<mapping resource="mapeos/Auditorio.hbm.xml"/>
-	<mapping resource="mapeos/Evento.hbm.xml"/>
 	
 </session-factory>
 </hibernate-configuration>

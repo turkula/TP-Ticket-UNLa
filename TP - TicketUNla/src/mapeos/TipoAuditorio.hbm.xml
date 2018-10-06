@@ -5,7 +5,7 @@
 		<id column="idTipoAuditorio" name="idTipoAuditorio">
 			<generator class="identity" />
 		</id>
-		<property column = "nombre" name = "nombre" type = "string" />
+		<property column = "nombre" name = "descripcion" type = "string" />
 	
 	</class>
 </hibernate-mapping>

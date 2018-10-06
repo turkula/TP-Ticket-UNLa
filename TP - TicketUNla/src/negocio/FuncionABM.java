@@ -21,9 +21,9 @@ public class FuncionABM {
 	}
 
 
-	public int agregar( GregorianCalendar fechaHora, Evento evento, Set<Tarifa> tarifas, Set<Descuento> descuentos) throws Exception{
+	public int agregar(String descripcion, GregorianCalendar fechaHora, Evento evento, Set<Tarifa> tarifas, Set<Descuento> descuentos) throws Exception{
 
-			Funcion f = new Funcion(fechaHora, evento, tarifas, descuentos);
+			Funcion f = new Funcion(descripcion, fechaHora, evento, tarifas, descuentos);
 			return dao.agregar(f);
 		}
 	

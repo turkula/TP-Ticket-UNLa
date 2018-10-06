@@ -11,16 +11,17 @@ public class testAgregarClasesDeTipo {
 		TipoEventoABM teABM = new TipoEventoABM();
 		
 		try {
-			int ultimoIdTipoAuditorio = taABM.agregar("Estadio");
-			ultimoIdTipoAuditorio = taABM.agregar("Teatro");
-			ultimoIdTipoAuditorio = taABM.agregar("Cine");
+			 teABM.agregar("Pelicula");
+			 teABM.agregar("Obra de teatro");
+		     teABM.agregar("Concierto");
 			
-			int ultimoIdTipoEvento = teABM.agregar("Pelicula");
-			ultimoIdTipoEvento = teABM.agregar("Obra de teatro");
-			ultimoIdTipoEvento = teABM.agregar("Concierto");
+			taABM.agregar("Estadio");
+			taABM.agregar("Teatro");
+			taABM.agregar("Cine");
+			
+
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Exception: " + e.getMessage() );
 		}
 		
 	}

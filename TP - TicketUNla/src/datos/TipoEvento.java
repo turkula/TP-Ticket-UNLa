@@ -3,6 +3,7 @@ package datos;
 public class TipoEvento {
 	private int idTipoEvento;
 	private String nombre;
+	
 	public TipoEvento(String nombre) {
 		super();
 		this.nombre = nombre;

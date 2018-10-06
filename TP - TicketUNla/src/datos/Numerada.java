@@ -5,8 +5,11 @@ import java.util.Set;
 public class Numerada extends Sector{
 	private Set<Butaca>butacas;
 
-	public Numerada() {
-		super();
+
+
+	public Numerada(String descripcion, Set<Butaca> butacas) {
+		super(descripcion);
+		this.butacas = butacas;
 	}
 
 	public Set<Butaca> getButacas() {

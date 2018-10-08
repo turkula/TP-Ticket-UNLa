@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="public/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="public/alertify/alertify.css" />
     <link rel="icon" href="image/logo-UNLa.jpg">
 
 </head>
@@ -44,21 +45,20 @@
                 <div class="col-8 card card-body ">
                     <!-- CINE -->
                     <div class="tab-pane fade show active" id="tabCine" role="tabpanel" >
-                            <button id="prueba">prueba</button>
                         <form>
                             <div class="row">
-                                <div class="form-group col-4">
-                                        <label for="selectEventoCine">Seleccione una pelicula</label>
-                                        <select class="form-control" id="selectEventoCine">
-                                        <option value="" >Seleccione</option>
-                                        </select>
-                                </div>   
                                 <div class="form-group col-4">
                                         <label for="selectAuditorioCine">Seleccione un complejo</label>
                                         <select class="form-control" id="selectAuditorioCine">
                                         <option value="" >Seleccione</option>
                                         </select>
                                 </div>
+                                <div class="form-group col-4">
+                                        <label for="selectEventoCine">Seleccione una pelicula</label>
+                                        <select class="form-control" id="selectEventoCine">
+                                        <option value="" >Seleccione</option>
+                                        </select>
+                                </div>   
                                 <div class="form-group col-4">
                                         <label for="selectFuncionCine">Seleccione una funcion</label>
                                         <select class="form-control" id="selectFuncionCine">
@@ -69,7 +69,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="row ">
-                                        <div class="">
+                                        <!-- <div class="">
                                             <div class="col-5">
                                                     <label for="selectAuditorioCine">Cantidad de entradas:</label>
                                             </div>
@@ -82,7 +82,7 @@
                                                         <button class="btn btn-outline-secondary" type="button" id="masEntrada">+</button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>  
                                     <div class="row ">
                                         <div >
@@ -106,12 +106,12 @@
                     </div>
                                 
                     <!-- TEATRO -->
-                    <div class="tab-pane fade" id="tabTeatro" role="tabpanel" >..2.
+                    <div class="tab-pane fade" id="tabTeatro" role="tabpanel" >
 
                     </div>
                     
                     <!-- CONCIERTO -->
-                    <div class="tab-pane fade" id="tabConcierto" role="tabpanel" >..3.
+                    <div class="tab-pane fade" id="tabConcierto" role="tabpanel" >
 
                     </div>
                 </div>
@@ -124,5 +124,6 @@
 <script src="public/jquery33/jquery.js"></script>
 <script src="public/bootstrap/js/bootstrap.js"></script>
 <script src="public/popper/popper.js"></script>
+<script src="public/alertify/alertify.js"></script>
 <script src="js/main.js"></script>
 </html>

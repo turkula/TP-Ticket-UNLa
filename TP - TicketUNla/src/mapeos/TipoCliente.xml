@@ -6,5 +6,6 @@
 <generator class = "identity"/>
 </id>
 <property column = "nombre" name = "nombre" type = "string"/>
+<one-to-one name = "cliente" class = "datos.Cliente"></one-to-one>
 </class>
 </hibernate-mapping>

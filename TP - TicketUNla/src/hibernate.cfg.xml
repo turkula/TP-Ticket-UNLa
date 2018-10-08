@@ -18,7 +18,6 @@
 	<mapping resource="mapeos/Auditorio.hbm.xml"/>
 	<mapping resource="mapeos/TipoAuditorio.hbm.xml"/>
 	<mapping resource="mapeos/TipoEvento.hbm.xml"/>
-	<mapping resource="mapeos/Descuento.hbm.xml"/>
-
+	
 </session-factory>
 </hibernate-configuration>

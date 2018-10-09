@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd" >
+<hibernate-configuration>
+<session-factory>
+	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+	<property name="connection.url">jdbc:mysql://localhost/TPTicketUNLa</property>
+	<property name="connection.username">root</property>
+	<property name="connection.password">root</property>
+	<property name="connection.pool_size">1</property>
+	<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+	<property name="show_sql">true</property> <!-- en true muestra hql en consola -->
+	
+     <!--<property name="hbm2ddl.auto">create-drop</property>-->
+	
+	<!-- Mapeo Entidades -->
+	<!--<mapping resource="mapeos/Funcion.hbm.xml"/>-->
+	<!--<mapping resource="mapeos/Evento.hbm.xml"/>-->
+	<!--<mapping resource="mapeos/Auditorio.hbm.xml"/>-->
+	<!--<mapping resource="mapeos/TipoAuditorio.hbm.xml"/>-->
+	<!--<mapping resource="mapeos/TipoEvento.hbm.xml"/>-->
+	<mapping resource="mapeos/Descuento.hbm.xml"/>
+	
+</session-factory>
+</hibernate-configuration>

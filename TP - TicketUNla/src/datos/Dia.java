@@ -8,8 +8,8 @@ public class Dia extends Descuento{
 
 	public Dia() {}
 
-	public Dia(int porcentaje,boolean usado,Sector sector,LocalTime dia) {
-		super(porcentaje,usado,sector);
+	public Dia(int porcentaje,LocalTime dia) {
+		super(porcentaje);
 		this.dia = dia;
 	}
 

@@ -159,7 +159,7 @@ function hacerGrilla(filas,columnas,arrayButacasOcupadas){
 }
 
 
-function reservarButaca(fila,columna,id){4
+function reservarButaca(fila,columna,id){
     //verifico si ya esta reservada
     if(!$( "#butaca"+id ).is( ".rojo" )){
 

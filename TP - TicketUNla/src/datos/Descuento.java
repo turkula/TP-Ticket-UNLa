@@ -9,11 +9,11 @@ public class Descuento {
 	
 	public Descuento() { }
 
-	public Descuento(int porcentaje, boolean usado, Sector sector) {
+	public Descuento(int porcentaje) {
 		super();
 		this.porcentaje = porcentaje;
-		this.usado = usado;
-		this.sector = sector;
+		this.usado = false;
+//		this.sector = sector;
 	}
 
 	public int getIdDescuento() {
@@ -40,18 +40,10 @@ public class Descuento {
 		this.usado = usado;
 	}
 
-	public Sector getSector() {
-		return sector;
-	}
-
-	public void setSector(Sector sector) {
-		this.sector = sector;
-	}
 
 	@Override
 	public String toString() {
-		return "Descuento [idDescuento=" + idDescuento + ", porcentaje=" + porcentaje + ", usado=" + usado + ", sector="
-				+ sector + "]";
+		return "Descuento [idDescuento=" + idDescuento + ", porcentaje=" + porcentaje + ", usado=" + usado + "]";
 	}
 	
 	

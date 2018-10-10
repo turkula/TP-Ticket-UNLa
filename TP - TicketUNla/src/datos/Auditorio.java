@@ -19,6 +19,16 @@ public class Auditorio {
 		this.sectores = sectores;
 	}
 
+
+
+	public Auditorio(String nombre, TipoAuditorio tipo) {
+		super();
+		this.nombre = nombre;
+		this.tipo = tipo;
+	}
+
+
+
 	public int getIdAuditorio() {
 		return idAuditorio;
 	}

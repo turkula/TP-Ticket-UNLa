@@ -38,4 +38,11 @@ public class AuditorioABM {
 		// Implementar que si es null que arroje la excepción la Excepción
 		dao.eliminar(a);
 	}
+
+
+	public int agregarSimple(String nombre, TipoAuditorio ta) {
+		// TODO Auto-generated method stub
+		Auditorio a = new Auditorio(nombre, ta);
+		return dao.agregar(a);
+	}
 }

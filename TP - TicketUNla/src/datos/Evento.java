@@ -20,6 +20,8 @@ public class Evento {
 		this.auditorio = auditorio;
 	}
 
+
+
 	public Evento() {
 		// TODO Auto-generated constructor stub
 	}
@@ -28,7 +30,7 @@ public class Evento {
 		return idEvento;
 	}
 
-	public void setIdEvento(int idEvento) {
+	protected void setIdEvento(int idEvento) {
 		this.idEvento = idEvento;
 	}
 
@@ -40,11 +42,11 @@ public class Evento {
 		this.descripcion = descripcion;
 	}
 
-	public TipoEvento getTipo() {
+	public TipoEvento getTipoEvento() {
 		return tipo;
 	}
 
-	public void setTipo(TipoEvento tipo) {
+	public void setTipoEvento(TipoEvento tipo) {
 		this.tipo = tipo;
 	}
 
@@ -69,10 +71,10 @@ public class Evento {
 		return "Evento [idEvento=" + idEvento + ", descripcion=" + descripcion + ", tipo=" + tipo + ", funciones="
 				+ funciones + ", auditorio=" + auditorio + "]";
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 }

@@ -40,6 +40,13 @@ public class Descuento {
 		this.usado = usado;
 	}
 
+	public Sector getSector() {
+		return sector;
+	}
+
+	public void setSector(Sector sector) {
+		this.sector = sector;
+	}
 
 	@Override
 	public String toString() {

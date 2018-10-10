@@ -2,17 +2,17 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
 	<class name="datos.Evento" table="evento">
-		<id column="idevento" name="idevento">
+		<id column="idEvento" name="idEvento" type="int">
 			<generator class="identity" />
 		</id>
-		<property column = "descripcion" name = "descripcion" type = "string" />
+		<property column = "nombre" name = "descripcion" type = "string" />
 		<one-to-one name="tipoEvento" class="datos.TipoEvento"></one-to-one>
-		<set name="funciones" table="funcion" 
-			inverse="true" fetch="select" cascade = "all">
+		<set name="funciones" table="funcion"
+			inverse="true" fetch="select" >
 			<key column="idEvento" not-null="true" />
 			<one-to-many class="datos.Funcion" />
 		</set>
-		<many-to-one name = "auditorio" class = "datos.Auditorio"
-				column = "idAuditorio" not-null = "true" />
+		<many-to-one name="auditorio" class="datos.Auditorio"
+				column="idAuditorio" not-null="true" />
 	</class>
 </hibernate-mapping>

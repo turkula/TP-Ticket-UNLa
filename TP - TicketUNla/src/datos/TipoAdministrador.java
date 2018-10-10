@@ -3,6 +3,8 @@ package datos;
 public class TipoAdministrador {
 	private int idTipoAdministrador;
 	private String nombre;
+
+	public TipoAdministrador(){};
 	public TipoAdministrador(String nombre) {
 		super();
 		this.nombre = nombre;

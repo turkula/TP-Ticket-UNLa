@@ -29,7 +29,8 @@ public class DescuentoDao {
             manejaExcepcion(he);
             throw he;
         } finally {
-            session.close();
+//            session.close();
+            cerrarSesion(session);
         }
         return id;
     }
@@ -42,6 +43,14 @@ public class DescuentoDao {
             manejaExcepcion(he);
             throw he;
         } finally {
+//            session.close();
+            cerrarSesion(session);
+
+        }
+    }
+
+    private void cerrarSesion(Session session) {
+        if (session != null) {
             session.close();
         }
     }

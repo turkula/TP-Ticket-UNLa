@@ -23,8 +23,13 @@ public class Codigo extends Descuento{
 	public String toString() {
 		return "Codigo [codigo=" + codigo + "]";
 	}
-	
-	
-	
-	
+
+
+	public int getIdCodigo() {
+		return idCodigo;
+	}
+
+	public void setIdCodigo(int idCodigo) {
+		this.idCodigo = idCodigo;
+	}
 }

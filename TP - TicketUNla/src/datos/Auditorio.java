@@ -1,8 +1,7 @@
 package datos;
 
+import java.util.Objects;
 import java.util.Set;
-
-
 
 public class Auditorio {
 	private int idAuditorio;
@@ -10,7 +9,9 @@ public class Auditorio {
 	private TipoAuditorio tipo;
 	private Set<Evento>eventos;
 	private Set<Sector>sectores;
-	
+
+	public Auditorio(){};
+
 	public Auditorio(String nombre, TipoAuditorio tipo, Set<Evento> eventos, Set<Sector> sectores) {
 		super();
 		this.nombre = nombre;
@@ -35,11 +36,11 @@ public class Auditorio {
 		this.nombre = nombre;
 	}
 
-	public TipoAuditorio getTipo() {
+	public TipoAuditorio getTipoAuditorio() {
 		return tipo;
 	}
 
-	public void setTipo(TipoAuditorio tipo) {
+	public void setTipoAuditorio(TipoAuditorio tipo) {
 		this.tipo = tipo;
 	}
 
@@ -59,14 +60,5 @@ public class Auditorio {
 		this.sectores = sectores;
 	}
 
-	@Override
-	public String toString() {
-		return "Auditorio [idAuditorio=" + idAuditorio + ", nombre=" + nombre + ", tipo=" + tipo + ", eventos="
-				+ eventos + ", sectores=" + sectores + "]";
-	}
-	
-	
 
-	
-	
 }

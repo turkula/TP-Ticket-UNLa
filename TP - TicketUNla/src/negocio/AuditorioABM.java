@@ -35,7 +35,7 @@ public class AuditorioABM {
 
 	public void eliminar(int idAuditorio) { 
 		Auditorio a = dao.traerAuditorio(idAuditorio);
-		// Implementar que si es null que arroje la excepción la Excepción
+		// Implementar que si es null que arroje la excepciï¿½n la Excepciï¿½n
 		dao.eliminar(a);
 	}
 }

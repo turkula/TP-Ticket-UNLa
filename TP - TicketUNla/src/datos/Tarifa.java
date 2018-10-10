@@ -8,7 +8,7 @@ public class Tarifa {
 	public Tarifa() {
 		super();
 	}
-	public Tarifa(float precio, Sector sector) {
+	public Tarifa(float precio,Sector sector) {
 		super();
 		this.precio = precio;
 		this.sector = sector;
@@ -33,7 +33,7 @@ public class Tarifa {
 	}
 	@Override
 	public String toString() {
-		return "Tarifa [idTarifa=" + idTarifa + ", precio=" + precio + ", sector=" + sector + "]";
+		return "Tarifa [idTarifa=" + idTarifa + ", precio=" + precio + "]";
 	}
 	
 	

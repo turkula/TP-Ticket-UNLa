@@ -5,12 +5,15 @@ package datos;
 public class Administrador extends Usuario{
 	private Auditorio auditorio;
 	private TipoAdministrador tipo;
+
+	public Administrador(){};
 	
 	public Administrador(String nombreUsuario, String clave, Auditorio auditorio, TipoAdministrador tipo) {
 		super(nombreUsuario, clave);
 		this.auditorio = auditorio;
 		this.tipo = tipo;
 	}
+
 
 	public Auditorio getAuditorio() {
 		return auditorio;
@@ -27,6 +30,7 @@ public class Administrador extends Usuario{
 	public void setTipo(TipoAdministrador tipo) {
 		this.tipo = tipo;
 	}
+
 
 	@Override
 	public String toString() {

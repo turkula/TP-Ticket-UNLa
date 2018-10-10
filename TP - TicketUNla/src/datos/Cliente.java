@@ -5,8 +5,8 @@ import java.util.GregorianCalendar;
 public class Cliente extends Usuario{
 	private  TipoCliente tipo;
 	private GregorianCalendar fechaNacimiento;
-	
-	
+
+	public Cliente(){};
 	
 	public Cliente(String nombreUsuario, String clave, TipoCliente tipo, GregorianCalendar fechaNacimiento) {
 		super(nombreUsuario, clave);

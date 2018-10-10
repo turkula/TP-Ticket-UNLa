@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: TPTicketUNLa
 -- ------------------------------------------------------
--- Server version	5.7.23-0ubuntu0.18.04.1
+-- Server version	5.5.5-10.1.19-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,9 +26,7 @@ CREATE TABLE `auditorio` (
   `idAuditorio` int(11) NOT NULL,
   `nombre` varchar(45) DEFAULT NULL,
   `idTipoAuditorio` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idAuditorio`),
-  KEY `auditorio-tipo_idx` (`idTipoAuditorio`),
-  CONSTRAINT `auditorio-tipo` FOREIGN KEY (`idTipoAuditorio`) REFERENCES `tipoAuditorio` (`idTipoAuditorio`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`idAuditorio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -127,10 +125,8 @@ CREATE TABLE `evento` (
   `idTipoEvento` int(11) DEFAULT NULL,
   `idAuditorio` int(11) DEFAULT NULL,
   PRIMARY KEY (`idEvento`),
-  KEY `evento-tipo_idx` (`idTipoEvento`),
   KEY `evento-auditorio_idx` (`idAuditorio`),
-  CONSTRAINT `evento-auditorio` FOREIGN KEY (`idAuditorio`) REFERENCES `auditorio` (`idAuditorio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `evento-tipo` FOREIGN KEY (`idTipoEvento`) REFERENCES `tipoEvento` (`idTipoevento`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `evento-auditorio` FOREIGN KEY (`idAuditorio`) REFERENCES `auditorio` (`idAuditorio`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -226,10 +222,10 @@ DROP TABLE IF EXISTS `tipoAuditorio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tipoAuditorio` (
-  `idTipoAuditorio` int(11) NOT NULL,
+  `idTipoAuditorio` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idTipoAuditorio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,6 +234,7 @@ CREATE TABLE `tipoAuditorio` (
 
 LOCK TABLES `tipoAuditorio` WRITE;
 /*!40000 ALTER TABLE `tipoAuditorio` DISABLE KEYS */;
+INSERT INTO `tipoAuditorio` VALUES (1,'Estadio'),(2,'Teatro'),(3,'Cine');
 /*!40000 ALTER TABLE `tipoAuditorio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,10 +246,10 @@ DROP TABLE IF EXISTS `tipoEvento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tipoEvento` (
-  `idTipoevento` int(11) NOT NULL,
+  `idTipoevento` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idTipoevento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,8 +258,13 @@ CREATE TABLE `tipoEvento` (
 
 LOCK TABLES `tipoEvento` WRITE;
 /*!40000 ALTER TABLE `tipoEvento` DISABLE KEYS */;
+INSERT INTO `tipoEvento` VALUES (1,'Pelicula'),(2,'Obra de teatro'),(3,'Concierto');
 /*!40000 ALTER TABLE `tipoEvento` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'TPTicketUNLa'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -273,4 +275,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-10  3:40:07
+-- Dump completed on 2018-10-10 19:44:10

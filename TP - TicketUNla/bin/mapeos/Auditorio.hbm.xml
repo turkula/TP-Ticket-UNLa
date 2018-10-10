@@ -6,7 +6,8 @@
 			<generator class="identity" />
 		</id>
 		<property column = "nombre" name = "nombre" type = "string" />
-		<one-to-one name="tipoAuditorio" class="datos.TipoAuditorio"></one-to-one>
+		<many-to-one name="tipoAuditorio" class="datos.TipoAuditorio"
+					 column="idTipoAuditorio" not-null="true" />
 
 		<set name="eventos" table="evento"
 			inverse="true" lazy="true" fetch="select" >

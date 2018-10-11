@@ -13,7 +13,7 @@ public class SectorABM {
     public Sector traerSector(int idSector)throws Exception{
         Sector d=dao.traerSector(idSector);
         if(d==null)
-            throw new Exception("Error:la Tarifa no existe");
+            throw new Exception("Error:El sector no existe");
         return d;
     }
 

@@ -67,7 +67,7 @@ public class SectorDao {
 	}
 
 	
-	public Sector traerSector(long idSector) throws HibernateException {
+	public Sector traerSector(int idSector) throws HibernateException {
 		Sector objeto = null;
 		try {
 			iniciaOperacion();

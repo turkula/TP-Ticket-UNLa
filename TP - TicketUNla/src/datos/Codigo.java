@@ -6,8 +6,8 @@ public class Codigo extends Descuento{
 
 	public Codigo() {}
 
-	public Codigo(int porcentaje,String codigo) {
-		super(porcentaje);
+	public Codigo(int porcentaje,Sector sector,String codigo) {
+		super(porcentaje,sector);
 		this.codigo = codigo;
 	}
 

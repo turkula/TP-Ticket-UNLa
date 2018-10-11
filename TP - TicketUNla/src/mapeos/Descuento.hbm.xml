@@ -8,6 +8,8 @@
         </id>
         <property name="porcentaje" column="porcentaje" type="int"/>
         <property name="usado" column="usado" type="boolean"/>
+        <many-to-one name="sector" class="datos.Sector"
+                     column="idSector" not-null="true" />
         <joined-subclass name="datos.Codigo" table="codigo">
             <key column="idCodigo" />
             <property column="codigo" name="codigo" type="string"/>

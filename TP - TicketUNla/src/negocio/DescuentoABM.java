@@ -2,6 +2,8 @@ package negocio;
 import dao.DescuentoDao;
 import datos.Codigo;
 import datos.Descuento;
+import datos.Sector;
+
 public class DescuentoABM {
     DescuentoDao dao = new DescuentoDao();
 
@@ -12,8 +14,8 @@ public class DescuentoABM {
         return d;
     }
 
-    public int agregarCodigo(int porcentaje,String codigo)throws Exception{
-        Codigo d = new Codigo(porcentaje,codigo);
+    public int agregarCodigo(int porcentaje, Sector sector, String codigo)throws Exception{
+        Codigo d = new Codigo(porcentaje,sector,codigo);
         return dao.agregar(d);
     }
 

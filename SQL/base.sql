@@ -36,6 +36,7 @@ CREATE TABLE `auditorio` (
 
 LOCK TABLES `auditorio` WRITE;
 /*!40000 ALTER TABLE `auditorio` DISABLE KEYS */;
+INSERT INTO `auditorio` VALUES (1,'village cine Avenllaneda',3);
 /*!40000 ALTER TABLE `auditorio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -50,7 +51,7 @@ CREATE TABLE `codigo` (
   `idCodigo` int(11) NOT NULL AUTO_INCREMENT,
   `codigo` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idCodigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +60,7 @@ CREATE TABLE `codigo` (
 
 LOCK TABLES `codigo` WRITE;
 /*!40000 ALTER TABLE `codigo` DISABLE KEYS */;
-INSERT INTO `codigo` VALUES (1,'codigo'),(2,'codigo'),(3,'codigo'),(4,'codigo'),(5,'codigo'),(6,'codigo'),(7,'codigo');
+INSERT INTO `codigo` VALUES (1,'codigo'),(2,'codigo'),(3,'codigo'),(4,'codigo'),(5,'codigo'),(6,'codigo'),(7,'codigo'),(8,'codigo'),(9,'codigo');
 /*!40000 ALTER TABLE `codigo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -74,8 +75,9 @@ CREATE TABLE `descuento` (
   `idDescuento` int(11) NOT NULL AUTO_INCREMENT,
   `porcentaje` int(11) DEFAULT NULL,
   `usado` tinyint(4) DEFAULT NULL,
+  `idSector` int(11) DEFAULT NULL,
   PRIMARY KEY (`idDescuento`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,7 +86,7 @@ CREATE TABLE `descuento` (
 
 LOCK TABLES `descuento` WRITE;
 /*!40000 ALTER TABLE `descuento` DISABLE KEYS */;
-INSERT INTO `descuento` VALUES (1,5,0),(2,5,0),(3,5,0),(4,5,0),(5,5,0),(6,5,0),(7,5,0);
+INSERT INTO `descuento` VALUES (1,5,0,NULL),(2,5,0,NULL),(3,5,0,NULL),(4,5,0,NULL),(5,5,0,NULL),(6,5,0,NULL),(7,5,0,NULL),(8,5,0,NULL),(9,5,0,1);
 /*!40000 ALTER TABLE `descuento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,11 +176,12 @@ DROP TABLE IF EXISTS `sector`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sector` (
-  `idSector` int(11) NOT NULL,
+  `idSector` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
+  `auditorio_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`idSector`),
   CONSTRAINT `sector-auditorio` FOREIGN KEY (`idSector`) REFERENCES `auditorio` (`idAuditorio`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,6 +190,7 @@ CREATE TABLE `sector` (
 
 LOCK TABLES `sector` WRITE;
 /*!40000 ALTER TABLE `sector` DISABLE KEYS */;
+INSERT INTO `sector` VALUES (1,'sector1',1);
 /*!40000 ALTER TABLE `sector` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +206,7 @@ CREATE TABLE `tarifa` (
   `precio` decimal(11,5) DEFAULT NULL,
   `sector_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`idTarifa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,6 +215,7 @@ CREATE TABLE `tarifa` (
 
 LOCK TABLES `tarifa` WRITE;
 /*!40000 ALTER TABLE `tarifa` DISABLE KEYS */;
+INSERT INTO `tarifa` VALUES (1,2.00000,NULL);
 /*!40000 ALTER TABLE `tarifa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -275,4 +280,8 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2018-10-10 19:44:10
+=======
+-- Dump completed on 2018-10-11  2:02:24
+>>>>>>> b6b3d2b093dac895058ba777f76e464c86d898a7

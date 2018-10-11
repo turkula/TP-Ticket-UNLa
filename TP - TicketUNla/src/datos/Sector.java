@@ -3,7 +3,7 @@ package datos;
 public class Sector {
 	private int idSector;
 	private String descripcion;
-	private Auditorio auditorio;
+
 
 	public Sector() {
 		super();
@@ -35,11 +35,4 @@ public class Sector {
 		return "Sector [idSector=" + idSector + ", descripcion=" + descripcion + "]";
 	}
 
-    public Auditorio getAuditorio() {
-        return auditorio;
-    }
-
-    public void setAuditorio(Auditorio auditorio) {
-        this.auditorio = auditorio;
-    }
 }

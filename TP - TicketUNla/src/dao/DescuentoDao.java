@@ -1,5 +1,6 @@
 package dao;
 
+import datos.Descuento;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -7,15 +8,6 @@ import org.hibernate.Transaction;
 public class DescuentoDao {
     private static Session session;
     private Transaction tx;
-    private static DescuentoDao instancia=null;
-
-    protected DescuentoDao(){};
-
-    public  static  DescuentoDao getInstancia(){
-        if(instancia==null)
-            instancia=new DescuentoDao();
-        return instancia;
-    }
 
     protected void iniciaOperacion()throws HibernateException{
         session = HibernateUtil.getSessionFactory().openSession();
@@ -27,7 +19,63 @@ public class DescuentoDao {
         throw new HibernateException("ERROR en la capa de acceso a datos",he);
     }
 
+    public int agregar(Descuento objeto) {
+        int id = 0;
+        try {
+            iniciaOperacion();
+            id = Integer.parseInt(session.save(objeto).toString());
+            tx.commit();
+        } catch (HibernateException he) {
+            manejaExcepcion(he);
+            throw he;
+        } finally {
+//            session.close();
+            cerrarSesion(session);
+        }
+        return id;
+    }
+    public void actualizar(Descuento objeto) throws HibernateException {
+        try {
+            iniciaOperacion();
+            session.update(objeto);
+            tx.commit();
+        } catch (HibernateException he) {
+            manejaExcepcion(he);
+            throw he;
+        } finally {
+//            session.close();
+            cerrarSesion(session);
 
+        }
+    }
+
+    private void cerrarSesion(Session session) {
+        if (session != null) {
+            session.close();
+        }
+    }
+    public void eliminar(Descuento objeto) throws HibernateException {
+        try {
+            iniciaOperacion();
+            session.delete(objeto);
+            tx.commit();
+        } catch (HibernateException he) {
+            manejaExcepcion(he);
+            throw he;
+        } finally {
+            session.close();
+        }
+    }
+    public Descuento traerDescuento(int idDescuento) throws HibernateException {
+        Descuento objeto = null;
+        try {
+            iniciaOperacion();
+            objeto = (Descuento) session.get(Descuento.class, idDescuento);
+        } finally {
+            session.close();
+        }
+        return objeto;
+    }
 
 
 }

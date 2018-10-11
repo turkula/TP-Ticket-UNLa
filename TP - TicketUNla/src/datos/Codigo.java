@@ -6,8 +6,8 @@ public class Codigo extends Descuento{
 
 	public Codigo() {}
 
-	public Codigo(int porcentaje,boolean usado,Sector sector,String codigo) {
-		super(porcentaje,usado,sector);
+	public Codigo(int porcentaje,String codigo) {
+		super(porcentaje);
 		this.codigo = codigo;
 	}
 
@@ -23,8 +23,13 @@ public class Codigo extends Descuento{
 	public String toString() {
 		return "Codigo [codigo=" + codigo + "]";
 	}
-	
-	
-	
-	
+
+
+	public int getIdCodigo() {
+		return idCodigo;
+	}
+
+	public void setIdCodigo(int idCodigo) {
+		this.idCodigo = idCodigo;
+	}
 }

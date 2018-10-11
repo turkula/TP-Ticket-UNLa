@@ -3,7 +3,8 @@ package datos;
 public class TipoAuditorio {
 	private int idTipoAuditorio;
 	private String nombre;
-	
+	public TipoAuditorio(){};
+
 	public TipoAuditorio(String nombre) {
 		super();
 		this.nombre = nombre;

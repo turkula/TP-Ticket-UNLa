@@ -15,6 +15,14 @@ public class Butaca {
 		this.columna = columna;
 	}
 
+	public int getIdButaca() {
+		return idButaca;
+	}
+
+	public void setIdButaca(int idButaca) {
+		this.idButaca = idButaca;
+	}
+
 	public int getFila() {
 		return fila;
 	}

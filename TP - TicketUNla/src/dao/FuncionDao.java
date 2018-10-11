@@ -36,11 +36,17 @@ public class FuncionDao {
 			manejaExcepcion(he);
 			throw he;
 		} finally {
-			session.close();
+			cerrarSesion(session);
 		}
 		return id;
 	}
 
+
+	private void cerrarSesion(Session session) {
+		if (session != null) {
+			session.close();
+		}
+	}
 	public void actualizar(Funcion objeto) throws HibernateException {
 		try {
 			iniciaOperacion();

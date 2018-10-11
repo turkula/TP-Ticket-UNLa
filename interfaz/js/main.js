@@ -235,3 +235,9 @@ function populateSelect(idSelect, values, ordered = true) {
         }));
     })
 }
+
+//abrin modal registrarse
+$('#linkModalRegistrarse').click(function(){
+    $('#modalRegistro').modal('show'); 
+});
+

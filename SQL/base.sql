@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.23, for Linux (x86_64)
 --
--- Host: localhost    Database: tpticketunla
+-- Host: localhost    Database: TPTicketUNLa
 -- ------------------------------------------------------
--- Server version	5.7.13-log
+-- Server version	5.7.23-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -176,7 +176,7 @@ CREATE TABLE `descuento` (
 
 LOCK TABLES `descuento` WRITE;
 /*!40000 ALTER TABLE `descuento` DISABLE KEYS */;
-INSERT INTO `descuento` VALUES (1,5,'\0',NULL,NULL),(2,5,'\0',NULL,NULL),(3,5,'\0',NULL,NULL),(4,5,'\0',NULL,NULL),(5,5,'\0',NULL,NULL),(6,5,'\0',NULL,NULL),(7,5,'\0',NULL,NULL);
+INSERT INTO `descuento` VALUES (1,5,_binary '\0',NULL,NULL),(2,5,_binary '\0',NULL,NULL),(3,5,_binary '\0',NULL,NULL),(4,5,_binary '\0',NULL,NULL),(5,5,_binary '\0',NULL,NULL),(6,5,_binary '\0',NULL,NULL),(7,5,_binary '\0',NULL,NULL);
 /*!40000 ALTER TABLE `descuento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -578,4 +578,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-12 12:13:51
+-- Dump completed on 2018-10-13  9:51:27

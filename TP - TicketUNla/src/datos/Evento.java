@@ -68,7 +68,7 @@ public class Evento {
 
 	@Override
 	public String toString() {
-		return "Evento [idEvento=" + idEvento + ", descripcion=" + descripcion + ", tipo=" + getTipoEvento() +    "]";
+		return "Evento [idEvento=" + idEvento + ", descripcion=" + descripcion +    "]";
 	}
 
 

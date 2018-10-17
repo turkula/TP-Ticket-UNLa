@@ -3,7 +3,7 @@
 <hibernate-configuration>
 <session-factory>
 	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-	<property name="connection.url">jdbc:mysql://localhost/TPTicketUNLa</property>
+	<property name="connection.url">jdbc:mysql://localhost/tpticketunla</property>
 	<property name="connection.username">root</property>
 	<property name="connection.password">root</property>
 	<property name="connection.pool_size">1</property>
@@ -19,7 +19,6 @@
 	<mapping resource="mapeos/Evento.hbm.xml"/>
 	<mapping resource="mapeos/Sector.hbm.xml"/>
 	<mapping resource="mapeos/Auditorio.hbm.xml"/>
-
 	<mapping resource="mapeos/TipoAuditorio.hbm.xml"/>
 	<mapping resource="mapeos/TipoEvento.hbm.xml"/>
 

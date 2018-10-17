@@ -69,8 +69,14 @@ public class AuditorioDao {
 			iniciaOperacion();
 			objeto = (Auditorio) session.get(Auditorio.class, idauditorio);
 		} finally {
-			session.close();
+			cerrarSesion(session);
 		}
 		return objeto;
+	}
+
+	private void cerrarSesion(Session session) {
+		if (session != null) {
+			session.close();
+		}
 	}
 }

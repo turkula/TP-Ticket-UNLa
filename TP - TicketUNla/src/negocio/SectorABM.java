@@ -2,10 +2,7 @@ package negocio;
 import dao.DescuentoDao;
 import dao.SectorDao;
 import dao.TarifaDao;
-import datos.Codigo;
-import datos.Descuento;
-import datos.Sector;
-import datos.Tarifa;
+import datos.*;
 
 public class SectorABM {
     SectorDao dao = new SectorDao();
@@ -17,8 +14,8 @@ public class SectorABM {
         return d;
     }
 
-    public int agregarSector(String des)throws Exception{
-        Sector d = new Sector(des);
+    public int agregarSector(String descripcion,Auditorio auditorio)throws Exception{
+        Sector d = new Sector(descripcion,auditorio);
         return dao.agregar(d);
     }
 
@@ -29,5 +26,11 @@ public class SectorABM {
     public void eliminar(int idSector){
         Sector d = dao.traerSector(idSector);
         dao.eliminar(d);
+    }
+
+    public void agregarSectorPopular(String descripcion,Auditorio auditorio,int cantMaxima){
+        System.out.println(auditorio.toString());
+        Popular p = new Popular(descripcion,auditorio,cantMaxima);
+        dao.agregar(p);
     }
 }

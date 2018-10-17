@@ -1,5 +1,7 @@
 package datos;
 
+import negocio.SectorABM;
+
 import java.util.Objects;
 import java.util.Set;
 
@@ -60,5 +62,23 @@ public class Auditorio {
 		this.sectores = sectores;
 	}
 
+    @Override
+    public String toString() {
+        return "Auditorio{" +
+                "idAuditorio=" + idAuditorio +
+                ", nombre='" + nombre + '\'' +
+                '}';
+    }
+
+    //agregar sector popular
+	public void agregarSectorPopular(String descripcion,int cantidadMaxima)throws  Exception{
+		SectorABM sectorABM = new SectorABM();
+//		System.out.println(this.toString());
+		sectorABM.agregarSectorPopular(descripcion,this,cantidadMaxima);
+	}
+
+	public void agregarSectorNumerada(String descripcion,int capacidadFilas,int capacidadColumnas)throws Exception{
+
+	}
 
 }

@@ -14,7 +14,7 @@
 		</set>
 		<set name="descuentos" table="descuento" 
 			inverse="true" fetch="select" cascade = "all">
-			<key column="idEvento" not-null="true" />
+			<key column="idDescuento" not-null="true" />
 			<one-to-many class="datos.Descuento" />
 		</set>
 		<many-to-one name = "evento" class = "datos.Evento"

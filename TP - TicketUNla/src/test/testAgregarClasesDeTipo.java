@@ -9,7 +9,7 @@ public class testAgregarClasesDeTipo {
 		// TODO Auto-generated method stub
 		TipoAuditorioABM taABM = new TipoAuditorioABM();
 		TipoEventoABM teABM = new TipoEventoABM();
-		
+	/*	
 		try {
 			int ultimoIdTipoAuditorio = taABM.agregar("Estadio");
 			ultimoIdTipoAuditorio = taABM.agregar("Teatro");
@@ -22,7 +22,7 @@ public class testAgregarClasesDeTipo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		*/
 	}
 
 }

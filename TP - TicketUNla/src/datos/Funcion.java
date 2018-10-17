@@ -87,11 +87,23 @@ public class Funcion {
 		this.descuentos = descuentos;
 	}
 
+
+
+
 	@Override
 	public String toString() {
-		return "Funcion [idFuncion=" + idFuncion + ", fechaHora=" + fechaHora + ", evento=" + evento + ", tarifas="
-				+ tarifas + ", descuentos=" + descuentos + "]";
+		return "Funcion [descripcion=" + descripcion + "]";
 	}
+
+
+
+
+	
+
+
+
+
+	
 	
 	
 	

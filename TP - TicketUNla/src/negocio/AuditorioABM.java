@@ -38,5 +38,12 @@ public class AuditorioABM {
 		// Implementar que si es null que arroje la excepci�n la Excepci�n
 		dao.eliminar(a);
 	}
+	
+	public Auditorio traerAuditorioCompleto(int idAuditorio) throws Exception {
+		Auditorio a = dao.traerAuditorioCompleto(idAuditorio);
+		if (a == null)
+			throw new Exception("Error: el Auditorio no existe");
+		return a;
+	}
 
 }

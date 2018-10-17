@@ -73,6 +73,18 @@ public class AuditorioDao {
 		}
 		return objeto;
 	}
+	
+	public Auditorio traerAuditorioCompleto(int idauditorio) throws HibernateException {
+		Auditorio objeto = null;
+		try {
+			iniciaOperacion();
+			String hql ="from Auditorio a inner join fetch a.tipoAuditorio where a.idAuditorio =" + idauditorio;
+			objeto = (Auditorio) session.createQuery(hql).uniqueResult();
+		} finally {
+			cerrarSesion(session);
+		}
+		return objeto;
+	}
 
 	private void cerrarSesion(Session session) {
 		if (session != null) {

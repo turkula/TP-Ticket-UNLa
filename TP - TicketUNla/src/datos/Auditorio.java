@@ -63,12 +63,11 @@ public class Auditorio {
 	}
 
     @Override
-    public String toString() {
-        return "Auditorio{" +
-                "idAuditorio=" + idAuditorio +
-                ", nombre='" + nombre + '\'' +
-                '}';
-    }
+	public String toString() {
+		return "Auditorio [idAuditorio=" + idAuditorio + ", nombre=" + nombre + ", tipo=" + tipo + "]";
+	}
+    
+    
 
     //agregar sector popular
 	public void agregarSectorPopular(String descripcion,int cantidadMaxima)throws  Exception{

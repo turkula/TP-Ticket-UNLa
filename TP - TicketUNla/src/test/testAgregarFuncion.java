@@ -6,9 +6,11 @@ import java.util.Set;
 
 import dao.FuncionDao;
 import funciones.Funciones;
+import negocio.AuditorioABM;
 import negocio.EventoABM;
 import negocio.FuncionABM;
 import datos.Tarifa;
+import datos.Auditorio;
 import datos.Descuento;
 import datos.Evento;
 import datos.Funcion;
@@ -26,6 +28,7 @@ public class testAgregarFuncion {
 		*/
 		FuncionABM funabm= new FuncionABM();
 		EventoABM evenabm = new EventoABM();
+		AuditorioABM audabm = new AuditorioABM();
 /*
 		int ultimoIdFuncion = funabm.agregar( descripcion,fecha,evento,tarifas,descuentos);
 		System.out.println(ultimoIdFuncion);
@@ -41,10 +44,16 @@ public class testAgregarFuncion {
 		fDao.agregar(funcion);
 */
 		// TRAER Y AGREGAR EVENTO
-		
+/*		
 		Evento evento = evenabm.traerEvento(1);
 		System.out.println(evento);
 		
+	*/	
+		//TRAER Y AGREGAR AUDITORIO
+		
+		Auditorio auditorio = audabm.traerAuditorio(1);
+		auditorio= audabm.traerAuditorioCompleto(1);
+		System.out.println(auditorio);
 		}
 	
 

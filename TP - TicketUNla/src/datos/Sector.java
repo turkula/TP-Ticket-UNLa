@@ -39,7 +39,7 @@ public class Sector {
 	public void setAuditorio(Auditorio auditorio) {
 		this.auditorio = auditorio;
 	}
-
+/*
 	@Override
 	public String toString() {
 		return "Sector{" +
@@ -48,4 +48,12 @@ public class Sector {
 				", auditorio=" + auditorio +
 				'}';
 	}
+	
+*/
+
+	@Override
+	public String toString() {
+		return "Sector [idSector=" + idSector + ", descripcion=" + descripcion + "]";
+	}
+	
 }

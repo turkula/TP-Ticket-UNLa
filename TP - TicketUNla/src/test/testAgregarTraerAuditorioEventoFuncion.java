@@ -15,7 +15,7 @@ import datos.Descuento;
 import datos.Evento;
 import datos.Funcion;
 
-public class testAgregarFuncion {
+public class testAgregarTraerAuditorioEventoFuncion {
 
 	public static void main(String[] args) throws Exception {
 

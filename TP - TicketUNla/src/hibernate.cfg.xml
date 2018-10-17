@@ -19,7 +19,6 @@
 	<mapping resource="mapeos/Evento.hbm.xml"/>
 	<mapping resource="mapeos/Sector.hbm.xml"/>
 	<mapping resource="mapeos/Auditorio.hbm.xml"/>
-
 	<mapping resource="mapeos/TipoAuditorio.hbm.xml"/>
 	<mapping resource="mapeos/TipoEvento.hbm.xml"/>
 

@@ -6,5 +6,15 @@
 			<generator class="identity" />
 		</id>
 		<property column = "descripcion" name = "descripcion" type = "string" />
+		<many-to-one name="auditorio" class="datos.Auditorio"
+					 column="idAuditorio" not-null="true" />
+		<!--<joined-subclass name="datos.Numerada" table="numerada">-->
+			<!--<key column="idNumerada" />-->
+			<!--<property column="idButaca" name="idButaca" type="int"/>-->
+		<!--</joined-subclass>-->
+		<joined-subclass name="datos.Popular" table="popular">
+			<key column="idPopular" />
+			<property column="cantidadMaxima" name="cantidadMaxima" type="int"/>
+		</joined-subclass>
 	</class>
 </hibernate-mapping>

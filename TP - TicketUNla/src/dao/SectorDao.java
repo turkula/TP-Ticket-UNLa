@@ -26,6 +26,7 @@ public class SectorDao {
 	}
 
 	public int agregar(Sector objeto) {
+//		System.out.println(objeto.toString());
 		int id = 0;
 		try {
 			iniciaOperacion();

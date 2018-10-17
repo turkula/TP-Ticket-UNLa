@@ -7,8 +7,8 @@ public class Popular extends Sector{
 		super();
 	}
 
-	public Popular(int cantidadMaxima) {
-		super();
+	public Popular(String descripcion,Auditorio auditorio,int cantidadMaxima) {
+		super(descripcion,auditorio);
 		this.cantidadMaxima = cantidadMaxima;
 	}
 
@@ -22,6 +22,8 @@ public class Popular extends Sector{
 
 	@Override
 	public String toString() {
-		return "Popular [cantidadMaxima=" + cantidadMaxima + "]";
+		return "Popular{" +
+				"cantidadMaxima=" + cantidadMaxima +
+				"} " + super.toString();
 	}
 }

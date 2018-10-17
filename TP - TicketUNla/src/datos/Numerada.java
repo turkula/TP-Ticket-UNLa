@@ -9,6 +9,11 @@ public class Numerada extends Sector{
 		super();
 	}
 
+	public  Numerada(String descripcion,Auditorio auditorio,Set<Butaca> butacas){
+		super(descripcion,auditorio);
+		this.butacas=butacas;
+	}
+
 	public Set<Butaca> getButacas() {
 		return butacas;
 	}

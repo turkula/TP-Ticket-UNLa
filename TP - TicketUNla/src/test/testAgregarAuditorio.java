@@ -12,6 +12,7 @@ public class testAgregarAuditorio {
 
 //        auditorioABM.agregar("village",tipoAuditorioABM.traerTipoAuditorio(1),null,null);
         auditorioABM.traerAuditorio(1).agregarSectorPopular("sector 2",45);
+        auditorioABM.traerAuditorio(1).agregarSectorButcas();
 
         } catch (Exception e) {
             // TODO Auto-generated catch block

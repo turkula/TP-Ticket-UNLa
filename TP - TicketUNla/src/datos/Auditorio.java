@@ -77,4 +77,8 @@ public class Auditorio {
 		sectorABM.agregarSectorPopular(descripcion,this,cantidadMaxima);
 	}
 
+	public void agregarSectorNumerada(String descripcion,int capacidadFilas,int capacidadColumnas)throws Exception{
+
+	}
+
 }

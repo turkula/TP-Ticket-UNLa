@@ -68,22 +68,15 @@ public class Auditorio {
 				+ eventos + ", sectores=" + sectores + "]";
 	}
   */
-	
-	 @Override
-		public String toString() {
-			return "Auditorio [idAuditorio=" + idAuditorio + ", nombre=" + nombre + ", tipo=" + tipo + "]";
-		}
-    
 
-    //agregar sector popular
-	public void agregarSectorPopular(String descripcion,int cantidadMaxima)throws  Exception{
-		SectorABM sectorABM = new SectorABM();
-//		System.out.println(this.toString());
-		sectorABM.agregarSectorPopular(descripcion,this,cantidadMaxima);
+	public void agregarSectorPopular(String descripcion,int cantidadMaxima)throws Exception{
+			SectorABM sectorABM = new SectorABM();
+			sectorABM.agregarSector(descripcion,this,cantidadMaxima);
 	}
 
-	public void agregarSectorNumerada(String descripcion,int capacidadFilas,int capacidadColumnas)throws Exception{
-
+	public void agregarSectorButacas(String descripcion,int cantidadFilas,int cantidadColumnas)throws  Exception{
+			SectorABM sectorABM = new SectorABM();
+			sectorABM.agregarSector(descripcion,this,cantidadFilas,cantidadColumnas);
 	}
 
 }

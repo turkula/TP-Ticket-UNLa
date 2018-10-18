@@ -1,4 +1,5 @@
 package negocio;
+import dao.ButacaDao;
 import dao.DescuentoDao;
 import dao.SectorDao;
 import dao.TarifaDao;
@@ -14,10 +15,6 @@ public class SectorABM {
         return d;
     }
 
-    public int agregarSector(String descripcion,Auditorio auditorio)throws Exception{
-        Sector d = new Sector(descripcion,auditorio);
-        return dao.agregar(d);
-    }
 
     public void modificar(Sector d)throws Exception{
         dao.actualizar(d);
@@ -28,9 +25,22 @@ public class SectorABM {
         dao.eliminar(d);
     }
 
-    public void agregarSectorPopular(String descripcion,Auditorio auditorio,int cantMaxima){
-        System.out.println(auditorio.toString());
-        Popular p = new Popular(descripcion,auditorio,cantMaxima);
-        dao.agregar(p);
+    public void agregarSector(String descripcion,Auditorio auditorio,int cantMaxima){
+//        System.out.println(auditorio.toString());
+        Sector sector = new Sector(descripcion,auditorio,cantMaxima);
+        dao.agregar(sector);
+    }
+
+    public void agregarSector(String descripcion,Auditorio auditorio,int cantidadFilas,int cantidadColumnas)throws Exception{
+        Sector sector = new Sector(descripcion,auditorio);
+        dao.agregar(sector);
+
+        ButacaABM butacaABM = new ButacaABM();
+
+        for(int i = 1;i<=cantidadFilas;i++){
+            for(int y =0;y<=cantidadColumnas;y++){
+                butacaABM.agregarButaca(i,y,sector);
+            }
+        }
     }
 }

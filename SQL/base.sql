@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `tpticketunla` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `tpticketunla`;
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.23, for Linux (x86_64)
 --
 -- Host: localhost    Database: tpticketunla
 -- ------------------------------------------------------
--- Server version	5.7.13-log
+-- Server version	5.5.5-10.1.19-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -85,10 +83,8 @@ CREATE TABLE `butaca` (
   `idButaca` int(11) NOT NULL AUTO_INCREMENT,
   `fila` int(11) DEFAULT NULL,
   `columna` int(11) DEFAULT NULL,
-  `idNumerada` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idButaca`),
-  KEY `butaca-numerada_idx` (`idNumerada`),
-  CONSTRAINT `butaca-numerada` FOREIGN KEY (`idNumerada`) REFERENCES `numerada` (`idNumerada`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `idSector` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idButaca`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -182,7 +178,7 @@ CREATE TABLE `descuento` (
 
 LOCK TABLES `descuento` WRITE;
 /*!40000 ALTER TABLE `descuento` DISABLE KEYS */;
-INSERT INTO `descuento` VALUES (1,5,'\0',1,1),(2,5,'\0',2,2),(3,5,'\0',3,3),(4,5,'\0',4,4),(5,5,'\0',5,5),(6,5,'\0',6,6),(7,5,'\0',6,6);
+INSERT INTO `descuento` VALUES (1,5,_binary '\0',1,1),(2,5,_binary '\0',2,2),(3,5,_binary '\0',3,3),(4,5,_binary '\0',4,4),(5,5,_binary '\0',5,5),(6,5,_binary '\0',6,6),(7,5,_binary '\0',6,6);
 /*!40000 ALTER TABLE `descuento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -270,30 +266,6 @@ INSERT INTO `funcion` VALUES (1,'14:00',NULL,1),(2,'18:00',NULL,1),(3,'14:00',NU
 UNLOCK TABLES;
 
 --
--- Table structure for table `numerada`
---
-
-DROP TABLE IF EXISTS `numerada`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `numerada` (
-  `idNumerada` int(11) NOT NULL,
-  PRIMARY KEY (`idNumerada`),
-  CONSTRAINT `numerada-sector` FOREIGN KEY (`idNumerada`) REFERENCES `sector` (`idSector`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `numerada`
---
-
-LOCK TABLES `numerada` WRITE;
-/*!40000 ALTER TABLE `numerada` DISABLE KEYS */;
-INSERT INTO `numerada` VALUES (2),(4),(5),(6);
-/*!40000 ALTER TABLE `numerada` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `persona`
 --
 
@@ -320,31 +292,6 @@ LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
 INSERT INTO `persona` VALUES (1,1,'Juan','Perez',11111111),(2,2,'Roberto','Gomez',11111112),(3,3,'Maria','Ramirez',11111113);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `popular`
---
-
-DROP TABLE IF EXISTS `popular`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `popular` (
-  `idPopular` int(11) NOT NULL,
-  `cantidadMaxima` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idPopular`),
-  CONSTRAINT `popular-sector` FOREIGN KEY (`idPopular`) REFERENCES `sector` (`idSector`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `popular`
---
-
-LOCK TABLES `popular` WRITE;
-/*!40000 ALTER TABLE `popular` DISABLE KEYS */;
-INSERT INTO `popular` VALUES (1,100),(3,50);
-/*!40000 ALTER TABLE `popular` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -380,11 +327,12 @@ DROP TABLE IF EXISTS `sector`;
 CREATE TABLE `sector` (
   `idSector` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
+  `popularCantidadMaxima` int(11) DEFAULT NULL,
   `idAuditorio` int(11) DEFAULT NULL,
   PRIMARY KEY (`idSector`),
   KEY `sector-auditorio_idx` (`idAuditorio`),
   CONSTRAINT `sector-auditorio` FOREIGN KEY (`idAuditorio`) REFERENCES `auditorio` (`idAuditorio`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -393,7 +341,7 @@ CREATE TABLE `sector` (
 
 LOCK TABLES `sector` WRITE;
 /*!40000 ALTER TABLE `sector` DISABLE KEYS */;
-INSERT INTO `sector` VALUES (1,'popular1',1),(2,'numerada1',1),(3,'popular1',2),(4,'numerada1',2),(5,'popular1',3),(6,'numerada1',3);
+INSERT INTO `sector` VALUES (1,'popular1',NULL,1),(2,'numerada1',NULL,1),(3,'popular1',NULL,2),(4,'numerada1',NULL,2),(5,'popular1',NULL,3),(6,'numerada1',NULL,3),(7,'sector 1',50,1),(8,'sector A',0,1),(9,'sector A',0,1);
 /*!40000 ALTER TABLE `sector` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -586,6 +534,10 @@ LOCK TABLES `usuario` WRITE;
 INSERT INTO `usuario` VALUES (1,'juan','juan1'),(2,'roberto','roberto2'),(3,'maria','maria3');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'tpticketunla'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -596,4 +548,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-16 10:23:02
+-- Dump completed on 2018-10-18 19:53:51

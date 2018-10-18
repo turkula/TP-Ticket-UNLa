@@ -55,5 +55,10 @@ public class AuditorioABM {
 		return a;
 	}
 
-
+	public List<Object> traerAuditoriosPorTipoDeEvento(int idTipoEvento) throws Exception {
+		List<Object> a = dao.traerAuditoriosPorTipo(idTipoEvento);
+		if (a == null)
+			throw new Exception("Error: el Auditorio no existe");
+		return a;
+	}
 }

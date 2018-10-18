@@ -64,6 +64,10 @@ public class testAgregarTraerAuditorioEventoFuncion {
 			System.out.println(lista);
 		}
 	
+		auditoriosXtipo = audabm.traerAuditoriosPorTipoDeEvento(2);
+		for(Object lista: auditoriosXtipo){
+			System.out.println(lista);
+		}
 	
 	}
 	

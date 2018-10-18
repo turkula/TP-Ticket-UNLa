@@ -104,6 +104,20 @@ public class AuditorioDao {
 		}
 		return objeto;
 	}
+	
+	public List<Object> traerAuditoriosPorTipoDeEvento (int idTipoEvento) throws HibernateException {
+		List<Object> objeto = null;
+		try {
+			iniciaOperacion();
+			String hql ="from Auditorio a inner join fetch a.eventos e "
+					+ "inner join fetch e.tipoEvento t"
+					+ "where t.idTipoEvento ="+idTipoEvento;
+			objeto = (List<Object>) session.createQuery(hql).list();
+		} finally {
+			cerrarSesion(session);
+		}
+		return objeto;
+	}	
 
 	private void cerrarSesion(Session session) {
 		if (session != null) {

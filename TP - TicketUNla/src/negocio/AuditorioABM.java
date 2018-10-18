@@ -1,5 +1,6 @@
 package negocio;
 
+import java.util.List;
 import java.util.Set;
 
 import dao.AuditorioDao;
@@ -45,5 +46,14 @@ public class AuditorioABM {
 			throw new Exception("Error: el Auditorio no existe");
 		return a;
 	}
+	
+	
+	public List<Object> traerAuditoriosPorTipo(int idTipoAuditorio) throws Exception {
+		List<Object> a = dao.traerAuditoriosPorTipo(idTipoAuditorio);
+		if (a == null)
+			throw new Exception("Error: el Auditorio no existe");
+		return a;
+	}
+
 
 }

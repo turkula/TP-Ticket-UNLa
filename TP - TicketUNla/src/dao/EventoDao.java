@@ -73,4 +73,21 @@ public class EventoDao {
 		}
 		return objeto;
 	}
+	
+	public Evento traerEventoCompleto(int idEvento) throws HibernateException {
+		Evento objeto = null;
+		try {
+			iniciaOperacion();
+			String hql ="from Evento e inner join fetch e.tipoEvento t"
+					+ " inner join fetch e.funciones f"
+					+ " inner join fetch e.auditorio a"
+					+ " where e.idEvento ="+ idEvento;
+			objeto = (Evento) session.createQuery(hql).uniqueResult();
+		} finally {
+			session.close();
+		}
+		return objeto;
+	}
+	
+	
 }

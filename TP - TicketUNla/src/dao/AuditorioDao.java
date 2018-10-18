@@ -1,10 +1,13 @@
 package dao;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import datos.Auditorio;
+import datos.TipoAuditorio;
 
 public class AuditorioDao {
 	private static Session session;
@@ -83,6 +86,19 @@ public class AuditorioDao {
 					+ " inner join fetch a.sectores"
 					+ " where a.idAuditorio =" + idauditorio;
 			objeto = (Auditorio) session.createQuery(hql).uniqueResult();
+		} finally {
+			cerrarSesion(session);
+		}
+		return objeto;
+	}
+	
+	public List<Object> traerAuditoriosPorTipo (int idTipoAuditorio) throws HibernateException {
+		List<Object> objeto = null;
+		try {
+			iniciaOperacion();
+			String hql ="from Auditorio a inner join fetch a.tipoAuditorio t "
+					+ "where t.idTipoAuditorio ="+idTipoAuditorio;
+			objeto = (List<Object>) session.createQuery(hql).list();
 		} finally {
 			cerrarSesion(session);
 		}

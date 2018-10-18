@@ -2,6 +2,7 @@ package test;
 
 import java.util.GregorianCalendar;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import dao.FuncionDao;
@@ -14,6 +15,7 @@ import datos.Auditorio;
 import datos.Descuento;
 import datos.Evento;
 import datos.Funcion;
+import datos.TipoAuditorio;
 
 public class testAgregarTraerAuditorioEventoFuncion {
 
@@ -29,12 +31,14 @@ public class testAgregarTraerAuditorioEventoFuncion {
 		FuncionABM funabm= new FuncionABM();
 		EventoABM evenabm = new EventoABM();
 		AuditorioABM audabm = new AuditorioABM();
+		
 /*
 		int ultimoIdFuncion = funabm.agregar( descripcion,fecha,evento,tarifas,descuentos);
 		System.out.println(ultimoIdFuncion);
 */
 /*
- /*
+
+ 
   //    TRAER Y AGREGAR FUNCION
 		
 		Funcion funcion = funabm.traerFuncion(2);
@@ -45,16 +49,23 @@ public class testAgregarTraerAuditorioEventoFuncion {
 */
 		// TRAER Y AGREGAR EVENTO
 /*		
-		Evento evento = evenabm.traerEvento(1);
+		Evento evento = evenabm.traerEventoCompleto(1);
 		System.out.println(evento);
-		
-	*/	
+		evenabm.agregar("Indio Solari", evento.getTipoEvento(), evento.getFunciones(), evento.getAuditorio());
+*/	
 		//TRAER Y AGREGAR AUDITORIO
-		
+	
 		Auditorio auditorio = audabm.traerAuditorio(1);
 		auditorio= audabm.traerAuditorioCompleto(1);
 		System.out.println(auditorio);
+ 
+		List<Object> auditoriosXtipo = audabm.traerAuditoriosPorTipo(2);
+		for(Object lista: auditoriosXtipo){
+			System.out.println(lista);
 		}
+	
+	
+	}
 	
 
 }

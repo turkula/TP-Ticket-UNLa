@@ -6,6 +6,8 @@
 				<generator class="identity" />
 			</id>
 			<property column = "fila" name = "fila" type = "int" />
-			<property column = "columna" name = "columna" type = "int" />		
+			<property column = "columna" name = "columna" type = "int" />
+			<many-to-one name="sector" class="datos.Sector"
+						 column="idSector" not-null="true" />
 	</class>
 </hibernate-mapping>

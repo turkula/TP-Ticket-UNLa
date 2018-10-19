@@ -4,22 +4,24 @@ public class Butaca {
 	private int idButaca;
 	private int fila;
 	private int columna;
+	private Sector sector;
 	
 	public Butaca() {
 		super();
 	}
 
-	public Butaca(int fila, int columna) {
+	public Butaca(int fila, int columna,Sector sector) {
 		super();
 		this.fila = fila;
 		this.columna = columna;
+		this.sector = sector;
 	}
 
 	public int getIdButaca() {
 		return idButaca;
 	}
 
-	public void setIdButaca(int idButaca) {
+	protected void setIdButaca(int idButaca) {
 		this.idButaca = idButaca;
 	}
 
@@ -37,6 +39,14 @@ public class Butaca {
 
 	public void setColumna(int columna) {
 		this.columna = columna;
+	}
+
+	public Sector getSector() {
+		return sector;
+	}
+
+	public void setSector(Sector sector) {
+		this.sector = sector;
 	}
 
 	@Override

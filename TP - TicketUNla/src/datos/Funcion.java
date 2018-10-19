@@ -17,22 +17,13 @@ public class Funcion {
 		
 	}
 
-
-
-
 	public String getDescripcion() {
 		return descripcion;
 	}
 
-
-
-
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
-
-
 
 	public Funcion(String descripcion, GregorianCalendar fechaHora, Evento evento, Set<Tarifa> tarifas,
 			Set<Descuento> descuentos) {
@@ -43,9 +34,6 @@ public class Funcion {
 		this.tarifas = tarifas;
 		this.descuentos = descuentos;
 	}
-
-
-
 
 	public int getIdFuncion() {
 		return idFuncion;
@@ -87,15 +75,14 @@ public class Funcion {
 		this.descuentos = descuentos;
 	}
 
-
-
-
 	@Override
 	public String toString() {
 		return "Funcion [descripcion=" + descripcion + "]";
 	}
 
-
+	public void agregarTarifa(float precio,Sector sector,Funcion funcion){
+		
+	}
 
 
 	

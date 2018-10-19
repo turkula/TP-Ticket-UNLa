@@ -26,7 +26,7 @@ public class AuditorioDao {
 
 	public int agregar(Auditorio objeto) {
 		int id = 0;
-		try {
+		try {session.close();
 			iniciaOperacion();
 			id = Integer.parseInt(session.save(objeto).toString());
 			tx.commit();

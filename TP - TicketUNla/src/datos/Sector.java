@@ -60,7 +60,7 @@ public class Sector {
 		return "Sector{" +
 				"idSector=" + idSector +
 				", descripcion='" + descripcion + '\'' +
-				", auditorio=" + auditorio +
+//				", auditorio=" + auditorio +
 				", popularCantidadMaxima=" + popularCantidadMaxima +
 				'}';
 	}

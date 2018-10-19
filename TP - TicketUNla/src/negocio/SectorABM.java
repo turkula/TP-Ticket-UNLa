@@ -34,11 +34,9 @@ public class SectorABM {
     public void agregarSector(String descripcion,Auditorio auditorio,int cantidadFilas,int cantidadColumnas)throws Exception{
         Sector sector = new Sector(descripcion,auditorio);
         dao.agregar(sector);
-
         ButacaABM butacaABM = new ButacaABM();
-
         for(int i = 1;i<=cantidadFilas;i++){
-            for(int y =0;y<=cantidadColumnas;y++){
+            for(int y =1;y<=cantidadColumnas;y++){
                 butacaABM.agregarButaca(i,y,sector);
             }
         }

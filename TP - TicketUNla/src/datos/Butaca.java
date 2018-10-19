@@ -21,7 +21,7 @@ public class Butaca {
 		return idButaca;
 	}
 
-	public void setIdButaca(int idButaca) {
+	protected void setIdButaca(int idButaca) {
 		this.idButaca = idButaca;
 	}
 

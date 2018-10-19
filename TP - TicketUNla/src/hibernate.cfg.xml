@@ -21,6 +21,7 @@
 	<mapping resource="mapeos/Auditorio.hbm.xml"/>
 	<mapping resource="mapeos/TipoAuditorio.hbm.xml"/>
 	<mapping resource="mapeos/TipoEvento.hbm.xml"/>
+	<mapping resource="mapeos/Butaca.hbm.xml"/>
 
 </session-factory>
 </hibernate-configuration>

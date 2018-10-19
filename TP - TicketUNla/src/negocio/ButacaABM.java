@@ -3,6 +3,9 @@ package negocio;
 import dao.ButacaDao;
 import datos.Butaca;
 import datos.Sector;
+import org.omg.CORBA.PUBLIC_MEMBER;
+
+import java.util.List;
 
 public class ButacaABM {
     ButacaDao dao = new ButacaDao();
@@ -26,6 +29,10 @@ public class ButacaABM {
     public void eliminar(int idButaca){
         Butaca d = dao.traerButaca(idButaca);
         dao.eliminar(d);
+    }
+
+    public List<Butaca> traeButacas(Sector s){
+        return dao.traerButacas(s);
     }
 
 }

@@ -1,10 +1,13 @@
 package datos;
 
+import java.util.Set;
+
 public class Sector {
 	private int idSector;
 	private String descripcion;
 	private Auditorio auditorio;
 	private int popularCantidadMaxima;
+	private Set<Butaca> butacas;
 
 	public Sector() {
 		super();
@@ -53,6 +56,14 @@ public class Sector {
 
 	public void setPopularCantidadMaxima(int popularCantidadMaxima) {
 		this.popularCantidadMaxima = popularCantidadMaxima;
+	}
+
+	public Set<Butaca> getButacas() {
+		return butacas;
+	}
+
+	public void setButacas(Set<Butaca> butacas) {
+		this.butacas = butacas;
 	}
 
 	@Override

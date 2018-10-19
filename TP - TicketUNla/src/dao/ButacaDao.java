@@ -1,16 +1,13 @@
 package dao;
 
+import datos.Sector;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import java.util.List;
 
-
-
 import datos.Butaca;
-
 
 public class ButacaDao {
 	private static Session session;
@@ -80,19 +77,20 @@ public class ButacaDao {
 		return objeto;
 	}
 
-	/*@SuppressWarnings("unchecked")
-	public List<Cliente> traerCliente() throws HibernateException {
-		List<Cliente> objeto = null;
+	@SuppressWarnings("unchecked")
+	public List<Butaca> traerButacas(Sector sector) throws HibernateException {
+		List<Butaca> lista = null;
 		try {
 			iniciaOperacion();
-			String hql = "from Cliente c order by c.idButaca";  
-			objeto = (List<Cliente>) session.createQuery(hql).list();
+			String hql = "from Butaca b inner join fetch b.sector s where s.idSector="+sector.getIdSector();
+			lista = session.createQuery(hql).list();
 		} finally {
 			session.close();
 		}
-		return objeto;
+		return lista;
 	}
-	
+
+	/*
 	@SuppressWarnings("unchecked")
 	public List<Empleado> traerEmpleado() throws HibernateException {
 		List<Empleado> objeto = null;

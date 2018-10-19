@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -89,5 +91,18 @@ public class EventoDao {
 		return objeto;
 	}
 	
-	
+	public List<Evento> traerEventoPorAuditorioYTipoEvento(int idAuditorio, int idTipoEvento) throws HibernateException {
+		List<Evento> objeto = null;
+		try {
+			iniciaOperacion();
+			String hql ="from Evento e inner join fetch e.tipoEvento t"
+					+ " inner join fetch e.auditorio a"
+					+ " where t.idTipoEvento = :idTipoEvento"
+					+ " and a.idAuditorio= :idAuditorio" ;
+			objeto = (List<Evento>) session.createQuery(hql).setInteger("idTipoEvento", idTipoEvento).setInteger("idAuditorio", idAuditorio).list();
+		} finally {
+			session.close();
+		}
+		return objeto;
+	}
 }

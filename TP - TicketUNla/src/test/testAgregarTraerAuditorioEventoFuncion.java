@@ -53,8 +53,13 @@ public class testAgregarTraerAuditorioEventoFuncion {
 		System.out.println(evento);
 		evenabm.agregar("Indio Solari", evento.getTipoEvento(), evento.getFunciones(), evento.getAuditorio());
 */	
+
+		List<Evento> eventos = evenabm.traerEventoPorAuditorioYTipoEvento(1, 1);
+		System.out.println(eventos);		
+			
+		
 		//TRAER Y AGREGAR AUDITORIO
-	
+/*	
 		Auditorio auditorio = audabm.traerAuditorio(1);
 		auditorio= audabm.traerAuditorioCompleto(1);
 		System.out.println(auditorio);
@@ -68,7 +73,18 @@ public class testAgregarTraerAuditorioEventoFuncion {
 		for(Object lista: auditoriosXtipo){
 			System.out.println(lista);
 		}
+		/*
+		Auditorio auditorio2= (Auditorio) auditoriosXtipo.get(0);
+
+		Set<Evento> eventos= (Set<Evento>) auditorio2.getEventos();
+		
+ 		for(Evento lista: eventos){
+			System.out.println(lista);
+		}
 	
+		System.out.println(eventos);
+		*/
+
 	}
 	
 

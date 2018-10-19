@@ -110,7 +110,7 @@ public class AuditorioDao {
 		try {
 			iniciaOperacion();
 			String hql ="from Auditorio a inner join fetch a.eventos e "
-					+ "inner join fetch e.tipoEvento t"
+					+ "inner join fetch e.tipo t"
 					+ "where t.idTipoEvento ="+idTipoEvento;
 			objeto = (List<Object>) session.createQuery(hql).list();
 		} finally {

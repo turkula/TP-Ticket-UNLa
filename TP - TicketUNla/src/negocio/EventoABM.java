@@ -1,6 +1,7 @@
 package negocio;
 
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Set;
 
 import dao.EventoDao;
@@ -48,4 +49,10 @@ public class EventoABM {
 			return e;
 		}	
 	
+		public List<Evento> traerEventoPorAuditorioYTipoEvento(int idTipoEvento, int idAuditorio) throws Exception {
+			List<Evento> e = dao.traerEventoPorAuditorioYTipoEvento(idTipoEvento, idAuditorio);
+			if (e == null)
+				throw new Exception("Error: el Evento no existe");
+			return e;
+		}	
 }

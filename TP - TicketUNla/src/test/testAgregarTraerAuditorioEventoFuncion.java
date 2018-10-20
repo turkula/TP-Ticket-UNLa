@@ -8,13 +8,11 @@ import java.util.Set;
 import dao.FuncionDao;
 import funciones.Funciones;
 import negocio.AuditorioABM;
-import negocio.ButacaABM;
 import negocio.EventoABM;
 import negocio.FuncionABM;
 import negocio.SectorABM;
 import datos.Tarifa;
 import datos.Auditorio;
-import datos.Butaca;
 import datos.Descuento;
 import datos.Evento;
 import datos.Funcion;
@@ -36,7 +34,6 @@ public class testAgregarTraerAuditorioEventoFuncion {
 		EventoABM evenabm = new EventoABM();
 		AuditorioABM audabm = new AuditorioABM();
 		SectorABM secabm = new SectorABM();
-		ButacaABM butabm =new ButacaABM();
 		
 /*
 		int ultimoIdFuncion = funabm.agregar( descripcion,fecha,evento,tarifas,descuentos);
@@ -97,10 +94,8 @@ public class testAgregarTraerAuditorioEventoFuncion {
 		for(Sector s: sectores) {
 			System.out.println(s);
 		}
-		List<Butaca> butacas = butabm.traerButacasPorSector(2);
-		for(Butaca b: butacas) {
-			System.out.println(b);
-		}
+		
+		
 	}
 	
 

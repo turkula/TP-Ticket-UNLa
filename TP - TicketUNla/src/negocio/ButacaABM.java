@@ -34,12 +34,5 @@ public class ButacaABM {
     public List<Butaca> traeButacas(Sector s){
         return dao.traerButacas(s);
     }
-    
-    public List<Butaca> traerButacasPorSector (int idSector)throws Exception{
-        List<Butaca> d=dao.traerButacasPorSector(idSector);
-        if(d==null)
-            throw new Exception("Error:la Butaca no existe");
-        return d;
-    }
 
 }

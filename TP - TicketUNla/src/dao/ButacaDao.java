@@ -89,26 +89,6 @@ public class ButacaDao {
 		}
 		return lista;
 	}
-	
-	public List<Butaca> traerButacasPorSector (int idSector) throws HibernateException {
-		List<Butaca> objeto = null;
-		try {
-			iniciaOperacion();
-			String hql ="from Butaca b "
-					+ "inner join fetch b.sector s"
-					+ " where s.idSector ="+idSector;
-			objeto = (List<Butaca>) session.createQuery(hql).list();
-		} finally {
-			cerrarSesion(session);
-		}
-		return objeto;
-	}
-	
-	private void cerrarSesion(Session session) {
-		if (session != null) {
-			session.close();
-		}
-	}
 
 	/*
 	@SuppressWarnings("unchecked")

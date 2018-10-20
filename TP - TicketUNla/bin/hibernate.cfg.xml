@@ -5,7 +5,7 @@
 	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 	<property name="connection.url">jdbc:mysql://localhost/tpticketunla</property>
 	<property name="connection.username">root</property>
-	<property name="connection.password"></property>
+	<property name="connection.password">root</property>
 	<property name="connection.pool_size">1</property>
 	<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 	<property name="show_sql">true</property> <!-- en true muestra hql en consola -->
@@ -21,6 +21,7 @@
 	<mapping resource="mapeos/Auditorio.hbm.xml"/>
 	<mapping resource="mapeos/TipoAuditorio.hbm.xml"/>
 	<mapping resource="mapeos/TipoEvento.hbm.xml"/>
+	<mapping resource="mapeos/Butaca.hbm.xml"/>
 
 </session-factory>
 </hibernate-configuration>

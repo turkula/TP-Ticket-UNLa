@@ -1,4 +1,6 @@
 package negocio;
+import java.util.List;
+
 import dao.ButacaDao;
 import dao.DescuentoDao;
 import dao.SectorDao;
@@ -40,5 +42,12 @@ public class SectorABM {
                 butacaABM.agregarButaca(i,y,sector);
             }
         }
+    }
+    
+    public List<Sector> traerSectoresPorAuditorio(int idAuditorio)throws Exception{
+        List<Sector> d=dao.traerSectoresPorAuditorio(idAuditorio);
+        if(d==null)
+            throw new Exception("Error:El sector no existe");
+        return d;
     }
 }

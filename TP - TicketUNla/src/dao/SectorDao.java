@@ -78,6 +78,27 @@ public class SectorDao {
 		}
 		return objeto;
 	}
+	
+	public List<Sector> traerSectoresPorAuditorio (int idAuditorio) throws HibernateException {
+		List<Sector> objeto = null;
+		try {
+			iniciaOperacion();
+			String hql ="from Sector s "
+					+ "inner join fetch s.auditorio a"
+					+ " where a.idAuditorio ="+idAuditorio;
+			objeto = (List<Sector>) session.createQuery(hql).list();
+		} finally {
+			cerrarSesion(session);
+		}
+		return objeto;
+	}
+	private void cerrarSesion(Session session) {
+		if (session != null) {
+			session.close();
+		}
+	}
+
+
 /*
 	
 	@SuppressWarnings("unchecked")

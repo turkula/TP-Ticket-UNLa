@@ -10,11 +10,13 @@ import funciones.Funciones;
 import negocio.AuditorioABM;
 import negocio.EventoABM;
 import negocio.FuncionABM;
+import negocio.SectorABM;
 import datos.Tarifa;
 import datos.Auditorio;
 import datos.Descuento;
 import datos.Evento;
 import datos.Funcion;
+import datos.Sector;
 import datos.TipoAuditorio;
 
 public class testAgregarTraerAuditorioEventoFuncion {
@@ -31,6 +33,7 @@ public class testAgregarTraerAuditorioEventoFuncion {
 		FuncionABM funabm= new FuncionABM();
 		EventoABM evenabm = new EventoABM();
 		AuditorioABM audabm = new AuditorioABM();
+		SectorABM secabm = new SectorABM();
 		
 /*
 		int ultimoIdFuncion = funabm.agregar( descripcion,fecha,evento,tarifas,descuentos);
@@ -52,12 +55,12 @@ public class testAgregarTraerAuditorioEventoFuncion {
 		Evento evento = evenabm.traerEventoCompleto(1);
 		System.out.println(evento);
 		evenabm.agregar("Indio Solari", evento.getTipoEvento(), evento.getFunciones(), evento.getAuditorio());
-*/	
+	
 
 		List<Evento> eventos = evenabm.traerEventoPorAuditorioYTipoEvento(1, 1);
 		System.out.println(eventos);		
 			
-		
+*/		
 		//TRAER Y AGREGAR AUDITORIO
 /*	
 		Auditorio auditorio = audabm.traerAuditorio(1);
@@ -85,6 +88,14 @@ public class testAgregarTraerAuditorioEventoFuncion {
 		System.out.println(eventos);
 		*/
 
+		//TRAER SECTORES Y BUTACAS POR AUDITORIO
+		
+		List<Sector> sectores = secabm.traerSectoresPorAuditorio(1);
+		for(Sector s: sectores) {
+			System.out.println(s);
+		}
+		
+		
 	}
 	
 

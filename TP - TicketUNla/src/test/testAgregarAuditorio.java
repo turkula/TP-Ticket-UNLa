@@ -22,15 +22,15 @@ public class testAgregarAuditorio {
 //        auditorioABM.traerAuditorio(1).agregarSectorPopular("sector 1",20);
 
 //            AGREGO SECTOR BUTACAS
-//            auditorioABM.traerAuditorio(1).agregarSectorButacas("sector A",10,10);
+            auditorioABM.traerAuditorio(1).agregarSectorButacas("sector A",10,10);
 
 
 //            TRAER BUTACAS  POR SECTOR
-            List<Butaca> butacas = butacaABM.traeButacas(sectorABM.traerSector(23));
-
-            for(Butaca b : butacas){
-                System.out.println(b.toString());
-            }
+//            List<Butaca> butacas = butacaABM.traeButacas(sectorABM.traerSector(23));
+//
+//            for(Butaca b : butacas){
+//                System.out.println(b.toString());
+//            }
 
         } catch (Exception e) {
             // TODO Auto-generated catch block

@@ -5,7 +5,7 @@ public class Persona {
 	private String nombre;
 	private String apellido;
 	private int dni;
-	private Usuario usuario;
+
 	
 	public Persona() {
 		
@@ -15,7 +15,7 @@ public class Persona {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
-		this.usuario = usuario;
+
 	}
 
 	public int getIdPersona() {
@@ -50,18 +50,11 @@ public class Persona {
 		this.dni = dni;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 
 	@Override
 	public String toString() {
 		return "Persona [idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
-				+ ", usuario=" + usuario + "]";
+				+ "]";
 	}
 	
 	

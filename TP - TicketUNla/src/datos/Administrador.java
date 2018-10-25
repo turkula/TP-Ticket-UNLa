@@ -8,12 +8,15 @@ public class Administrador extends Usuario{
 
 	public Administrador(){};
 	
-	public Administrador(String nombreUsuario, String clave, Auditorio auditorio, TipoAdministrador tipo) {
-		super(nombreUsuario, clave);
+
+	
+
+	public Administrador(String nombreUsuario, String clave, Persona persona, Auditorio auditorio,
+			TipoAdministrador tipo) {
+		super(nombreUsuario, clave, persona);
 		this.auditorio = auditorio;
 		this.tipo = tipo;
 	}
-
 
 	public Auditorio getAuditorio() {
 		return auditorio;

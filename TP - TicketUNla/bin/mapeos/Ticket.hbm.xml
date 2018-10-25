@@ -6,13 +6,8 @@
 				<generator class="identity" />
 			</id>
 			<many-to-one name="cliente" class="datos.Cliente"
-				column="idUsuario" not-null="true"/>
-			<!-- clienteCliente hereda de Usuario -->	
-			<!-- <joined-subclass name="datos.Cliente" table="cliente"> -->
-			<!--<key column="idCliente" /> -->
-			<!--<property column="razonSocial" name="razonSocial" type="string"/>-->
-			<!--<property column="cuit" name="cuit" type="string"/>-->
-			<!--</joined-subclass>	-->			
+				column="idCliente" not-null="true"/>
+	
 			<many-to-one name="funcion" class="datos.Funcion"
 				column="idFuncion" not-null="true"/>
 			<many-to-one name="sector" class="datos.Sector"

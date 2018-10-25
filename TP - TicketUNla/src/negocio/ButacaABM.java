@@ -34,5 +34,7 @@ public class ButacaABM {
     public List<Butaca> traeButacas(Sector s){
         return dao.traerButacas(s);
     }
+    
+
 
 }

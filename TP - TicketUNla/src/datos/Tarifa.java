@@ -4,14 +4,16 @@ public class Tarifa {
 	private int idTarifa;
 	private float precio;
 	private Sector sector;
+	private Funcion funcion;
 	
 	public Tarifa() {
 		super();
 	}
-	public Tarifa(float precio,Sector sector) {
+	public Tarifa(float precio,Sector sector,Funcion funcion) {
 		super();
 		this.precio = precio;
 		this.sector = sector;
+		this.funcion = funcion;
 	}
 	public int getIdTarifa() {
 		return idTarifa;
@@ -31,14 +33,22 @@ public class Tarifa {
 	public void setSector(Sector sector) {
 		this.sector = sector;
 	}
+
+	public Funcion getFuncion() {
+		return funcion;
+	}
+
+	public void setFuncion(Funcion funcion) {
+		this.funcion = funcion;
+	}
+
 	@Override
 	public String toString() {
-		return "Tarifa [idTarifa=" + idTarifa + ", precio=" + precio + "]";
+		return "Tarifa{" +
+				"idTarifa=" + idTarifa +
+				", precio=" + precio +
+				", sector=" + sector +
+				", funcion=" + funcion +
+				'}';
 	}
-	
-	
-	
-	
-	
-	
 }

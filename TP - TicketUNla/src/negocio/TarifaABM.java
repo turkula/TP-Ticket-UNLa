@@ -1,10 +1,7 @@
 package negocio;
 import dao.DescuentoDao;
 import dao.TarifaDao;
-import datos.Codigo;
-import datos.Descuento;
-import datos.Sector;
-import datos.Tarifa;
+import datos.*;
 
 public class TarifaABM {
     TarifaDao dao = new TarifaDao();
@@ -16,8 +13,8 @@ public class TarifaABM {
         return d;
     }
 
-    public int agregarTarifa(float precio,Sector sector)throws Exception{
-        Tarifa d = new Tarifa(precio,sector);
+    public int agregarTarifa(float precio, Sector sector,Funcion funcion)throws Exception{
+        Tarifa d = new Tarifa(precio,sector,funcion);
         return dao.agregar(d);
     }
 

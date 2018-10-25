@@ -1,5 +1,7 @@
 package datos;
 
+import negocio.TarifaABM;
+
 import java.util.GregorianCalendar;
 import java.util.Set;
 
@@ -80,8 +82,9 @@ public class Funcion {
 		return "Funcion [descripcion=" + descripcion + "]";
 	}
 
-	public void agregarTarifa(float precio,Sector sector,Funcion funcion){
-		
+	public void agregarTarifa(float precio,Sector sector)throws Exception{
+		TarifaABM tarifaABM = new TarifaABM();
+		tarifaABM.agregarTarifa(precio,sector,this);
 	}
 
 

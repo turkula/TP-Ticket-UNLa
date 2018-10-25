@@ -6,6 +6,10 @@
             <generator class="identity" />
         </id>
         <property column = "precio" name = "precio" type = "float" />
-        <one-to-one name="sector" class="datos.Sector"></one-to-one>
+        <!--<one-to-one name="sector" class="datos.Sector" />-->
+        <many-to-one name="sector" class="datos.Sector"
+                     column="idSector" not-null="true" />
+        <many-to-one name="funcion" class="datos.Funcion"
+                     column="idFuncion" not-null="true" />
     </class>
 </hibernate-mapping>

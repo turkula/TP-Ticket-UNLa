@@ -8,12 +8,13 @@
 		
 		<property column="nombreUsuario" name="nombreUsuario" type="string" />
 		<property column="clave" name="clave" type="string" />
-		
+		<many-to-one name="persona" class="datos.Persona"
+			column="idPersona" not-null="true" />
 		<joined-subclass name="datos.Cliente" table="cliente">
 			<key column="idCliente" />
 			<many-to-one name="tipoCliente" class="datos.TipoCliente"
 					 column="idTipoCliente" not-null="true" />
-			<property column="fechaNacimiento" name="fechaNacimiento" type="GregorianCalendar" />
+			<property column="fechaNacimiento" name="fechaNacimiento" type="calendar" />
 		</joined-subclass>
 		
 		<joined-subclass name="datos.Administrador" table="administrador">
@@ -24,7 +25,5 @@
 				column="idTipoAdministrador" not-null="true" />
 		</joined-subclass>
 		
-		<many-to-one name="persona" class="datos.Persona"
-			column="idPersona" not-null="true" />
 	</class>
 </hibernate-mapping>

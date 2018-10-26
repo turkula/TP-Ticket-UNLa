@@ -3,13 +3,20 @@ package datos;
 
 
 public class Administrador extends Usuario{
+	private int idAdministrador;
 	private Auditorio auditorio;
 	private TipoAdministrador tipo;
 
 	public Administrador(){};
 	
+	public int getIdAdministrador() {
+		return idAdministrador;
+	}
 
-	
+	public void setIdAdministrador(int idAdministrador) {
+		this.idAdministrador = idAdministrador;
+	}
+
 
 	public Administrador(String nombreUsuario, String clave, Persona persona, Auditorio auditorio,
 			TipoAdministrador tipo) {
@@ -26,11 +33,11 @@ public class Administrador extends Usuario{
 		this.auditorio = auditorio;
 	}
 
-	public TipoAdministrador getTipo() {
+	public TipoAdministrador getTipoAdministrador() {
 		return tipo;
 	}
 
-	public void setTipo(TipoAdministrador tipo) {
+	public void setTipoAdministrador(TipoAdministrador tipo) {
 		this.tipo = tipo;
 	}
 

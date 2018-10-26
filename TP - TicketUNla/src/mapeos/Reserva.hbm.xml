@@ -7,7 +7,7 @@
 			</id>
 			<set table="ticket" name="tickets" outer-join="true">
 				<key column="idReserva"/>
-				<many-to-many column="idTicket" class="datos.Ticket"/>
+				<many-to-many column="idTicket" class="datos.Reserva"/>
 			</set>
 	</class>
 </hibernate-mapping>

@@ -5,6 +5,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import datos.Butaca;
 import datos.Ticket;
 
 import java.util.List;
@@ -78,6 +79,19 @@ public class TicketDao {
 			session.close();
 		}
 		return objeto;
+	}
+	
+	public List<Butaca> traerButacas(int idFuncion) throws HibernateException {
+		List<Butaca> lista = null;
+		try {
+			iniciaOperacion();
+			String hql = "select new list (t.butaca) from Ticket t inner join fetch t.funcion f"
+					+ " inner join fetch t.butaca where s.idFuncion="+ idFuncion;
+			lista = session.createQuery(hql).list();
+		} finally {
+			session.close();
+		}
+		return lista;
 	}
 /*
 	

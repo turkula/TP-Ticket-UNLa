@@ -89,7 +89,9 @@ public class ButacaDao {
 		}
 		return lista;
 	}
+	
 
+	
 	/*
 	@SuppressWarnings("unchecked")
 	public List<Empleado> traerEmpleado() throws HibernateException {

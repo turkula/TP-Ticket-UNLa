@@ -4,15 +4,20 @@ public class Usuario {
 	private int idUsuario;
 	private String nombreUsuario;
 	private String clave;
+	private Persona persona;
 	
 	public Usuario() {
 		
 	}
 
-	public Usuario(String nombreUsuario, String clave) { 
+
+	public Usuario(String nombreUsuario, String clave, Persona persona) {
+		super();
 		this.nombreUsuario = nombreUsuario;
 		this.clave = clave;
+		this.persona = persona;
 	}
+
 
 	public int getIdUsuario() {
 		return idUsuario;
@@ -37,10 +42,25 @@ public class Usuario {
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
+	
+	
+
+	public Persona getPersona() {
+		return persona;
+	}
+
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", clave=" + clave + "]";
-	}	
+		return "Usuario [idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", clave=" + clave
+				+ ", persona=" + persona + "]";
+	}
+
+
 	
 }

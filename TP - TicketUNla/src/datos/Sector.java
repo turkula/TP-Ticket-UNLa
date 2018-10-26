@@ -6,14 +6,14 @@ public class Sector {
 	private int idSector;
 	private String descripcion;
 	private Auditorio auditorio;
-	private Integer popularCantidadMaxima;
+	private int popularCantidadMaxima;
 	private Set<Butaca> butacas;
 
 	public Sector() {
 		super();
 	}
 
-	public Sector(String descripcion,Auditorio auditorio,Integer popularCantidadMaxima) {
+	public Sector(String descripcion,Auditorio auditorio,int popularCantidadMaxima) {
 		super();
 		this.auditorio = auditorio;
 		this.popularCantidadMaxima = popularCantidadMaxima;
@@ -54,7 +54,7 @@ public class Sector {
 		return popularCantidadMaxima;
 	}
 
-	public void setPopularCantidadMaxima(Integer popularCantidadMaxima) {
+	public void setPopularCantidadMaxima(int popularCantidadMaxima) {
 		this.popularCantidadMaxima = popularCantidadMaxima;
 	}
 

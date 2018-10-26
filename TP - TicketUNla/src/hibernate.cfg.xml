@@ -22,6 +22,10 @@
 	<mapping resource="mapeos/TipoAuditorio.hbm.xml"/>
 	<mapping resource="mapeos/TipoEvento.hbm.xml"/>
 	<mapping resource="mapeos/Butaca.hbm.xml"/>
-
+<!--	<mapping resource="mapeos/Ticket.hbm.xml"/>
+  	<mapping resource="mapeos/Usuario.hbm.xml"/>
+	<mapping resource="mapeos/TipoCliente.hbm.xml"/>
+	<mapping resource="mapeos/TipoAdministrador.hbm.xml"/>
+-->
 </session-factory>
 </hibernate-configuration>

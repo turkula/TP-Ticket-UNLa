@@ -18,7 +18,7 @@ public class testAgregarDescuentoYTarifa {
             Sector sector1 = sectorABM.traerSector(1);
 //          System.out.println(sector1);
 //          int ultimoIdDescuento = descuentoABM.agregarCodigo(5,sector1,"codigo");
-            int ultimoIdTarifa = tarifaABM.agregarTarifa(2.0f,sector1);
+//            int ultimoIdTarifa = tarifaABM.agregarTarifa(2.0f,sector1);
 
         } catch (Exception e) {
             // TODO Auto-generated catch block

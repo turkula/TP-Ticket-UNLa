@@ -26,7 +26,7 @@ public class testAgregarAuditorio {
 
 
 //            TRAER BUTACAS  POR SECTOR
-            List<Butaca> butacas = butacaABM.traeButacas(sectorABM.traerSector(23));
+            List<Butaca> butacas = butacaABM.traeButacas(sectorABM.traerSector(2));
 
             for(Butaca b : butacas){
                 System.out.println(b.toString());

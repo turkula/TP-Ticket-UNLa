@@ -42,11 +42,11 @@ public class Administrador extends Usuario{
 		this.auditorio = auditorio;
 	}
 
-	public TipoAdministrador getTipo() {
+	public TipoAdministrador getTipoAdministrador() {
 		return tipo;
 	}
 
-	public void setTipo(TipoAdministrador tipo) {
+	public void setTipoAdministrador(TipoAdministrador tipo) {
 		this.tipo = tipo;
 	}
 

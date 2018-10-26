@@ -4,3 +4,7 @@
 
 # Project exclude paths
 /bin/
+.metadata
+.classpath
+/out/
+

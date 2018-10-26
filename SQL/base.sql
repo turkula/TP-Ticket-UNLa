@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.23, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: tpticketunla
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.19-MariaDB
+-- Server version	5.7.13-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -84,7 +84,9 @@ CREATE TABLE `butaca` (
   `fila` int(11) DEFAULT NULL,
   `columna` int(11) DEFAULT NULL,
   `idSector` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idButaca`)
+  PRIMARY KEY (`idButaca`),
+  KEY `butaca-sector_idx` (`idSector`),
+  CONSTRAINT `butaca-sector` FOREIGN KEY (`idSector`) REFERENCES `sector` (`idSector`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -178,7 +180,7 @@ CREATE TABLE `descuento` (
 
 LOCK TABLES `descuento` WRITE;
 /*!40000 ALTER TABLE `descuento` DISABLE KEYS */;
-INSERT INTO `descuento` VALUES (1,5,_binary '\0',1,1),(2,5,_binary '\0',2,2),(3,5,_binary '\0',3,3),(4,5,_binary '\0',4,4),(5,5,_binary '\0',5,5),(6,5,_binary '\0',6,6),(7,5,_binary '\0',6,6);
+INSERT INTO `descuento` VALUES (1,5,'\0',1,1),(2,5,'\0',2,2),(3,5,'\0',3,3),(4,5,'\0',4,4),(5,5,'\0',5,5),(6,5,'\0',6,6),(7,5,'\0',6,6);
 /*!40000 ALTER TABLE `descuento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -223,8 +225,8 @@ CREATE TABLE `evento` (
   KEY `evento-auditorio_idx` (`idAuditorio`),
   KEY `evento-tipo_idx` (`idTipoEvento`),
   CONSTRAINT `evento-auditorio` FOREIGN KEY (`idAuditorio`) REFERENCES `auditorio` (`idAuditorio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `evento-tipo` FOREIGN KEY (`idTipoEvento`) REFERENCES `tipoevento` (`idTipoevento`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  CONSTRAINT `evento-tipo` FOREIGN KEY (`idTipoEvento`) REFERENCES `tipoevento` (`idTipoevento`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -233,7 +235,7 @@ CREATE TABLE `evento` (
 
 LOCK TABLES `evento` WRITE;
 /*!40000 ALTER TABLE `evento` DISABLE KEYS */;
-INSERT INTO `evento` VALUES (1,'Fito Paez',1,1),(2,'Gordofobia',2,2),(3,'El ptro',3,3);
+INSERT INTO `evento` VALUES (1,'Fito Paez',1,1),(2,'Gordofobia',2,2),(3,'El ptro',3,3),(4,'Indio Solari',1,1);
 /*!40000 ALTER TABLE `evento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,7 +254,7 @@ CREATE TABLE `funcion` (
   PRIMARY KEY (`idFuncion`),
   KEY `funcion-evento_idx` (`idEvento`),
   CONSTRAINT `funcion-evento` FOREIGN KEY (`idEvento`) REFERENCES `evento` (`idEvento`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,8 +263,32 @@ CREATE TABLE `funcion` (
 
 LOCK TABLES `funcion` WRITE;
 /*!40000 ALTER TABLE `funcion` DISABLE KEYS */;
-INSERT INTO `funcion` VALUES (1,'14:00',NULL,1),(2,'18:00',NULL,1),(3,'14:00',NULL,2),(4,'18:00',NULL,2),(5,'14:00',NULL,3),(6,'18:00',NULL,3);
+INSERT INTO `funcion` VALUES (1,'14:00',NULL,1),(2,'18:00',NULL,1),(3,'14:00',NULL,2),(4,'18:00',NULL,2),(5,'14:00',NULL,3),(6,'18:00',NULL,3),(9,'18:00','2018-10-24 00:00:00',1);
 /*!40000 ALTER TABLE `funcion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `numerada`
+--
+
+DROP TABLE IF EXISTS `numerada`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `numerada` (
+  `idNumerada` int(11) NOT NULL,
+  PRIMARY KEY (`idNumerada`),
+  CONSTRAINT `numerada-sector` FOREIGN KEY (`idNumerada`) REFERENCES `sector` (`idSector`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `numerada`
+--
+
+LOCK TABLES `numerada` WRITE;
+/*!40000 ALTER TABLE `numerada` DISABLE KEYS */;
+INSERT INTO `numerada` VALUES (2),(4),(5),(6);
+/*!40000 ALTER TABLE `numerada` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -274,13 +300,10 @@ DROP TABLE IF EXISTS `persona`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `persona` (
   `idPersona` int(11) NOT NULL AUTO_INCREMENT,
-  `idUsuario` int(11) DEFAULT NULL,
   `nombre` varchar(45) DEFAULT NULL,
   `apellido` varchar(45) DEFAULT NULL,
   `dni` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idPersona`),
-  KEY `persona usuario_idx` (`idUsuario`),
-  CONSTRAINT `persona usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`idPersona`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -290,8 +313,33 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (1,1,'Juan','Perez',11111111),(2,2,'Roberto','Gomez',11111112),(3,3,'Maria','Ramirez',11111113);
+INSERT INTO `persona` VALUES (1,'Juan','Perez',11111111),(2,'Roberto','Gomez',11111112),(3,'Maria','Ramirez',11111113);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `popular`
+--
+
+DROP TABLE IF EXISTS `popular`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `popular` (
+  `idPopular` int(11) NOT NULL,
+  `cantidadMaxima` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idPopular`),
+  CONSTRAINT `popular-sector` FOREIGN KEY (`idPopular`) REFERENCES `sector` (`idSector`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `popular`
+--
+
+LOCK TABLES `popular` WRITE;
+/*!40000 ALTER TABLE `popular` DISABLE KEYS */;
+INSERT INTO `popular` VALUES (1,100),(3,50);
+/*!40000 ALTER TABLE `popular` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -327,12 +375,12 @@ DROP TABLE IF EXISTS `sector`;
 CREATE TABLE `sector` (
   `idSector` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
-  `popularCantidadMaxima` int(11) DEFAULT NULL,
   `idAuditorio` int(11) DEFAULT NULL,
+  `popularCantidadMaxima` int(11) DEFAULT NULL,
   PRIMARY KEY (`idSector`),
   KEY `sector-auditorio_idx` (`idAuditorio`),
   CONSTRAINT `sector-auditorio` FOREIGN KEY (`idAuditorio`) REFERENCES `auditorio` (`idAuditorio`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -341,7 +389,7 @@ CREATE TABLE `sector` (
 
 LOCK TABLES `sector` WRITE;
 /*!40000 ALTER TABLE `sector` DISABLE KEYS */;
-INSERT INTO `sector` VALUES (1,'popular1',NULL,1),(2,'numerada1',NULL,1),(3,'popular1',NULL,2),(4,'numerada1',NULL,2),(5,'popular1',NULL,3),(6,'numerada1',NULL,3),(7,'sector 1',50,1),(8,'sector A',0,1),(9,'sector A',0,1);
+INSERT INTO `sector` VALUES (1,'popular1',1,100),(2,'numerada1',1,NULL),(3,'popular1',2,50),(4,'numerada1',2,NULL),(5,'popular1',3,80),(6,'numerada1',3,NULL);
 /*!40000 ALTER TABLE `sector` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -363,7 +411,7 @@ CREATE TABLE `tarifa` (
   KEY `tarifa-funcion_idx1` (`idFuncion`),
   CONSTRAINT `tarifa-funcion` FOREIGN KEY (`idFuncion`) REFERENCES `funcion` (`idFuncion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `tarifa-sector` FOREIGN KEY (`idSector`) REFERENCES `sector` (`idSector`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -372,7 +420,7 @@ CREATE TABLE `tarifa` (
 
 LOCK TABLES `tarifa` WRITE;
 /*!40000 ALTER TABLE `tarifa` DISABLE KEYS */;
-INSERT INTO `tarifa` VALUES (1,20,1,1),(2,10,2,1),(3,15,3,2),(4,5,4,2),(5,15,5,3),(6,5,6,3);
+INSERT INTO `tarifa` VALUES (1,20,1,1),(2,10,2,1),(3,15,3,2),(4,5,4,2),(5,15,5,3),(6,5,6,3),(7,2,NULL,NULL);
 /*!40000 ALTER TABLE `tarifa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -521,7 +569,10 @@ CREATE TABLE `usuario` (
   `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombreUsuario` varchar(45) DEFAULT NULL,
   `clave` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idUsuario`)
+  `idPersona` int(11) NOT NULL,
+  PRIMARY KEY (`idUsuario`),
+  KEY `usuario-persona_idx` (`idPersona`),
+  CONSTRAINT `usuario-persona` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -531,13 +582,9 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'juan','juan1'),(2,'roberto','roberto2'),(3,'maria','maria3');
+INSERT INTO `usuario` VALUES (1,'juan','juan1',1),(2,'roberto','roberto2',2),(3,'maria','maria3',3);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'tpticketunla'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -548,4 +595,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-18 19:53:51
+-- Dump completed on 2018-10-26  9:35:55

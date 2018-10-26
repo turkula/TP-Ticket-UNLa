@@ -22,7 +22,8 @@ public class Usuario {
 	public int getIdUsuario() {
 		return idUsuario;
 	}
-//SIEMPRE VA PROTECTED PARA QUE NO SEA MODIFICADO
+    
+	//SIEMPRE VA PROTECTED PARA QUE NO SEA MODIFICADO
 	protected void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
 	}

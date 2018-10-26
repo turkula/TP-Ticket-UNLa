@@ -2,29 +2,35 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
 	<class name="datos.Usuario" table="usuario">
-		<id column="idUsuario" name="idUsuario">
-			<generator class="identity" />
+		<id column="idUsuario" name="idUsuario" type="int">
+			<generator class="identity"/>
 		</id>
 		
 		<property column="nombreUsuario" name="nombreUsuario" type="string" />
 		<property column="clave" name="clave" type="string" />
 		
+		<many-to-one name="persona" class="datos.Persona"
+				column="idPersona" not-null="true" />
+		
 		<joined-subclass name="datos.Cliente" table="cliente">
 			<key column="idCliente" />
+			
+			<property column="fechaNacimiento" name="fechaNacimiento" type="calendar" />
+			
 			<many-to-one name="tipoCliente" class="datos.TipoCliente"
 					 column="idTipoCliente" not-null="true" />
-			<property column="fechaNacimiento" name="fechaNacimiento" type="GregorianCalendar" />
 		</joined-subclass>
 		
 		<joined-subclass name="datos.Administrador" table="administrador">
 			<key column="idAdministrador" />
+			
 			<many-to-one name="auditorio" class="datos.Auditorio"
 				column="idAuditorio" not-null="true" />
+			
 			<many-to-one name="tipoAdministrador" class="datos.TipoAdministrador"
 				column="idTipoAdministrador" not-null="true" />
 		</joined-subclass>
 		
-		<many-to-one name="persona" class="datos.Persona"
-			column="idPersona" not-null="true" />
+		
 	</class>
 </hibernate-mapping>

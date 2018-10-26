@@ -30,11 +30,11 @@ public class Cliente extends Usuario {
 
 
 
-	public TipoCliente getTipoCliente() {
+	public TipoCliente getTipo() {
 		return tipo;
 	}
 
-	public void setTipoCliente(TipoCliente tipo) {
+	public void setTipo(TipoCliente tipo) {
 		this.tipo = tipo;
 	}
 

@@ -9,21 +9,10 @@ public class Administrador extends Usuario{
 
 	public Administrador(){};
 	
-	public int getIdAdministrador() {
-		return idAdministrador;
-	}
 
-	public void setIdAdministrador(int idAdministrador) {
-		this.idAdministrador = idAdministrador;
-	}
-
-<<<<<<< HEAD
 	
 	
 	
-=======
-
->>>>>>> 307babe4fe03843a33336b03882dd24839994f04
 	public Administrador(String nombreUsuario, String clave, Persona persona, Auditorio auditorio,
 			TipoAdministrador tipo) {
 		super(nombreUsuario, clave, persona);

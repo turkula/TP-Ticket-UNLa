@@ -21,8 +21,6 @@ public class TipoCliente {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "TipoCliente [idTipoCliente=" + idTipoCliente + ", nombre=" + nombre + "]";

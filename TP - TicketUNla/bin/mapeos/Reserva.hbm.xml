@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
-<<<<<<< HEAD
 	<class name="datos.Reserva" table="reserva">
 		<id column="idReserva" name="idReserva" type="int">
 			<generator class="identity" />
@@ -13,15 +12,5 @@
 			<key column="idReserva" not-null="true" />
 			<one-to-many class="datos.Ticket" />
 		</set>
-=======
-		<class name="datos.Reserva" table="reserva">
-			<id column="idReserva" name="idReserva">
-				<generator class="identity" />
-			</id>
-			<set table="ticket" name="tickets" outer-join="true">
-				<key column="idReserva"/>
-				<many-to-many column="idTicket" class="datos.Reserva"/>
-			</set>
->>>>>>> 307babe4fe03843a33336b03882dd24839994f04
 	</class>
 </hibernate-mapping>

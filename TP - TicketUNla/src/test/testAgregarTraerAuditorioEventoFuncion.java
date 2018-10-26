@@ -104,12 +104,12 @@ public class testAgregarTraerAuditorioEventoFuncion {
 		for(Butaca b: butacas) {
 			System.out.println(b);
 		}
-		/*
-		butacas = tiabm.traerButacas(1);
+		
+		butacas = tiabm.traerButacasXfuncionYSector(1, 2);
 		for(Butaca b: butacas) {
 			System.out.println(b);
 		}
-		*/
+		
 	}
 
 }

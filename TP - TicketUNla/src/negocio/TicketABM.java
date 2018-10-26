@@ -33,8 +33,8 @@ public class TicketABM {
         dao.eliminar(d);
     }
 
-    public List<Butaca> traerButacas(int idFuncion){
-        return dao.traerButacas(idFuncion);
+    public List<Butaca> traerButacasXfuncionYSector(int idFuncion, int idSector){
+        return dao.traerButacasXfuncionYSector(idFuncion, idSector);
     }
     
 

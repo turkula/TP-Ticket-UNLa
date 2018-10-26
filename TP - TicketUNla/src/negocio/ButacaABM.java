@@ -35,6 +35,8 @@ public class ButacaABM {
         return dao.traerButacas(s);
     }
     
-
-
+    public List<Butaca> traerButacas(int idFuncion)
+    {
+        return dao.traerButacas(idFuncion);
+    }
 }

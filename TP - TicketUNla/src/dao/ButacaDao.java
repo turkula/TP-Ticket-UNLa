@@ -91,7 +91,6 @@ public class ButacaDao {
 	}
 	
 
-	
 	/*
 	@SuppressWarnings("unchecked")
 	public List<Empleado> traerEmpleado() throws HibernateException {

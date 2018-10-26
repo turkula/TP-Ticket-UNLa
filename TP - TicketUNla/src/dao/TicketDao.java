@@ -81,13 +81,15 @@ public class TicketDao {
 		return objeto;
 	}
 	
-	public List<Butaca> traerButacas(int idFuncion) throws HibernateException {
+	public List<Butaca> traerButacasXfuncionYSector(int idFuncion, int idSector) throws HibernateException {
 		List<Butaca> lista = null;
 		try {
 			iniciaOperacion();
-			String hql = "select new list (t.butaca) from Ticket t inner join fetch t.funcion f"
-					+ " inner join fetch t.butaca where s.idFuncion="+ idFuncion;
-			lista = session.createQuery(hql).list();
+			String hql = "select (t.butaca) from Ticket t inner join t.sector s"
+					+ " inner join t.funcion f"
+					+ " inner join t.butaca where f.idFuncion= :idFuncion "
+					+ " and s.idSector = "+ idSector;
+			lista = session.createQuery(hql).setInteger("idFuncion", idFuncion).list();
 		} finally {
 			session.close();
 		}

@@ -8,10 +8,15 @@
 		
 		<property column="nombreUsuario" name="nombreUsuario" type="string" />
 		<property column="clave" name="clave" type="string" />
+<<<<<<< HEAD
 		
 		<many-to-one name="persona" class="datos.Persona"
 				column="idPersona" not-null="true" />
 		
+=======
+		<many-to-one name="persona" class="datos.Persona"
+			column="idPersona" not-null="true" />
+>>>>>>> 307babe4fe03843a33336b03882dd24839994f04
 		<joined-subclass name="datos.Cliente" table="cliente">
 			<key column="idCliente" />
 			
@@ -19,6 +24,10 @@
 			
 			<many-to-one name="tipoCliente" class="datos.TipoCliente"
 					 column="idTipoCliente" not-null="true" />
+<<<<<<< HEAD
+=======
+			<property column="fechaNacimiento" name="fechaNacimiento" type="calendar" />
+>>>>>>> 307babe4fe03843a33336b03882dd24839994f04
 		</joined-subclass>
 		
 		<joined-subclass name="datos.Administrador" table="administrador">
@@ -31,6 +40,9 @@
 				column="idTipoAdministrador" not-null="true" />
 		</joined-subclass>
 		
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 307babe4fe03843a33336b03882dd24839994f04
 	</class>
 </hibernate-mapping>

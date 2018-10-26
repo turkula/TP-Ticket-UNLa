@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<!-- <class name = "datos.Usuario" table = "usuario"> -->
+<!-- <id column = "idUsuario" name = "idUsuario"> -->
+<!-- <generator class = "identity"/> -->
+<!-- </id> -->
+<!-- <property column = "nombreUsuario" name = "nombreUsuario" type = "string"/> -->
+<!-- <property column = "clave" name = "clave" type = "string"/> -->
+<!-- <joined-subclass name = "datos.Cliente" table = "cliente"> -->
+<!-- <key column = "idCliente"/> -->
+<!-- <property column = "fechaNacimiento" name = "fechaNacimiento" type = "GregorianCalendar"/> -->
+<!-- </joined-subclass> -->
+<!-- <joined-subclass name = "datos.Administrador" table = "administrador"> -->
+<!-- <key column = "idAdministrador"/> -->
+<!-- <property column = "auditorio" name = "auditorio" type = "Auditorio"/> -->
+<!-- </joined-subclass> -->
+<!-- <many-to-one name = "persona" class = "datos.Persona" column = "idCliente" not-null = "true"/> -->
+<!-- </class> -->
+</hibernate-mapping>

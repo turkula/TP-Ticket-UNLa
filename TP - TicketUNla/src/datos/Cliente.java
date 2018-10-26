@@ -19,12 +19,22 @@ public class Cliente extends Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	
+<<<<<<< HEAD
+=======
+//	
+>>>>>>> 307babe4fe03843a33336b03882dd24839994f04
 
 	public int getIdCliente() {
 		return idCliente;
 	}
 
+<<<<<<< HEAD
 	protected void setIdCliente(int idCliente) {
+=======
+
+
+	public void setIdCliente(int idCliente) {
+>>>>>>> 307babe4fe03843a33336b03882dd24839994f04
 		this.idCliente = idCliente;
 	}
 

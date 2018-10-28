@@ -29,4 +29,33 @@
   	<url-pattern>/ControladorTraerEvento</url-pattern>	
   </servlet-mapping>
   
+  <!--   ControladorTraerFuncion -->
+  <servlet>
+  	<servlet-name>ControladorTraerFuncion</servlet-name>
+  	<servlet-class>controladores.ControladorTraerFuncion</servlet-class>  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ControladorTraerFuncion</servlet-name>
+  	<url-pattern>/ControladorTraerFuncion</url-pattern>	
+  </servlet-mapping>
+  
+    <!--   ControladorTraerSector -->
+  <servlet>
+  	<servlet-name>ControladorTraerSector</servlet-name>
+  	<servlet-class>controladores.ControladorTraerSector</servlet-class>  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ControladorTraerSector</servlet-name>
+  	<url-pattern>/ControladorTraerSector</url-pattern>	
+  </servlet-mapping>
+  
+<!--   ControladorHacerGrilla -->
+   <servlet>
+  	<servlet-name>ControladorHacerGrilla</servlet-name>
+  	<servlet-class>controladores.ControladorHacerGrilla</servlet-class>  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ControladorHacerGrilla</servlet-name>
+  	<url-pattern>/ControladorHacerGrilla</url-pattern>	
+  </servlet-mapping>
 </web-app>

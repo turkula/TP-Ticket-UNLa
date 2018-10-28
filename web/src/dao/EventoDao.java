@@ -91,7 +91,7 @@ public class EventoDao {
 		return objeto;
 	}
 	
-	public List<Evento> traerEventoPorAuditorioYTipoEvento(int idAuditorio, int idTipoEvento) throws HibernateException {
+	public List<Evento> traerEventoPorAuditorioYTipoEvento( int idTipoEvento,int idAuditorio) throws HibernateException {
 		List<Evento> objeto = null;
 		try {
 			iniciaOperacion();
@@ -99,6 +99,7 @@ public class EventoDao {
 					+ " inner join fetch e.auditorio a"
 					+ " where t.idTipoEvento = :idTipoEvento"
 					+ " and a.idAuditorio= :idAuditorio" ;
+		
 			objeto = (List<Evento>) session.createQuery(hql).setInteger("idTipoEvento", idTipoEvento).setInteger("idAuditorio", idAuditorio).list();
 		} finally {
 			session.close();

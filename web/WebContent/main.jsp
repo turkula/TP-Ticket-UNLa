@@ -87,6 +87,14 @@
                                         </div> -->
                                     </div>  
                                     <div class="row ">
+                                    	<div class="form-group" >
+                                            <div class="col-5 ">
+                                                    <label for="selectSector">Seleccione un sector:</label>
+                                            </div>
+                                            <select class="form-control" id="selectSector">
+                                        		<option value="" >Seleccione</option>
+                                        	</select>
+                                        </div>
                                         <div >
                                             <div class="col-5">
                                                     <label for="selectAuditorioCine">Ingrese Codigo de descuento(Opcional):</label>

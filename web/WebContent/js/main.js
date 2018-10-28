@@ -105,32 +105,76 @@ $( "#selectAuditorioCine" ).change(function() {
 	    populateSelect('selectEventoCine',JSON.parse(data),false)
 	})
 	
-    
-    
-//    populateSelect('selectEventoCine',arrayComplejos[idComplejo-1].eventos,false);
-  });
+      });
 
+//lleno funcion
   $( "#selectEventoCine" ).change(function() {
     $("#tablaAsientos tr").remove();
-    var idComplejo = $('#selectAuditorioCine').val();
-    var idPelicula = $('#selectEventoCine').val();
-    populateSelect('selectFuncionCine',arrayComplejos[idComplejo-1].eventos[idPelicula-1].funciones,false);
+    
+    var idAuditorio = $('#selectAuditorioCine').val();
+    var idEvento = $('#selectEventoCine').val();
+    
+    $.ajax({
+		method:"POST",
+		url:"ControladorTraerFuncion",
+		data:{
+				idTipo:3,
+				idAuditorio:idAuditorio,
+				idEvento:idEvento
+			},
+		async:true
+	}).done(function (data){
+	    populateSelect('selectFuncionCine',JSON.parse(data),false)
+	})
+    
   });
 
+//  Select sectores
   $( "#selectFuncionCine" ).change(function() {
     $("#tablaAsientos tr").remove();
-    var idComplejo = $('#selectAuditorioCine').val();
+    var idAuditorio = $('#selectAuditorioCine').val();
     var idPelicula = $('#selectEventoCine').val();
     var idFuncion = $('#selectFuncionCine').val();
-
-    var cantFilas = arrayComplejos[idComplejo-1].cantidadFilas
-    var cantColumnas = arrayComplejos[idComplejo-1].cantidadColumnas
-    var butacasOcupadas = arrayComplejos[idComplejo-1].eventos[idPelicula-1].funciones[idFuncion-1].butacasOcupadas
-
-    hacerGrilla(cantFilas,cantColumnas,butacasOcupadas);
+    
+    $.ajax({
+		method:"POST",
+		url:"ControladorTraerSector",
+		data:{
+				idAuditorio:idAuditorio,
+				idFuncion:idFuncion
+			},
+		async:true
+	}).done(function (data){
+	    populateSelect('selectSector',JSON.parse(data),false)
+	})
+    
+//    hacerGrilla(cantFilas,cantColumnas,butacasOcupadas);
   });
 
-
+//  LLENO GRILLA
+  $( "#selectSector" ).change(function() {
+	    $("#tablaAsientos tr").remove();
+	    var idSector = $('#selectSector').val();
+	    var idFuncion = $('#selectFuncionCine').val();
+	    
+	    $.ajax({
+			method:"POST",
+			url:"ControladorHacerGrilla",
+			data:{
+					idAuditorio:idAuditorio,
+					idFuncion:idFuncion
+				},
+			async:true
+		}).done(function (data){
+		    
+		})
+	    
+//	    hacerGrilla(cantFilas,cantColumnas,butacasOcupadas);
+	  });
+  
+  
+  
+  
 $('#btnLogin').click(function(){
 
     var data = {

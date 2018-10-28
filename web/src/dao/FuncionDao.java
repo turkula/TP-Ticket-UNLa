@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import java.util.List;
 import java.util.Map;
 
+import datos.Evento;
 import datos.Funcion;
 
 public class FuncionDao {
@@ -85,5 +86,16 @@ public class FuncionDao {
 		return objeto;
 	}
 	
+	public List<Funcion> traerFuncionPorEvento(int idEvento) throws HibernateException {
+		List<Funcion> objeto = null;
+		try {
+			iniciaOperacion();
+			String hql ="from Funcion where idEvento = :idEvento " ;
+			objeto = (List<Funcion>) session.createQuery(hql).setInteger("idEvento", idEvento).list();
+		} finally {
+			session.close();
+		}
+		return objeto;
+	}
 
 }

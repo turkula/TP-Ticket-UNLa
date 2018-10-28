@@ -38,8 +38,11 @@ public class FuncionABM {
 		dao.eliminar(f);
 	}
 
-
-	
-
+	public List<Funcion> traerFuncionPorEventos(int idEvento) throws Exception {
+		List<Funcion> e = dao.traerFuncionPorEvento(idEvento);
+		if (e == null)
+			throw new Exception("Error: la Funcion no existe");
+		return e;
+	}	
 
 }

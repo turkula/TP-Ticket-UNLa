@@ -62,8 +62,14 @@ public class testAgregarTraerAuditorioEventoFuncion {
 //		evenabm.agregar("Indio Solari", evento.getTipoEvento(), evento.getFunciones(), evento.getAuditorio());
 	
 
-		List<Evento> eventos = evenabm.traerEventoPorAuditorioYTipoEvento(3, 4);
-		System.out.println(eventos);		
+//		List<Evento> eventos = evenabm.traerEventoPorAuditorioYTipoEvento(3, 4);
+
+//		for(Evento e:eventos) {
+//			System.out.println("asdasd");
+//
+//			System.out.println(e.toString());
+//		}
+//		System.out.println(eventos);		
 			
 		
 		//TRAER Y AGREGAR AUDITORIO

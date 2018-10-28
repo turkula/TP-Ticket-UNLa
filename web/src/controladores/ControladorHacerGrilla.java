@@ -18,9 +18,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
 import datos.Auditorio;
+import datos.Butaca;
 import datos.Funcion;
 import datos.Sector;
 import negocio.AuditorioABM;
+import negocio.ButacaABM;
 import negocio.FuncionABM;
 import negocio.SectorABM;
 
@@ -60,6 +62,46 @@ public class ControladorHacerGrilla extends HttpServlet {
 		
 	}
 	
+	public class ButacaX{
+		public int id;
+		public int fila;
+		public int columna;
+		
+		public ButacaX(int id, int fila, int columna) {
+			super();
+			this.id = id;
+			this.fila = fila;
+			this.columna = columna;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public int getFila() {
+			return fila;
+		}
+
+		public void setFila(int fila) {
+			this.fila = fila;
+		}
+
+		public int getColumna() {
+			return columna;
+		}
+
+		public void setColumna(int columna) {
+			this.columna = columna;
+		}
+		
+		
+		
+	}
+	
 	protected void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		try {
 			procesarPeticion(request,response);
@@ -81,24 +123,38 @@ public class ControladorHacerGrilla extends HttpServlet {
 	private void procesarPeticion(HttpServletRequest request,HttpServletResponse response)throws Exception {
 //		response.setContentType("text/html;charset=UTF8");
 		response.setContentType("text/plain");
-		
+		ButacaABM butacaABM = new ButacaABM();
 		SectorABM sectorABM= new SectorABM();
 		PrintWriter out = response.getWriter();
 		ObjectMapper mapper = new ObjectMapper();
 		
-		int idAuditorio = Integer.parseInt(request.getParameter("idAuditorio"));
+		int idSector = Integer.parseInt(request.getParameter("idSector"));
 		int idFuncion = Integer.parseInt(request.getParameter("idFuncion"));
 
-		List<Sector> sectores = sectorABM.traerSectoresPorAuditorio(idAuditorio);
-		List<SectorX> listaSectores= new ArrayList<SectorX>();
+		Sector sector = sectorABM.traerSector(idSector);
 		
-		for(Sector sector: sectores){
+		List<Object> respuesta = new ArrayList<Object>();
+		
+		if(sector.getPopularCantidadMaxima()>0) {
 			SectorX x=new SectorX(sector.getIdSector(),sector.getDescripcion(),sector.getPopularCantidadMaxima());
-			listaSectores.add(x);
+			respuesta.add(x);
+			respuesta.add(0);
+		}else {
+			
+			List<ButacaX> listaButacas = new ArrayList<ButacaX>();
+			List<Butaca> butacas = butacaABM.traeButacas(sectorABM.traerSector(idSector));
+//			
+			for(Butaca butaca: butacas){
+				ButacaX b=new ButacaX(butaca.getIdButaca(), butaca.getFila(), butaca.getColumna());
+				listaButacas.add(b);
+			}
+			respuesta.add(listaButacas);
+			respuesta.add(1);
 		}
 		
-        String res = mapper.writeValueAsString(listaSectores);	
-		out.println(res);
+		
+        String res = mapper.writeValueAsString(respuesta);	
+		out.println(res);	
 
 	}
 	  

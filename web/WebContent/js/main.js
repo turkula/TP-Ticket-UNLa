@@ -148,7 +148,6 @@ $( "#selectAuditorioCine" ).change(function() {
 	    populateSelect('selectSector',JSON.parse(data),false)
 	})
     
-//    hacerGrilla(cantFilas,cantColumnas,butacasOcupadas);
   });
 
 //  LLENO GRILLA
@@ -161,15 +160,20 @@ $( "#selectAuditorioCine" ).change(function() {
 			method:"POST",
 			url:"ControladorHacerGrilla",
 			data:{
-					idAuditorio:idAuditorio,
+					idSector:idSector,
 					idFuncion:idFuncion
 				},
 			async:true
 		}).done(function (data){
+		    data=JSON.parse(data);
+		    console.log(data)
+		    if(data[1]==1){
+		    	hacerGrilla(data[0],data[1]);	
+		    }
+		    
+		    
 		    
 		})
-	    
-//	    hacerGrilla(cantFilas,cantColumnas,butacasOcupadas);
 	  });
   
   
@@ -201,28 +205,27 @@ $('#menosEntrada').click(function(){
    }
 })
 
-function hacerGrilla(filas,columnas,arrayButacasOcupadas){
-    console.log(arrayButacasOcupadas);
+var butacasArray=[]
+function hacerGrilla(arrayButacas,arrayButacasOcupadas){    
     var grilla = '<table>'
     var numeracion = 0;
-    for (i = 1; i <= filas; i++) {
-        grilla+='<tr>'
-        for(y=1;y<=columnas;y++){
-            numeracion++
-
-            // PINTO BUTACAS OCUPADAS DE ROJO
-            color="";
-            arrayButacasOcupadas.forEach(function(element){
-                // console.log(element);
-                if(numeracion==element){
-                    color="rojo";
-                }
-            })
-
-            grilla+='<td><div id="butaca'+numeracion+'" class="circle text-center '+color+'" onclick=reservarButaca('+i+','+y+','+numeracion+')>'+numeracion+'</div></td>';
-        }
-        grilla+='</tr>'
+    var butacasArray=arrayButacas;
+    var fila=arrayButacas[0].fila
+    grilla+='<tr>';
+    
+      
+    for(var i=0;i<butacasArray.length;i++){
+    	console.log(butacasArray[i])
+    	if(fila!=butacasArray[i].fila){
+    		grilla+='</tr>';
+    		grilla+='<tr>';
+    	}
+    	color="";
+    	
+    	grilla+='<td><div id="butaca'+butacasArray[i].id+'" class="circle text-center '+color+'" onclick=reservarButaca('+butacasArray[i].fila+','+butacasArray[i].columna+','+butacasArray[i].id+')>'+butacasArray[i].id+'</div></td>';	
+    	fila=arrayButacas[i].fila
     }
+    grilla+='</tr>';
     grilla+='</table>'
 
     $('#tablaAsientos').append(grilla);

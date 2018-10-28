@@ -8,6 +8,8 @@
   <welcome-file-list>
     <welcome-file>main.jsp</welcome-file>
   </welcome-file-list>
+  
+<!--   ControladorTraerAuditorio -->
   <servlet>
   	<servlet-name>ControladorTraerAuditorio</servlet-name>
   	<servlet-class>controladores.ControladorTraerAuditorio</servlet-class>  	
@@ -16,4 +18,15 @@
   	<servlet-name>ControladorTraerAuditorio</servlet-name>
   	<url-pattern>/ControladorTraerAuditorio</url-pattern>	
   </servlet-mapping>
+  
+<!--   ControladorTraerEvento -->
+  <servlet>
+  	<servlet-name>ControladorTraerEvento</servlet-name>
+  	<servlet-class>controladores.ControladorTraerEvento</servlet-class>  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ControladorTraerEvento</servlet-name>
+  	<url-pattern>/ControladorTraerEvento</url-pattern>	
+  </servlet-mapping>
+  
 </web-app>

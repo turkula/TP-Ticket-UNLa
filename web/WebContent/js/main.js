@@ -73,26 +73,41 @@ var complejo2 = {
 arrayComplejos=[complejo1,complejo2]
 
 $( document ).ready(function() {
-	
+	//leno select auditorio
 	$.ajax({
 		method:"POST",
 		url:"ControladorTraerAuditorio",
 		data:{tipo:3},
 		async:true
 	}).done(function (data){
-		console.log(data);
+	    populateSelect('selectAuditorioCine',JSON.parse(data),false)
 	})
 	
 	
-//    populateSelect('selectAuditorioCine',arrayComplejos,false)
 })
 
 //fill selet pelicula
 $( "#selectAuditorioCine" ).change(function() {
     $("#tablaAsientos tr").remove(); 
     $('#selectFuncionCine').val('')
+    
+  
     var idComplejo = $('#selectAuditorioCine').val();
-    populateSelect('selectEventoCine',arrayComplejos[idComplejo-1].eventos,false);
+    $.ajax({
+		method:"POST",
+		url:"ControladorTraerEvento",
+		data:{
+				idAuditorio:idComplejo,
+				idTipo:3
+			},
+		async:true
+	}).done(function (data){
+	    populateSelect('selectEventoCine',JSON.parse(data),false)
+	})
+	
+    
+    
+//    populateSelect('selectEventoCine',arrayComplejos[idComplejo-1].eventos,false);
   });
 
   $( "#selectEventoCine" ).change(function() {

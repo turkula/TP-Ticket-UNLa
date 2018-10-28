@@ -56,27 +56,29 @@ public class testAgregarTraerAuditorioEventoFuncion {
 		fDao.agregar(funcion);
 */
 		// TRAER Y AGREGAR EVENTO
-/*		
-		Evento evento = evenabm.traerEventoCompleto(1);
-		System.out.println(evento);
-		evenabm.agregar("Indio Solari", evento.getTipoEvento(), evento.getFunciones(), evento.getAuditorio());
+		
+//		Evento evento = evenabm.traerEventoCompleto(1);
+//		System.out.println(evento);
+//		evenabm.agregar("Indio Solari", evento.getTipoEvento(), evento.getFunciones(), evento.getAuditorio());
 	
 
-		List<Evento> eventos = evenabm.traerEventoPorAuditorioYTipoEvento(1, 1);
+		List<Evento> eventos = evenabm.traerEventoPorAuditorioYTipoEvento(3, 4);
 		System.out.println(eventos);		
 			
-*/		
+		
 		//TRAER Y AGREGAR AUDITORIO
 	
 //		Auditorio auditorio = audabm.traerAuditorio(1);
 //		auditorio= audabm.traerAuditorioCompleto(1);
 //		System.out.println(auditorio);
  
-		List<Auditorio> auditoriosXtipo = audabm.traerAuditoriosPorTipo(2);
-		for(Object lista: auditoriosXtipo){
-			System.out.println(lista);
-		}
-	
+//		List<Auditorio> auditoriosXtipo = audabm.traerAuditoriosPorTipo(2);
+//		for(Object lista: auditoriosXtipo){
+//			System.out.println(lista);
+//		}
+//		Object auditorioOut=audabm.traerAuditorio(1);
+//		System.out.println(auditorioOut.toString());
+
 //		auditoriosXtipo = audabm.traerAuditoriosPorTipoDeEvento(2);
 //		for(Object lista: auditoriosXtipo){
 //			System.out.println(lista);

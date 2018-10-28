@@ -61,13 +61,12 @@ public class Auditorio {
 	public void setSectores(Set<Sector> sectores) {
 		this.sectores = sectores;
 	}
-/*
+
     @Override
 	public String toString() {
-		return "Auditorio [idAuditorio=" + idAuditorio + ", nombre=" + nombre + ", tipo=" + tipo + ", eventos="
-				+ eventos + ", sectores=" + sectores + "]";
+		return "Auditorio [idAuditorio=" + idAuditorio + ", nombre=" + nombre + ", tipo=" + tipo + "]";
 	}
-  */
+  
 
 	public void agregarSectorPopular(String descripcion,int cantidadMaxima)throws Exception{
 			SectorABM sectorABM = new SectorABM();

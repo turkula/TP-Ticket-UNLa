@@ -92,13 +92,13 @@ public class AuditorioDao {
 		return objeto;
 	}
 	
-	public List<Object> traerAuditoriosPorTipo (int idTipoAuditorio) throws HibernateException {
-		List<Object> objeto = null;
+	public List<Auditorio> traerAuditoriosPorTipo (int idTipoAuditorio) throws HibernateException {
+		List<Auditorio> objeto = null;
 		try {
 			iniciaOperacion();
 			String hql ="from Auditorio a inner join fetch a.tipoAuditorio t "
 					+ "where t.idTipoAuditorio ="+idTipoAuditorio;
-			objeto = (List<Object>) session.createQuery(hql).list();
+			objeto = (List<Auditorio>) session.createQuery(hql).list();
 		} finally {
 			cerrarSesion(session);
 		}

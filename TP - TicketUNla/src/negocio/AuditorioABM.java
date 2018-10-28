@@ -48,17 +48,17 @@ public class AuditorioABM {
 	}
 	
 	
-	public List<Object> traerAuditoriosPorTipo(int idTipoAuditorio) throws Exception {
-		List<Object> a = dao.traerAuditoriosPorTipo(idTipoAuditorio);
+	public List<Auditorio> traerAuditoriosPorTipo(int idTipoAuditorio) throws Exception {
+		List<Auditorio> a = dao.traerAuditoriosPorTipo(idTipoAuditorio);
 		if (a == null)
 			throw new Exception("Error: el Auditorio no existe");
 		return a;
 	}
 
-	public List<Object> traerAuditoriosPorTipoDeEvento(int idTipoEvento) throws Exception {
-		List<Object> a = dao.traerAuditoriosPorTipo(idTipoEvento);
-		if (a == null)
-			throw new Exception("Error: el Auditorio no existe");
-		return a;
-	}
+//	public List<Object> traerAuditoriosPorTipoDeEvento(int idTipoEvento) throws Exception {
+//		List<Object> a = dao.traerAuditoriosPorTipo(idTipoEvento);
+//		if (a == null)
+//			throw new Exception("Error: el Auditorio no existe");
+//		return a;
+//	}
 }

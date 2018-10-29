@@ -25,6 +25,7 @@ import negocio.AuditorioABM;
 import negocio.ButacaABM;
 import negocio.FuncionABM;
 import negocio.SectorABM;
+import negocio.TicketABM;
 
 public class ControladorHacerGrilla extends HttpServlet {
 	
@@ -125,6 +126,7 @@ public class ControladorHacerGrilla extends HttpServlet {
 		response.setContentType("text/plain");
 		ButacaABM butacaABM = new ButacaABM();
 		SectorABM sectorABM= new SectorABM();
+		TicketABM tiabm =new TicketABM();
 		PrintWriter out = response.getWriter();
 		ObjectMapper mapper = new ObjectMapper();
 		
@@ -149,6 +151,20 @@ public class ControladorHacerGrilla extends HttpServlet {
 				listaButacas.add(b);
 			}
 			respuesta.add(listaButacas);
+			
+			//butacas ocupadas
+			List<ButacaX> listaButacasOcupadas =new ArrayList<ButacaX>();
+			System.out.println(idFuncion);
+			System.out.println(idSector);
+
+			List<Butaca>butacasOcupadas = tiabm.traerButacasXfuncionYSector(idFuncion, idSector);
+			
+			for(Butaca butaca: butacasOcupadas){
+				ButacaX b=new ButacaX(butaca.getIdButaca(), butaca.getFila(), butaca.getColumna());
+				listaButacasOcupadas.add(b);
+			}
+			
+			respuesta.add(listaButacasOcupadas);
 			respuesta.add(1);
 		}
 		

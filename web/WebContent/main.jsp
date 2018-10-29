@@ -20,7 +20,7 @@
             <img src="image/logo-UNLa.jpg" alt="logoUNLa" height="100" width="100">
         </div>
         <div>
-            <h1 class="text-center">Ticketsss UNLa</h1>
+            <h1 class="text-center">Tickets UNLa</h1>
         </div>
     </div>
 </header>

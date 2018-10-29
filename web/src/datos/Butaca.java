@@ -51,7 +51,7 @@ public class Butaca {
 
 	@Override
 	public String toString() {
-		return "Butaca [fila=" + fila + ", columna=" + columna + "]";
+		return "Butaca [id= "+idButaca +" fila=" + fila + ", columna=" + columna + "]";
 	}
 	
 	

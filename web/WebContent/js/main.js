@@ -1,76 +1,6 @@
 var arrayButacasCine = []
 
-var complejo1 = {
-    id:1,
-    nombre:"Cine Avellaneda",
-    cantidadFilas:8,
-    cantidadColumnas:12,
-    eventos:[{
-                id:1,
-                nombre:"Esperando la carroza",
-                funciones:[{
-                            id:1,
-                            nombre:"18/10 - 18:00hs",
-                            butacasOcupadas:[]
-                        },
-                        {
-                        id:2,
-                        nombre:"18/10 - 20:00hs",
-                        butacasOcupadas:[]
-                    }]
-            },
-            {
-                id:2,
-                nombre:"El secreto de sus Ojos",
-                funciones:[{
-                            id:1,
-                            nombre:"18/10 - 18:00hs",
-                            butacasOcupadas:[]
-                        },
-                        {
-                        id:2,
-                        nombre:"18/10 - 20:00hs",
-                        butacasOcupadas:[]
-                    }]
-            }]
-}
 
-var complejo2 = {
-    id:2,
-    nombre:"Cine Rosario",
-    cantidadFilas:5,
-    cantidadColumnas:5,
-    eventos:[{
-                id:1,
-                nombre:"La llamada",
-                funciones:[{
-                            id:1,
-                            nombre:"18/10 - 18:00hs",
-                            butacasOcupadas:[]
-                        },
-                        {
-                        id:2,
-                        nombre:"18/10 - 20:00hs",
-                        butacasOcupadas:[]
-                    }]
-            },
-            {
-                id:2,
-                nombre:"Okupas",
-                funciones:[{
-                            id:1,
-                            nombre:"18/10 - 18:00hs",
-                            butacasOcupadas:[]
-                        },
-                        {
-                        id:2,
-                        nombre:"18/10 - 20:00hs",
-                        butacasOcupadas:[]
-                    }]
-            }]
-}
-
-arrayComplejos=[complejo1,complejo2]
 
 $( document ).ready(function() {
 	//leno select auditorio
@@ -90,7 +20,8 @@ $( document ).ready(function() {
 $( "#selectAuditorioCine" ).change(function() {
     $("#tablaAsientos tr").remove(); 
     $('#selectFuncionCine').val('')
-    
+    $('#selectSector').val('')
+
   
     var idComplejo = $('#selectAuditorioCine').val();
     $.ajax({
@@ -107,8 +38,12 @@ $( "#selectAuditorioCine" ).change(function() {
 	
       });
 
-//lleno funcion
+//lleno evento
   $( "#selectEventoCine" ).change(function() {
+	  $('#selectSector').val('')
+	      $('#selectFuncionCine').val('')
+
+
     $("#tablaAsientos tr").remove();
     
     var idAuditorio = $('#selectAuditorioCine').val();
@@ -166,7 +101,7 @@ $( "#selectAuditorioCine" ).change(function() {
 			async:true
 			}).done(function (data){
 		    data=JSON.parse(data);
-		    if(data[1]==1){
+		    if(data[2]==1){
 		    	hacerGrilla(data[0],data[1]);	
 		    }
 		    
@@ -205,9 +140,10 @@ $('#menosEntrada').click(function(){
 })
 
 var butacasArray=[]
-function hacerGrilla(arrayButacas,arrayButacasOcupadas){    
+function hacerGrilla(arrayButacas,arrayButacasOcupadas){   
     var grilla = '<table>'
     var numeracion = 0;
+    var arrayButacasOcupadas=arrayButacasOcupadas;
     var butacasArray=arrayButacas;
     var fila=arrayButacas[0].fila
     grilla+='<tr>';
@@ -219,6 +155,12 @@ function hacerGrilla(arrayButacas,arrayButacasOcupadas){
     		grilla+='<tr>';
     	}
     	color="";
+    	
+    	for(var y=0;y<arrayButacasOcupadas.length;y++){
+    		if(butacasArray[i].id==arrayButacasOcupadas[y].id){
+    			color="rojo";
+    		}
+    	}
     	
     	grilla+='<td><div id="butaca'+butacasArray[i].id+'" class="circle text-center '+color+'" onclick=reservarButaca('+butacasArray[i].fila+','+butacasArray[i].columna+','+butacasArray[i].id+')>'+butacasArray[i].id+'</div></td>';	
     	fila=arrayButacas[i].fila
@@ -263,37 +205,49 @@ function reservarButaca(fila,columna,id){
 
 $('#btnReservar').click(function(){
     if(arrayButacasCine.length<=0){
+
         alertify.alert("Por favor seleccione una butaca");
+    }else{
+
+        var idSector = $('#selectSector').val();
+        var idFuncion = $('#selectFuncionCine').val();
+        
+        var array=[];
+		
+arrayButacasCine.forEach(function(butaca) {
+	array.push(butaca.id);
+	});
+	
+
+        $.ajax({
+    		method:"POST",
+    		url:"ControladorHacerReserva",
+    		data:{
+    				idSector:idSector,
+    				idFuncion:idFuncion,
+    				arrayButaca:JSON.stringify(array)
+    			},
+    		async:true
+    		}).done(function (data){
+    			console.log(data);
+//    			if(data=="OK"){
+    				alertify.alert("Su reserva se realizo con exito");
+//    			}
+    		})
+        
+        
+        $("#tablaAsientos tr").remove();
+  	  	$('#selectAuditorioCine').val('')
+  	  	$('#selectEventoCine').val('')
+		$('#selectFuncionCine').val('')
+		$('#selectSector').val('')
+
+
+
+
+        arrayButacasCine=[];
     }
 
-    var idSector = $('#selectSector').val();
-    var idFuncion = $('#selectFuncionCine').val();
-
-    console.log(arrayButacasCine);
-    var arrayButaca = [1,2];
-    
-    $.ajax({
-		method:"POST",
-		url:"ControladorHacerReserva",
-		data:{
-				idSector:idSector,
-				idFuncion:idFuncion,
-				arrayButaca:JSON.stringify([1,2])
-			},
-		async:true
-		}).done(function (data){
-			console.log(data);
-//			if(data=="OK"){
-				alertify.alert("Su reserva se realizo con exito");
-//			}
-		})
-    
-    
-    $("#tablaAsientos tr").remove();
-
-
-
-    arrayButacasCine=[];
 });
 
 

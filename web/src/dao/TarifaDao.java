@@ -1,6 +1,9 @@
 package dao;
 
 import datos.Tarifa;
+
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -67,6 +70,22 @@ public class TarifaDao {
         }
         return objeto;
     }
+    
+    public Tarifa traerTarifa(int idSector, int idFuncion) throws HibernateException {
+        Tarifa objeto = null;
+        try {
+            iniciaOperacion();
+            String hql="from Tarifa t inner join fetch t.sector s"
+            		+" inner join fetch t.funcion f "
+            		+" where s.idSector = :idSector and "
+            		+ "f.idFuncion ="+idFuncion;
+            		
+            objeto = (Tarifa) session.createQuery(hql).setInteger("idSector", idSector).uniqueResult();
+        } finally {
+            session.close();
+        }
 
+        return objeto;
+    }
 
 }

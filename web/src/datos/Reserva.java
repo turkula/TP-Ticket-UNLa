@@ -10,6 +10,13 @@ public class Reserva {
 	public Reserva() {
 		super();
 	}
+	
+
+	public Reserva(Set<Ticket> tickets) {
+		super();
+		this.tickets = tickets;
+	}
+
 
 	public int getIdReserva() {
 		return idReserva;

@@ -26,4 +26,12 @@ public class TarifaABM {
         Tarifa d = dao.traerTarifa(idTarifa);
         dao.eliminar(d);
     }
+    
+    public Tarifa traerTarifa(int idSector, int idFuncion)throws Exception{
+        Tarifa d=dao.traerTarifa(idSector, idFuncion);
+        if(d==null)
+            throw new Exception("Error:la Tarifa no existe");
+        return d;
+    }
+    
 }

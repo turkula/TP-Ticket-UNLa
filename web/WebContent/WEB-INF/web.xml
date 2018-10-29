@@ -58,4 +58,14 @@
   	<servlet-name>ControladorHacerGrilla</servlet-name>
   	<url-pattern>/ControladorHacerGrilla</url-pattern>	
   </servlet-mapping>
+  
+<!--   ControladorHacerReserva -->
+   <servlet>
+  	<servlet-name>ControladorHacerReserva</servlet-name>
+  	<servlet-class>controladores.ControladorHacerReserva </servlet-class>  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ControladorHacerReserva</servlet-name>
+  	<url-pattern>/ControladorHacerReserva</url-pattern>	
+  </servlet-mapping>  
 </web-app>

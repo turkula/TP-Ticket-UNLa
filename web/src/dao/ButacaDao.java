@@ -66,7 +66,7 @@ public class ButacaDao {
 	}
 
 	
-	public Butaca traerButaca(long idButaca) throws HibernateException {
+	public Butaca traerButaca(int idButaca) throws HibernateException {
 		Butaca objeto = null;
 		try {
 			iniciaOperacion();

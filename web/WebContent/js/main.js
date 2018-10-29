@@ -164,9 +164,8 @@ $( "#selectAuditorioCine" ).change(function() {
 					idFuncion:idFuncion
 				},
 			async:true
-		}).done(function (data){
+			}).done(function (data){
 		    data=JSON.parse(data);
-		    console.log(data)
 		    if(data[1]==1){
 		    	hacerGrilla(data[0],data[1]);	
 		    }
@@ -213,9 +212,8 @@ function hacerGrilla(arrayButacas,arrayButacasOcupadas){
     var fila=arrayButacas[0].fila
     grilla+='<tr>';
     
-      
+       
     for(var i=0;i<butacasArray.length;i++){
-    	console.log(butacasArray[i])
     	if(fila!=butacasArray[i].fila){
     		grilla+='</tr>';
     		grilla+='<tr>';
@@ -268,21 +266,32 @@ $('#btnReservar').click(function(){
         alertify.alert("Por favor seleccione una butaca");
     }
 
-    var idComplejo = $('#selectAuditorioCine').val();
-    var idPelicula = $('#selectEventoCine').val();
+    var idSector = $('#selectSector').val();
     var idFuncion = $('#selectFuncionCine').val();
-    var butacasOcupadas = arrayComplejos[idComplejo-1].eventos[idPelicula-1].funciones[idFuncion-1].butacasOcupadas
 
-    butacasOcupadas=butacasOcupadas.concat(arrayButacasCine);
     console.log(arrayButacasCine);
-    console.log(butacasOcupadas);
+    var arrayButaca = [1,2];
+    
+    $.ajax({
+		method:"POST",
+		url:"ControladorHacerReserva",
+		data:{
+				idSector:idSector,
+				idFuncion:idFuncion,
+				arrayButaca:JSON.stringify([1,2])
+			},
+		async:true
+		}).done(function (data){
+			console.log(data);
+//			if(data=="OK"){
+				alertify.alert("Su reserva se realizo con exito");
+//			}
+		})
+    
+    
     $("#tablaAsientos tr").remove();
 
 
-    var cantFilas = arrayComplejos[idComplejo-1].cantidadFilas
-    var cantColumnas = arrayComplejos[idComplejo-1].cantidadColumnas
-
-    hacerGrilla(cantFilas,cantColumnas,butacasOcupadas);
 
     arrayButacasCine=[];
 });

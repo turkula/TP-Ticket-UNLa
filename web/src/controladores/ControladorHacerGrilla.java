@@ -137,9 +137,10 @@ public class ControladorHacerGrilla extends HttpServlet {
 		
 		List<Object> respuesta = new ArrayList<Object>();
 		
-		if(sector.getPopularCantidadMaxima()>0) {
+		if(sector.getPopularCantidadMaxima()>=0) {
 			SectorX x=new SectorX(sector.getIdSector(),sector.getDescripcion(),sector.getPopularCantidadMaxima());
 			respuesta.add(x);
+			respuesta.add(0);
 			respuesta.add(0);
 		}else {
 			

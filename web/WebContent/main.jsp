@@ -71,20 +71,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="row ">
-                                        <!-- <div class="">
-                                            <div class="col-5">
-                                                    <label for="selectAuditorioCine">Cantidad de entradas:</label>
-                                            </div>
-                                            <div class="input-group col-5 form-group">
-                                                <div class="input-group-prepend">
-                                                    <button class="btn btn-outline-secondary" type="button" id="menosEntrada">-</button>
-                                                </div>
-                                                <input  id="cantidadEntradas" class="form-control text-center" value="0">
-                                                <div class="input-group-append">
-                                                        <button class="btn btn-outline-secondary" type="button" id="masEntrada">+</button>
-                                                </div>
-                                            </div>
-                                        </div> -->
+                                        
                                     </div>  
                                     <div class="row ">
                                     	<div class="form-group" >
@@ -109,6 +96,21 @@
                                     <h4 class="text-center">Seleccione las ubicaciones</h4>
                                     <table id="tablaAsientos" class="form-group">
                                     </table>
+<!--                                     BOTON ENTRADAS POPULARES -->
+                                    <div class="d-none" id="divPopular">
+                                            <div class="col-5">
+                                                    <label for="selectAuditorioCine">Cantidad de entradas:</label>
+                                            </div>
+                                            <div class="input-group col-5 form-group">
+                                                <div class="input-group-prepend">
+                                                    <button class="btn btn-outline-secondary" type="button" id="menosEntrada">-</button>
+                                                </div>
+                                                <input  id="cantidadEntradas" class="form-control text-center" value="0">
+                                                <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button" id="masEntrada">+</button>
+                                                </div>
+                                            </div>
+                                        </div> 
                                 </div>
                             </div>
                         </form>

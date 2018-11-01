@@ -101,12 +101,14 @@ $( "#selectAuditorioCine" ).change(function() {
 			async:true
 			}).done(function (data){
 		    data=JSON.parse(data);
+		    console.log(data)
 		    if(data[2]==1){
 		    	hacerGrilla(data[0],data[1]);	
 		    }
 		    
-		    
-		    
+		    if(data[0]==1){
+		    	$('#divPopular').removeClass('d-none');
+		    }
 		})
 	  });
   

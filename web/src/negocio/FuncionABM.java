@@ -34,7 +34,7 @@ public class FuncionABM {
 
 	public void eliminar(int idFuncion) { 
 		Funcion f = dao.traerfuncion(idFuncion);
-		// Implementar que si es null que arroje la excepción la Excepción
+		// Implementar que si es null que arroje la excepciï¿½n la Excepciï¿½n
 		dao.eliminar(f);
 	}
 

@@ -37,5 +37,11 @@ public class TicketABM {
         return dao.traerButacasXfuncionYSector(idFuncion, idSector);
     }
     
+    
+    public long traerCantidadTickerPorSectorPopular(int idFuncion,int idSector) {
+    	return dao.traerTicketsPorSectorPopular(idFuncion,idSector);
+    }
+    
+    
 
 }

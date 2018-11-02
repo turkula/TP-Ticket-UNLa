@@ -96,7 +96,18 @@ public class TicketDao {
 		return lista;
 	}
 	
-	
+	public long traerTicketsPorSectorPopular(int idFuncion,int idSector)throws HibernateException{
+		long cantidad=0;
+		try {
+			iniciaOperacion();
+			String hql = "select count (*)from Ticket t where idFuncion = "+idFuncion+" and idSector="+idSector;
+			cantidad=(long)session.createQuery(hql).uniqueResult();
+			
+		}finally {
+			session.close();
+		}
+		return cantidad;
+	}
 /*
 	
 	@SuppressWarnings("unchecked")

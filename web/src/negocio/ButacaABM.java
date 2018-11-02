@@ -3,7 +3,6 @@ package negocio;
 import dao.ButacaDao;
 import datos.Butaca;
 import datos.Sector;
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.util.List;
 

@@ -20,7 +20,7 @@
             <img src="image/logo-UNLa.jpg" alt="logoUNLa" height="100" width="100">
         </div>
         <div>
-            <h1 class="text-center">Tickets UNLa</h1>
+            <h1 class="text-center">Tickets a</h1>
         </div>
     </div>
 </header>
@@ -110,6 +110,8 @@
                                                         <button class="btn btn-outline-secondary" type="button" id="masEntrada">+</button>
                                                 </div>
                                             </div>
+                                            <label >Cantidad vendida:</label><label name ="labelVendida" id="labelVendida"></label>
+                                            <label >Cantidad maxima del sector:</label><label name ="labelMaxima" id="labelMaxima"></label>
                                         </div> 
                                 </div>
                             </div>

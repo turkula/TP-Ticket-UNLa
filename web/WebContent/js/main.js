@@ -106,8 +106,14 @@ $( "#selectAuditorioCine" ).change(function() {
 		    	hacerGrilla(data[0],data[1]);	
 		    }
 		    
-		    if(data[0]==1){
-		    	$('#divPopular').removeClass('d-none');
+		    if(data[2]==0){
+		    	if(data[0]>data[1]){
+		    		$('#divPopular').removeClass('d-none');	
+		    		$('#labelVendida').text(data[1])
+		    		$('#labelMaxima').text(data[0])
+		    	
+		    	}
+		    	
 		    }
 		})
 	  });

@@ -122,6 +122,7 @@ public class ControladorHacerGrilla extends HttpServlet {
 	}
 	
 	private void procesarPeticion(HttpServletRequest request,HttpServletResponse response)throws Exception {
+
 //		response.setContentType("text/html;charset=UTF8");
 		response.setContentType("text/plain");
 		ButacaABM butacaABM = new ButacaABM();
@@ -135,12 +136,18 @@ public class ControladorHacerGrilla extends HttpServlet {
 
 		Sector sector = sectorABM.traerSector(idSector);
 		
-		List<Object> respuesta = new ArrayList<Object>();
+		System.out.println(idFuncion);
+		System.out.println(sector.toString());
 		
-		if(sector.getPopularCantidadMaxima()>=0) {
-			SectorX x=new SectorX(sector.getIdSector(),sector.getDescripcion(),sector.getPopularCantidadMaxima());
-			respuesta.add(x);
-			respuesta.add(0);
+		List<Object> respuesta = new ArrayList<Object>();
+		if(sector.getPopularCantidadMaxima()>0) {
+			
+			int cantidadMaximaSector = sector.getPopularCantidadMaxima();
+			
+			long cantidadVendida = tiabm.traerCantidadTickerPorSectorPopular(idFuncion, idSector);
+						
+			respuesta.add(cantidadMaximaSector);
+			respuesta.add(cantidadVendida);
 			respuesta.add(0);
 		}else {
 			
@@ -155,8 +162,7 @@ public class ControladorHacerGrilla extends HttpServlet {
 			
 			//butacas ocupadas
 			List<ButacaX> listaButacasOcupadas =new ArrayList<ButacaX>();
-			System.out.println(idFuncion);
-			System.out.println(idSector);
+
 
 			List<Butaca>butacasOcupadas = tiabm.traerButacasXfuncionYSector(idFuncion, idSector);
 			

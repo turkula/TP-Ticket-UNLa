@@ -1,5 +1,6 @@
 var arrayButacasCine = []
-
+var cantidadEntradasMaximas;
+var cantidadEntradasVendidas;
 
 
 $( document ).ready(function() {
@@ -103,14 +104,22 @@ $( "#selectAuditorioCine" ).change(function() {
 		    data=JSON.parse(data);
 		    console.log(data)
 		    if(data[2]==1){
+//		    	FLAG PARA SABER QUE TIPO DE OPERACION SE ESTA HACIENDO
+		    	$('#flagTipoReserva').val(1);
 		    	hacerGrilla(data[0],data[1]);	
 		    }
 		    
 		    if(data[2]==0){
 		    	if(data[0]>data[1]){
+//			    	FLAG PARA SABER QUE TIPO DE OPERACION SE ESTA HACIENDO
+		    		$('#flagTipoReserva').val(0);
 		    		$('#divPopular').removeClass('d-none');	
-		    		$('#labelVendida').text(data[1])
-		    		$('#labelMaxima').text(data[0])
+		    		
+		    		cantidadEntradasMaximas=data[0]
+		    		cantidadEntradasVendidas=data[1]
+		    		
+		    		$('#labelVendida').text(cantidadEntradasVendidas)
+		    		$('#labelMaxima').text(cantidadEntradasMaximas)
 		    	
 		    	}
 		    	
@@ -212,28 +221,60 @@ function reservarButaca(fila,columna,id){
 }
 
 $('#btnReservar').click(function(){
-    if(arrayButacasCine.length<=0){
-
-        alertify.alert("Por favor seleccione una butaca");
-    }else{
-
-        var idSector = $('#selectSector').val();
-        var idFuncion = $('#selectFuncionCine').val();
-        
-        var array=[];
-		
-arrayButacasCine.forEach(function(butaca) {
-	array.push(butaca.id);
-	});
 	
+	var flag = $('#flagTipoReserva').val();
+    var idSector = $('#selectSector').val();
+    var idFuncion = $('#selectFuncionCine').val();
+    var cantidadEntradas = $('#cantidadEntradas').val();
+    var response=[]; 
+    var controlador='';
+
+    
+    if(flag==1){
+    	 var array=[];
+    	 if(arrayButacasCine.length<=0 ){
+
+    	        alertify.alert("Por favor seleccione una butaca");
+    	        return;
+    	    }
+    	 
+    	 arrayButacasCine.forEach(function(butaca) {
+    			array.push(butaca.id);
+    			});
+    			
+    	response=JSON.stringify(array)
+    	
+    	controlador="ControladorReservaNumerada"
+    }
+   
+    
+    if(flag==0){
+    	if(isNaN(cantidadEntradas)){
+    		alertify.alert("Por favor ingrese un numero valido");
+    		return;
+    	}
+    	if(cantidadEntradas<=0 ){
+    		alertify.alert("Por favor ingrese una cantidad de entradas");
+        	return;
+    	}
+    	if(cantidadEntradas+cantidadEntradasVendidas>cantidadEntradasMaximas){
+    		alertify.alert("La cantidad ingresada supera el maximo de capacidad del auditorio");
+    		return;
+    	}
+    	
+    	controlador="ControladorReservaPopular"
+    	response=cantidadEntradas;
+   
+    
+    }
 
         $.ajax({
     		method:"POST",
-    		url:"ControladorHacerReserva",
+    		url:controlador,
     		data:{
     				idSector:idSector,
     				idFuncion:idFuncion,
-    				arrayButaca:JSON.stringify(array)
+    				array:response
     			},
     		async:true
     		}).done(function (data){
@@ -254,7 +295,7 @@ arrayButacasCine.forEach(function(butaca) {
 
 
         arrayButacasCine=[];
-    }
+    
 
 });
 

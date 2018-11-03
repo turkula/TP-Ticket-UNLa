@@ -122,7 +122,6 @@ public class ControladorHacerGrilla extends HttpServlet {
 	}
 	
 	private void procesarPeticion(HttpServletRequest request,HttpServletResponse response)throws Exception {
-
 //		response.setContentType("text/html;charset=UTF8");
 		response.setContentType("text/plain");
 		ButacaABM butacaABM = new ButacaABM();

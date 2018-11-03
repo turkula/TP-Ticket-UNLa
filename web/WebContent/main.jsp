@@ -69,6 +69,7 @@
                                 </div>
                             </div>
                             <div class="row">
+                            <input id="flagTipoReserva" hidden/>
                                 <div class="col-5">
                                     <div class="row ">
                                         

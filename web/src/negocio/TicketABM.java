@@ -19,8 +19,13 @@ public class TicketABM {
         return d;
     }
 
-    public int agregarTicket(Cliente cliente, Funcion funcion, Sector sector, Butaca butaca)throws Exception{
+    public int agregarTicket(Cliente cliente, Funcion funcion, Sector sector, Butaca butaca )throws Exception{
         Ticket d = new Ticket( cliente, funcion, sector, butaca);
+        return dao.agregar(d);
+    }
+    
+    public int agregarTicket(Cliente cliente, Funcion funcion, Sector sector )throws Exception{
+        Ticket d = new Ticket( cliente, funcion, sector, null);
         return dao.agregar(d);
     }
 

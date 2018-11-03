@@ -68,4 +68,24 @@
   	<servlet-name>ControladorHacerReserva</servlet-name>
   	<url-pattern>/ControladorHacerReserva</url-pattern>	
   </servlet-mapping>  
+  
+  <!--   ControladorReservaNumerada -->
+   <servlet>
+  	<servlet-name>ControladorReservaNumerada</servlet-name>
+  	<servlet-class>controladores.ControladorReservaNumerada </servlet-class>  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ControladorReservaNumerada</servlet-name>
+  	<url-pattern>/ControladorReservaNumerada</url-pattern>	
+  </servlet-mapping>  
+  
+  <!--   ControladorReservaPopular -->
+   <servlet>
+  	<servlet-name>ControladorReservaPopular</servlet-name>
+  	<servlet-class>controladores.ControladorReservaPopular </servlet-class>  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ControladorReservaPopular</servlet-name>
+  	<url-pattern>/ControladorReservaPopular</url-pattern>	
+  </servlet-mapping>  
 </web-app>

@@ -6,7 +6,7 @@ import datos.Usuario;
 
 public class UsuarioABM {
 	
-	private static UsuarioABM instancia = null; // Patrón Singleton
+	private static UsuarioABM instancia = null; // Patrï¿½n Singleton
 	protected UsuarioABM(){}
 	public static UsuarioABM getInstance(){
 	if (instancia==null)
@@ -18,6 +18,10 @@ public class UsuarioABM {
 	
 	public Usuario traer(int idUsuario){
 	return UsuarioDao. getInstance ().traer(idUsuario);
+	}
+	
+	public int traerUsuarioLogin(String user,String password) {
+		return UsuarioDao.getInstance().traerUsuarioLogin(user,password);
 	}
 	
 	

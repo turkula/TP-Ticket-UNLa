@@ -1,0 +1,105 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ticket Unla</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="public/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="public/alertify/alertify.css" />
+    <link rel="icon" href="image/logo-UNLa.jpg">
+
+</head>
+
+<header>
+    <div class="row">
+        <div class="col-2">
+            <img src="image/logo-UNLa.jpg" alt="logoUNLa" height="100" width="100">
+        </div>
+        <div>
+            <h1 class="text-center">Ticket UNLa</h1>
+        </div>
+    </div>
+</header>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 text-center ">
+                <div class="form-group card card-body">
+                    <div class="form-group ">
+                        <label for="user">Usuario</label>
+                        <input  class="form-control" id="user" placeholder="Usuario">
+                    </div>
+                    <div class="form-group">
+                            <label for="password">Contrasena</label>
+                            <input  class="form-control" id="password" type="password" placeholder="Contrasena">
+                    </div>
+                    <div class="form-group">
+                            <button type="button" id="btnLogin" class="btn btn-primary">Ingresar</button>
+                            <a href="#" id="linkModalRegistrarse" ><p>Registrase</p></a>  
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>    
+      </div>
+</body>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"  id="exampleModalLabel">Nuevo Usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Nombre:</label>
+              <input type="text" class="form-control" id="nombre">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Apellido:</label>
+              <input type="text" class="form-control" id="apellido">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Dni:</label>
+                <input type="text" class="form-control" id="dni">
+              </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">E-mail:</label>
+              <input type="text" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Contraseña:</label>
+              <input type="password" class="form-control" id="password1">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Repetir Contraseña:</label>
+              <input type="password" class="form-control" id="password2">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Registrase</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="public/jquery33/jquery.js"></script>
+<script src="public/bootstrap/js/bootstrap.js"></script>
+<script src="public/popper/popper.js"></script>
+<script src="public/alertify/alertify.js"></script>
+
+<script src="js/login.js"></script>
+</html>

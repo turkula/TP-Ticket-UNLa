@@ -88,4 +88,14 @@
   	<servlet-name>ControladorReservaPopular</servlet-name>
   	<url-pattern>/ControladorReservaPopular</url-pattern>	
   </servlet-mapping>  
+  
+    <!--   ControladorLogin -->
+   <servlet>
+  	<servlet-name>ControladorLogin</servlet-name>
+  	<servlet-class>controladores.ControladorLogin </servlet-class>  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ControladorLogin</servlet-name>
+  	<url-pattern>/ControladorLogin</url-pattern>	
+  </servlet-mapping> 
 </web-app>

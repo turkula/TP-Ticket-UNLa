@@ -140,5 +140,6 @@
 <script src="public/bootstrap/js/bootstrap.js"></script>
 <script src="public/popper/popper.js"></script>
 <script src="public/alertify/alertify.js"></script>
+<script src="js/login.js"></script>
 <script src="js/main.js"></script>
 </html>

@@ -12,7 +12,7 @@ public class UsuarioDao {
 
 	private static Session session ;
 	private Transaction tx ;
-	private static UsuarioDao instancia = null ; // Patrón Singleton
+	private static UsuarioDao instancia = null ; // Patrï¿½n Singleton
 	protected UsuarioDao() {}
 	public static UsuarioDao getInstance(){
 	if ( instancia == null )
@@ -92,4 +92,21 @@ public class UsuarioDao {
 		return lista ;
 	
 	}
+		
+	public int traerUsuarioLogin(String user,String password) throws HibernateException{
+		Usuario userX=null;
+		int id =0;
+		try {
+			iniciaOperacion();
+			userX = (Usuario)session.createQuery( " FROM Usuario u where u.nombreUsuario = '" +user+"' and u.clave='"+password+"'").uniqueResult();			
+		}finally {
+			session.close();
+		}
+		if(userX!=null) {
+			id=userX.getIdUsuario();
+
+		}
+		return id;
+	}
+		
 }

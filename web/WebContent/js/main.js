@@ -1,9 +1,17 @@
 var arrayButacasCine = []
 var cantidadEntradasMaximas;
 var cantidadEntradasVendidas;
+var idUser;
 
+if(sessionStorage.getItem("userId")==null){
+	window.location.replace("login.jsp");
+	
+}
 
 $( document ).ready(function() {
+	 idUser=sessionStorage.getItem("userId");
+
+	
 	//leno select auditorio
 	$.ajax({
 		method:"POST",
@@ -89,6 +97,8 @@ $( "#selectAuditorioCine" ).change(function() {
 //  LLENO GRILLA
   $( "#selectSector" ).change(function() {
 	    $("#tablaAsientos tr").remove();
+	    $("#divPopular").addClass("d-none")
+	    $("#cantidadEntradas tr").val(0);
 	    var idSector = $('#selectSector').val();
 	    var idFuncion = $('#selectFuncionCine').val();
 	    
@@ -290,14 +300,13 @@ $('#btnReservar').click(function(){
   	  	$('#selectEventoCine').val('')
 		$('#selectFuncionCine').val('')
 		$('#selectSector').val('')
-
-
-
+		$('#cantidadEntradas').val(0)
+		$('#divPopular').addClass('d-none');
 
         arrayButacasCine=[];
     
-
 });
+
 
 
 function populateSelect(idSelect, values, ordered = true) {

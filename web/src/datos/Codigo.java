@@ -19,10 +19,10 @@ public class Codigo extends Descuento{
 		this.codigo = codigo;
 	}
 
-	@Override
-	public String toString() {
-		return "Codigo [codigo=" + codigo + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Codigo [idCodigo=" + idCodigo + ", codigo=" + codigo + "]";
+//	}
 
 
 	public int getIdCodigo() {
@@ -32,4 +32,6 @@ public class Codigo extends Descuento{
 	public void setIdCodigo(int idCodigo) {
 		this.idCodigo = idCodigo;
 	}
+	
+	
 }

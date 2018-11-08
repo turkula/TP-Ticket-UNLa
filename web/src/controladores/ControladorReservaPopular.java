@@ -41,7 +41,7 @@ public class ControladorReservaPopular extends HttpServlet {
 	private void procesarPeticion(HttpServletRequest request,HttpServletResponse response)throws Exception {
 		response.setContentType("text/plain");
 		TicketABM ticketABM = new TicketABM();
-		UsuarioABM usuarioABM =  UsuarioABM.getInstance();
+		UsuarioABM usuarioABM =  new UsuarioABM();
 		FuncionABM funcionABM = new FuncionABM();
 		SectorABM sectorABM = new SectorABM();
 		ButacaABM butacaABM = new ButacaABM();
@@ -53,7 +53,7 @@ public class ControladorReservaPopular extends HttpServlet {
 		int cantidadButacas = Integer.parseInt(request.getParameter("array"));
 		
 		
-		Cliente cliente = (Cliente) UsuarioABM.getInstance().traer(1);
+		Cliente cliente = (Cliente) new UsuarioABM().traer(1);
 		Funcion funcion = funcionABM.traerFuncion(idFuncion);
 		Sector sector = sectorABM.traerSector(idSector);
 		

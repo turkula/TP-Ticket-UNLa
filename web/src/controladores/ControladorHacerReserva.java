@@ -129,7 +129,7 @@ public class ControladorHacerReserva extends HttpServlet {
 //		response.setContentType("text/html;charset=UTF8");
 		response.setContentType("text/plain");
 		TicketABM ticketABM = new TicketABM();
-		UsuarioABM usuarioABM =  UsuarioABM.getInstance();
+		UsuarioABM usuarioABM = new UsuarioABM();
 		FuncionABM funcionABM = new FuncionABM();
 		SectorABM sectorABM = new SectorABM();
 		ButacaABM butacaABM = new ButacaABM();
@@ -145,7 +145,7 @@ public class ControladorHacerReserva extends HttpServlet {
 		listaButacas = listaButacas.replace("[","");
 		String[] butacas = listaButacas.split(",");
 		
-		Cliente cliente = (Cliente) UsuarioABM.getInstance().traer(1);
+		Cliente cliente = (Cliente)new UsuarioABM().traer(1);
 		Funcion funcion = funcionABM.traerFuncion(idFuncion);
 		Sector sector = sectorABM.traerSector(idSector);
 		

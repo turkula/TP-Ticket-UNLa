@@ -34,7 +34,7 @@ public class ControladorLogin extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		
-		UsuarioABM usuarioABM =  UsuarioABM.getInstance();
+		UsuarioABM usuarioABM =  new UsuarioABM();
 		
 		String user = request.getParameter("user");
 		String password = request.getParameter("password");

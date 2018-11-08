@@ -10,6 +10,9 @@
     <link rel="stylesheet" type="text/css" media="screen" href="public/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="public/alertify/alertify.css" />
+<!--         <link rel="stylesheet" type="text/css" media="screen" href="../public/font-awesome/css/font-awesome.min.css" />     -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    
     <link rel="icon" href="image/logo-UNLa.jpg">
 
 </head>
@@ -20,12 +23,16 @@
             <img src="image/logo-UNLa.jpg" alt="logoUNLa" height="100" width="100">
         </div>
         <div>
-            <h1 class="text-center">Tickets a</h1>
+            <h1 class="text-center">Tickets UNLa</h1>
         </div>
     </div>
 </header>
 
 <body>
+<div class="float-right">
+	<a href="#"><i class="fas fa-user fa-1x"></i>
+	<label id="labelUserName"></label></a><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+</div>
     <div class="container-fluid">
         <!-- TABS -->
         <div class="form-group">
@@ -116,6 +123,7 @@
                                         </div> 
                                 </div>
                             </div>
+                            <label>Valor de entrada por persona: $</label><label id="valorEntrada"></label>
                         </form>
                         <button id="btnReservar" class="col-12 btn btn-primary form-group">Reservar</button>         
                     </div>

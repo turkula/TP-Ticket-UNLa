@@ -24,7 +24,7 @@ public class Cliente extends Usuario {
 		return idCliente;
 	}
 
-	protected void setIdCliente(int idCliente) {
+	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
 
@@ -46,9 +46,13 @@ public class Cliente extends Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Cliente [tipo=" + tipo + ", fechaNacimiento=" + fechaNacimiento + "]";
+		return "Cliente [idCliente=" + idCliente + ", tipo=" + tipo + ", fechaNacimiento=" + fechaNacimiento + "]";
 	}
+
+	
 
 }

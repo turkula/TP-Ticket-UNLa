@@ -2,6 +2,7 @@ var arrayButacasCine = []
 var cantidadEntradasMaximas;
 var cantidadEntradasVendidas;
 var idUser;
+var precioEntrada;
 
 if(sessionStorage.getItem("userId")==null){
 	window.location.replace("login.jsp");
@@ -9,8 +10,20 @@ if(sessionStorage.getItem("userId")==null){
 }
 
 $( document ).ready(function() {
-	 idUser=sessionStorage.getItem("userId");
+	 idUser=sessionStorage.getItem("userId").trim();
+	 
+	 //traigo datos usuario
+	 $.ajax({
+			method:"POST",
+			url:"ControladorTraerUsuario",
+			data:{idUser:idUser},
+			async:true
+		}).done(function (data){
+			data = JSON.parse(data);
+			console.log(data);
 
+			$('#labelUserName').text(data.username);
+		})
 	
 	//leno select auditorio
 	$.ajax({
@@ -102,6 +115,22 @@ $( "#selectAuditorioCine" ).change(function() {
 	    var idSector = $('#selectSector').val();
 	    var idFuncion = $('#selectFuncionCine').val();
 	    
+	    //valor entrada
+	    $.ajax({
+			method:"POST",
+			url:"ControladorTraerTarifa",
+			data:{
+				idSector:idSector,
+				idFuncion:idFuncion
+			},
+			async:true
+		}).done(function (data){
+			precioEntrada=data;
+			$('#valorEntrada').text(precioEntrada);
+		})
+	    
+	    
+	    //grilla
 	    $.ajax({
 			method:"POST",
 			url:"ControladorHacerGrilla",

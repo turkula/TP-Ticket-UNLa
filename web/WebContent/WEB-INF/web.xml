@@ -98,4 +98,24 @@
   	<servlet-name>ControladorLogin</servlet-name>
   	<url-pattern>/ControladorLogin</url-pattern>	
   </servlet-mapping> 
+  
+   <!--   ControladorTraerUsuario -->
+   <servlet>
+  	<servlet-name>ControladorTraerUsuario</servlet-name>
+  	<servlet-class>controladores.ControladorTraerUsuario </servlet-class>  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ControladorTraerUsuario</servlet-name>
+  	<url-pattern>/ControladorTraerUsuario</url-pattern>	
+  </servlet-mapping> 
+  
+<!--   ControladorTraerTarifa -->
+   <servlet>
+  	<servlet-name>ControladorTraerTarifa</servlet-name>
+  	<servlet-class>controladores.ControladorTraerTarifa </servlet-class>  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ControladorTraerTarifa</servlet-name>
+  	<url-pattern>/ControladorTraerTarifa</url-pattern>	
+  </servlet-mapping> 
 </web-app>

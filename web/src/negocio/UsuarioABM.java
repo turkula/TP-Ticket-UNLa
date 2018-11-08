@@ -17,11 +17,13 @@ public class UsuarioABM {
     public class UsuarioX{
     	public int idUsuario;
     	public String username;
-    	public int tipoCliente;
+    	public int idTipoCliente;
+    	public String tipoCliente;
     	
-    	public UsuarioX(int idUsuario,String username,int tipoCliente) {
+    	public UsuarioX(int idUsuario,String username,int idTipoCliente,String tipoCliente) {
     		this.idUsuario = idUsuario;
     		this.username = username;
+    		this.idTipoCliente = idTipoCliente;
     		this.tipoCliente = tipoCliente;
     	}
 
@@ -41,14 +43,23 @@ public class UsuarioABM {
 			this.username = username;
 		}
 
-		public int getTipoCliente() {
+		public String getTipoCliente() {
 			return tipoCliente;
 		}
 
-		public void setTipoCliente(int tipoCliente) {
+		public void setTipoCliente(String tipoCliente) {
 			this.tipoCliente = tipoCliente;
 		}
-    	
+
+		
+		public int getIdTipoCliente() {
+			return idTipoCliente;
+		}
+
+		public void setIdTipoCliente(int idTipoCliente) {
+			this.idTipoCliente = idTipoCliente;
+		}
+		
     }
 
 //	private static UsuarioABM instancia = null; // Patr�n Singleton
@@ -67,8 +78,8 @@ public class UsuarioABM {
 	
 	public UsuarioX traerX(int idUsuario) {
 		Cliente usuario=(Cliente)dao.traer(idUsuario);
-		
-		return new UsuarioX(usuario.getIdUsuario(),usuario.getNombreUsuario(),usuario.getTipoCliente().getIdTipoCliente());
+		System.out.println(usuario.getTipoCliente().getNombre());
+		return new UsuarioX(usuario.getIdUsuario(),usuario.getNombreUsuario(),usuario.getTipoCliente().getIdTipoCliente(),usuario.getTipoCliente().getNombre());
 	}
 	
 	public int traerUsuarioLogin(String user,String password) {

@@ -45,9 +45,7 @@ public class ControladorTraerUsuario extends HttpServlet {
 		String id = request.getParameter("idUser");
 		
 		UsuarioX cliente = usuarioABM.traerX(Integer.parseInt(id));
-		
-//		System.out.println(cliente);
-		
+				
         String res = mapper.writeValueAsString(cliente);	
 
 		out.println(res);

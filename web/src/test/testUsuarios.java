@@ -13,7 +13,7 @@ public class testUsuarios {
 		UsuarioABM usuarioABM =  new UsuarioABM();
 		TipoClienteABM tipoClienteABM = new TipoClienteABM();
 		
-		usuarioABM.agregarCliente("gonzax96", "gonza", null, tipoClienteABM.traerTipoCliente(1), null);
+		usuarioABM.agregarCliente("jubilado", "gonza", null, tipoClienteABM.traerTipoCliente(3), null);
 		
 //		Cliente user = (Cliente)usuarioABM.traer(3);
 //		

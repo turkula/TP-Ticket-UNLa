@@ -124,6 +124,13 @@
                                 </div>
                             </div>
                             <label>Valor de entrada por persona: $</label><label id="valorEntrada"></label>
+                            <div class="row">
+                            	<label>Descuento: </label><label id="descuentoTipo"></label>
+                            	<div class="col-6"></div>
+	                            <div >
+	                            	<label class="float-right">TOTAL:</label>
+	                            </div>
+                            </div>
                         </form>
                         <button id="btnReservar" class="col-12 btn btn-primary form-group">Reservar</button>         
                     </div>

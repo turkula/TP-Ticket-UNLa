@@ -3,6 +3,8 @@ var cantidadEntradasMaximas;
 var cantidadEntradasVendidas;
 var idUser;
 var precioEntrada;
+var user;
+var descuento;
 
 if(sessionStorage.getItem("userId")==null){
 	window.location.replace("login.jsp");
@@ -19,10 +21,28 @@ $( document ).ready(function() {
 			data:{idUser:idUser},
 			async:true
 		}).done(function (data){
-			data = JSON.parse(data);
-			console.log(data);
+			user = JSON.parse(data);
+			console.log(user);
 
-			$('#labelUserName').text(data.username);
+			$('#labelUserName').text(user.username);
+			
+			//normal
+			if(user.idTipoCliente==1){
+				descuento=0;
+			}
+			
+			//estudiante
+			if(user.idTipoCliente==2){
+				descuento=20;
+			}
+			
+			//jubilado
+			if(user.idTipoCliente==3){
+				descuento=50
+			}
+			
+			$('#descuentoTipo').text(user.tipoCliente+" - %"+descuento);
+
 		})
 	
 	//leno select auditorio

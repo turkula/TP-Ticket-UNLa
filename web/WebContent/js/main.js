@@ -5,10 +5,22 @@ var idUser;
 var precioEntrada;
 var user;
 var descuento;
+var precioTotal=0;
 
 if(sessionStorage.getItem("userId")==null){
 	window.location.replace("login.jsp");
 	
+}
+
+function calcularTotal(cantidadEntradas){
+//	console.log(precioEntrada)
+	totalFinal=cantidadEntradas*precioEntrada;
+	
+	if(descuento!=0){
+		totalFinal=(totalFinal*descuento)/100;
+
+	}
+	$('#labelPrecioTotal').text(totalFinal);
 }
 
 $( document ).ready(function() {
@@ -161,7 +173,7 @@ $( "#selectAuditorioCine" ).change(function() {
 			async:true
 			}).done(function (data){
 		    data=JSON.parse(data);
-		    console.log(data)
+//		    console.log(data)
 		    if(data[2]==1){
 //		    	FLAG PARA SABER QUE TIPO DE OPERACION SE ESTA HACIENDO
 		    	$('#flagTipoReserva').val(1);
@@ -277,6 +289,7 @@ function reservarButaca(fila,columna,id){
           arrayButacasCine.push(butaca);
       }  
     }
+    calcularTotal(arrayButacasCine.length)
 }
 
 $('#btnReservar').click(function(){
@@ -337,7 +350,7 @@ $('#btnReservar').click(function(){
     			},
     		async:true
     		}).done(function (data){
-    			console.log(data);
+//    			console.log(data);
 //    			if(data=="OK"){
     				alertify.alert("Su reserva se realizo con exito");
 //    			}
@@ -384,3 +397,12 @@ $('#linkModalRegistrarse').click(function(){
     $('#modalRegistro').modal('show'); 
 });
 
+
+//calcular totoal
+$("#masEntrada").click(function() {
+	calcularTotal($("#cantidadEntradas").val())
+});
+
+$("#menosEntrada").click(function() {
+	calcularTotal($("#cantidadEntradas").val())
+});

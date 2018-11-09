@@ -128,7 +128,7 @@
                             	<label>Descuento: </label><label id="descuentoTipo"></label>
                             	<div class="col-6"></div>
 	                            <div >
-	                            	<label class="float-right">TOTAL:</label>
+	                            	<label >TOTAL:$</label><label  id="labelPrecioTotal"></label>
 	                            </div>
                             </div>
                         </form>

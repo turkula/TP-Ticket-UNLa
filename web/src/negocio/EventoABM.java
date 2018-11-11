@@ -1,5 +1,6 @@
 package negocio;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Set;
@@ -14,6 +15,34 @@ import datos.Auditorio;
 	
 
 public class EventoABM {
+	
+	public class EventoX {
+		public int id;
+		public String nombre;
+		
+		public EventoX(int id,String nombre){
+			this.id=id;
+			this.nombre=nombre;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public String getNombre() {
+			return nombre;
+		}
+
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+			
+	}
+	
 	EventoDao dao = new EventoDao();
 
 	public Evento traerEvento(int idEvento) throws Exception {
@@ -37,7 +66,7 @@ public class EventoABM {
 
 	public void eliminar(int idEvento) { 
 		Evento e = dao.traerEvento(idEvento);
-		// Implementar que si es null que arroje la excepción la Excepción
+		// Implementar que si es null que arroje la excepciï¿½n la Excepciï¿½n
 		dao.eliminar(e);
 	}
 
@@ -55,4 +84,16 @@ public class EventoABM {
 				throw new Exception("Error: el Evento no existe");
 			return e;
 		}	
+		
+		public List<EventoX> traerEventoPorAuditorioYTipoEventoX(int idTipoEvento,int idAuditorio)throws Exception{
+			List<Evento> eventos = traerEventoPorAuditorioYTipoEvento(idTipoEvento, idAuditorio);
+			List<EventoX> listaEventos= new ArrayList<EventoX>();
+			
+			for(Evento evento: eventos){
+				EventoX x=new EventoX(evento.getIdEvento(),evento.getDescripcion());
+				listaEventos.add(x);
+			}
+			
+			return listaEventos;
+		}
 }

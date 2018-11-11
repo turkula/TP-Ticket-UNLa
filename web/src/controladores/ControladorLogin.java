@@ -32,8 +32,6 @@ public class ControladorLogin extends HttpServlet {
 	
 	private void procesarPeticion(HttpServletRequest request,HttpServletResponse response)throws Exception {
 		PrintWriter out = response.getWriter();
-
-		
 		UsuarioABM usuarioABM =  new UsuarioABM();
 		
 		String user = request.getParameter("user");

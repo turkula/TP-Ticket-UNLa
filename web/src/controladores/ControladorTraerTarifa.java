@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import controladores.ControladorHacerGrilla.ButacaX;
 import datos.Butaca;
 import datos.Sector;
 import negocio.ButacaABM;
@@ -40,13 +39,9 @@ public class ControladorTraerTarifa extends HttpServlet {
 	}
 	
 	private void procesarPeticion(HttpServletRequest request,HttpServletResponse response)throws Exception {
-//		response.setContentType("text/html;charset=UTF8");
 		response.setContentType("text/plain");
-		ButacaABM butacaABM = new ButacaABM();
-		SectorABM sectorABM = new SectorABM();
  		TarifaABM tarifaABM = new TarifaABM();
 		PrintWriter out = response.getWriter();
-		ObjectMapper mapper = new ObjectMapper();
 		
 		int idSector = Integer.parseInt(request.getParameter("idSector"));
 		int idFuncion = Integer.parseInt(request.getParameter("idFuncion"));

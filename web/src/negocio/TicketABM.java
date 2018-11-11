@@ -2,6 +2,7 @@ package negocio;
 
 import java.util.List;
 
+
 import dao.TicketDao;
 import datos.Ticket;
 import datos.Butaca;
@@ -10,6 +11,77 @@ import datos.Funcion;
 import datos.Sector;
 
 public class TicketABM {
+	public class SectorX {
+		public int id;
+		public String nombre;
+		public int capacidad;
+		
+		public SectorX(int id,String nombre,int capacidad){
+			this.id=id;
+			this.nombre=nombre;
+			this.capacidad=capacidad;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public String getNombre() {
+			return nombre;
+		}
+
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+
+		public int getCapacidad() {
+			return capacidad;
+		}
+		
+		
+	}
+	
+	public class ButacaX{
+		public int id;
+		public int fila;
+		public int columna;
+		
+		public ButacaX(int id, int fila, int columna) {
+			super();
+			this.id = id;
+			this.fila = fila;
+			this.columna = columna;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public int getFila() {
+			return fila;
+		}
+
+		public void setFila(int fila) {
+			this.fila = fila;
+		}
+
+		public int getColumna() {
+			return columna;
+		}
+
+		public void setColumna(int columna) {
+			this.columna = columna;
+		}	
+	}
+	
     TicketDao dao = new TicketDao();
 
     public Ticket traerTicket(int idTicket)throws Exception{
@@ -47,6 +119,41 @@ public class TicketABM {
     	return dao.traerTicketsPorSectorPopular(idFuncion,idSector);
     }
     
+    public String hacerReservaNumerada(int idSector,int idFuncion,String listaButacas) throws Exception {
+		UsuarioABM usuarioABM = new UsuarioABM();
+		FuncionABM funcionABM = new FuncionABM();
+		SectorABM sectorABM = new SectorABM();
+		ButacaABM butacaABM = new ButacaABM();
+    	
+    	listaButacas = listaButacas.replace("]","");
+		listaButacas = listaButacas.replace("[","");
+		String[] butacas = listaButacas.split(",");
+		
+		Cliente cliente = (Cliente)new UsuarioABM().traer(1);
+		Funcion funcion = funcionABM.traerFuncion(idFuncion);
+		Sector sector = sectorABM.traerSector(idSector);
+		
+		for(String b:butacas){
+			int idButaca =Integer.parseInt(b);
+			agregarTicket(cliente, funcion, sector, butacaABM.traerButaca(idButaca));
+		}
+		
+		return "OK";
+    }
     
+    public String hacerReservaPopular(int idSector,int idFuncion,int cantidadButacas) throws Exception {
+    	UsuarioABM usuarioABM =  new UsuarioABM();
+		FuncionABM funcionABM = new FuncionABM();
+		SectorABM sectorABM = new SectorABM();
+		Cliente cliente = (Cliente) new UsuarioABM().traer(1);
+		
+		Funcion funcion = funcionABM.traerFuncion(idFuncion);
+		Sector sector = sectorABM.traerSector(idSector);
+		
+		for(int i=1;i<=cantidadButacas;i++) {
+			agregarTicket(cliente, funcion, sector);
+		}
+		return "OK";
+    }
 
 }

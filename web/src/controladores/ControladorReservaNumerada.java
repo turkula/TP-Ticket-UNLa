@@ -41,35 +41,15 @@ public class ControladorReservaNumerada extends HttpServlet {
 	private void procesarPeticion(HttpServletRequest request,HttpServletResponse response)throws Exception {
 		response.setContentType("text/plain");
 		TicketABM ticketABM = new TicketABM();
-		UsuarioABM usuarioABM =  new UsuarioABM();
-		FuncionABM funcionABM = new FuncionABM();
-		SectorABM sectorABM = new SectorABM();
-		ButacaABM butacaABM = new ButacaABM();
 		PrintWriter out = response.getWriter();
-		ObjectMapper mapper = new ObjectMapper();
 		
 		int idSector = Integer.parseInt(request.getParameter("idSector"));
 		int idFuncion = Integer.parseInt(request.getParameter("idFuncion"));
 		String listaButacas = request.getParameter("array");
 		
-		System.out.println(listaButacas);
-
-		
-		listaButacas = listaButacas.replace("]","");
-		listaButacas = listaButacas.replace("[","");
-		String[] butacas = listaButacas.split(",");
-		
-		
-		Cliente cliente = (Cliente) new UsuarioABM().traer(1);
-		Funcion funcion = funcionABM.traerFuncion(idFuncion);
-		Sector sector = sectorABM.traerSector(idSector);
-		
-		for(String b:butacas){
-			int idButaca =Integer.parseInt(b);
-			ticketABM.agregarTicket(cliente, funcion, sector, butacaABM.traerButaca(idButaca));
-		}
+		String respuesta = ticketABM.hacerReservaNumerada(idSector, idFuncion, listaButacas);
 	
-		out.println("OK");	
+		out.println(respuesta);	
 
 	}
 	

@@ -21,36 +21,9 @@ import datos.Auditorio;
 import datos.Evento;
 import negocio.AuditorioABM;
 import negocio.EventoABM;
+import negocio.EventoABM.EventoX;
 
 public class ControladorTraerEvento extends HttpServlet {
-	
-	public class EventoX {
-		public int id;
-		public String nombre;
-		
-		public EventoX(int id,String nombre){
-			this.id=id;
-			this.nombre=nombre;
-		}
-
-		public int getId() {
-			return id;
-		}
-
-		public void setId(int id) {
-			this.id = id;
-		}
-
-		public String getNombre() {
-			return nombre;
-		}
-
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
-		}
-		
-		
-	}
 	
 	protected void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		try {
@@ -81,21 +54,11 @@ public class ControladorTraerEvento extends HttpServlet {
 		int idTipo = Integer.parseInt(request.getParameter("idTipo"));
 		int idAuditorio = Integer.parseInt(request.getParameter("idAuditorio"));
 		
-		List<Evento> eventos = eventoABM.traerEventoPorAuditorioYTipoEvento(idTipo, idAuditorio);
-		
-		List<EventoX> listaEventos= new ArrayList<EventoX>();
-		
-		for(Evento evento: eventos){
-			EventoX x=new EventoX(evento.getIdEvento(),evento.getDescripcion());
-			listaEventos.add(x);
-		}
-		
+		List<EventoX> listaEventos = eventoABM.traerEventoPorAuditorioYTipoEventoX(idTipo, idAuditorio);
 		
         String res = mapper.writeValueAsString(listaEventos);
-
-//		
+        
 		out.println(res);
-
 	}
 	  
 }

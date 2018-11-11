@@ -21,37 +21,11 @@ import datos.Auditorio;
 import datos.Funcion;
 import negocio.AuditorioABM;
 import negocio.FuncionABM;
+import negocio.FuncionABM.FuncionX;
 
 public class ControladorTraerFuncion extends HttpServlet {
 	
-	public class FuncionX {
-		public int id;
-		public String nombre;
-		
-		public FuncionX(int id,String nombre){
-			this.id=id;
-			this.nombre=nombre;
-		}
 
-		public int getId() {
-			return id;
-		}
-
-		public void setId(int id) {
-			this.id = id;
-		}
-
-		public String getNombre() {
-			return nombre;
-		}
-
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
-		}
-		
-		
-	}
-	
 	protected void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		try {
 			procesarPeticion(request,response);
@@ -79,19 +53,9 @@ public class ControladorTraerFuncion extends HttpServlet {
 		ObjectMapper mapper = new ObjectMapper();
 		
 		int idEvento = Integer.parseInt(request.getParameter("idEvento"));
-		
-		List<Funcion> funciones = funcionABM.traerFuncionPorEventos(idEvento);
-		List<FuncionX> listaFunciones= new ArrayList<FuncionX>();
-		
-		for(Funcion funcion: funciones){
-			FuncionX x=new FuncionX(funcion.getIdFuncion(),funcion.getDescripcion());
-			listaFunciones.add(x);
-		}
-		
-		
+		List<FuncionX> listaFunciones= funcionABM.traerFuncionPorEventosX(idEvento);
         String res = mapper.writeValueAsString(listaFunciones);
 
-//		
 		out.println(res);
 
 	}

@@ -19,36 +19,10 @@ import com.google.gson.JsonObject;
 
 import datos.Auditorio;
 import negocio.AuditorioABM;
+import negocio.AuditorioABM.AuditorioX;
 
 public class ControladorTraerAuditorio extends HttpServlet {
 	
-	public class AuditorioX {
-		public int id;
-		public String nombre;
-		
-		public AuditorioX(int id,String nombre){
-			this.id=id;
-			this.nombre=nombre;
-		}
-
-		public int getId() {
-			return id;
-		}
-
-		public void setId(int id) {
-			this.id = id;
-		}
-
-		public String getNombre() {
-			return nombre;
-		}
-
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
-		}
-		
-		
-	}
 	
 	protected void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		try {
@@ -79,18 +53,10 @@ public class ControladorTraerAuditorio extends HttpServlet {
 		
 		int idTipo = Integer.parseInt(request.getParameter("tipo"));
 		
-		List<Auditorio> auditoriosXtipo = auditorioABM.traerAuditoriosPorTipo(3);
-		List<AuditorioX> listaAuditorios= new ArrayList<AuditorioX>();
-		
-		for(Auditorio auditorio: auditoriosXtipo){
-			AuditorioX x=new AuditorioX(auditorio.getIdAuditorio(),auditorio.getNombre());
-			listaAuditorios.add(x);
-		}
-		
+		List<AuditorioX> listaAuditorios = auditorioABM.traerAuditoriosPorTipoX(idTipo);
 		
         String res = mapper.writeValueAsString(listaAuditorios);
 
-//		
 		out.println(res);
 
 	}

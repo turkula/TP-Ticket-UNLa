@@ -41,27 +41,16 @@ public class ControladorReservaPopular extends HttpServlet {
 	private void procesarPeticion(HttpServletRequest request,HttpServletResponse response)throws Exception {
 		response.setContentType("text/plain");
 		TicketABM ticketABM = new TicketABM();
-		UsuarioABM usuarioABM =  new UsuarioABM();
-		FuncionABM funcionABM = new FuncionABM();
-		SectorABM sectorABM = new SectorABM();
-		ButacaABM butacaABM = new ButacaABM();
+	
 		PrintWriter out = response.getWriter();
-		ObjectMapper mapper = new ObjectMapper();
 		
 		int idSector = Integer.parseInt(request.getParameter("idSector"));
 		int idFuncion = Integer.parseInt(request.getParameter("idFuncion"));
 		int cantidadButacas = Integer.parseInt(request.getParameter("array"));
 		
+		String respuesta = ticketABM.hacerReservaPopular(idSector, idFuncion, cantidadButacas);
 		
-		Cliente cliente = (Cliente) new UsuarioABM().traer(1);
-		Funcion funcion = funcionABM.traerFuncion(idFuncion);
-		Sector sector = sectorABM.traerSector(idSector);
-		
-		for(int i=1;i<=cantidadButacas;i++) {
-			ticketABM.agregarTicket(cliente, funcion, sector);
-		}
-		
-		out.println("OK");	
+		out.println(respuesta);	
 
 	}
 	

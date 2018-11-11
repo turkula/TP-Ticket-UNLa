@@ -1,5 +1,6 @@
 package negocio;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Set;
@@ -11,6 +12,34 @@ import datos.Funcion;
 import datos.Tarifa;
 
 public class FuncionABM {
+	
+	public class FuncionX {
+		public int id;
+		public String nombre;
+		
+		public FuncionX(int id,String nombre){
+			this.id=id;
+			this.nombre=nombre;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public String getNombre() {
+			return nombre;
+		}
+
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+		
+		
+	}
 	FuncionDao dao = new FuncionDao();
 
 	public Funcion traerFuncion(int idFuncion) throws Exception {
@@ -44,5 +73,17 @@ public class FuncionABM {
 			throw new Exception("Error: la Funcion no existe");
 		return e;
 	}	
+	
+	public List<FuncionX> traerFuncionPorEventosX(int idEvento)throws Exception{
+		List<Funcion> funciones = traerFuncionPorEventos(idEvento);
+		List<FuncionX> listaFunciones= new ArrayList<FuncionX>();
+		
+		for(Funcion funcion: funciones){
+			FuncionX x=new FuncionX(funcion.getIdFuncion(),funcion.getDescripcion());
+			listaFunciones.add(x);
+		}
+		
+		return listaFunciones;
+	}
 
 }

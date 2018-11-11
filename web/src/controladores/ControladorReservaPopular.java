@@ -47,8 +47,10 @@ public class ControladorReservaPopular extends HttpServlet {
 		int idSector = Integer.parseInt(request.getParameter("idSector"));
 		int idFuncion = Integer.parseInt(request.getParameter("idFuncion"));
 		int cantidadButacas = Integer.parseInt(request.getParameter("array"));
+		int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
+
 		
-		String respuesta = ticketABM.hacerReservaPopular(idSector, idFuncion, cantidadButacas);
+		String respuesta = ticketABM.hacerReservaPopular(idSector, idFuncion, cantidadButacas,idUsuario);
 		
 		out.println(respuesta);	
 

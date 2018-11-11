@@ -45,9 +45,10 @@ public class ControladorReservaNumerada extends HttpServlet {
 		
 		int idSector = Integer.parseInt(request.getParameter("idSector"));
 		int idFuncion = Integer.parseInt(request.getParameter("idFuncion"));
+		int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
 		String listaButacas = request.getParameter("array");
 		
-		String respuesta = ticketABM.hacerReservaNumerada(idSector, idFuncion, listaButacas);
+		String respuesta = ticketABM.hacerReservaNumerada(idSector, idFuncion, listaButacas,idUsuario);
 	
 		out.println(respuesta);	
 

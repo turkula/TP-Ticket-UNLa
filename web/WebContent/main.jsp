@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="public/alertify/alertify.css" />
 <!--         <link rel="stylesheet" type="text/css" media="screen" href="../public/font-awesome/css/font-awesome.min.css" />     -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel="stylesheet"  type="text/css" media="screen" href="public/font-awesome/css/all.css" >
     
     <link rel="icon" href="image/logo-UNLa.jpg">
 
@@ -36,22 +36,22 @@
     <div class="container-fluid">
         <!-- TABS -->
         <div class="form-group">
-            <ul class="col-12 nav nav-pills nav-fill " id="pills-tab" role="tablist">
+            <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
                 <li class="nav-item">
-                <a class="nav-link active" data-toggle="pill" href="#tabCine" role="tab" aria-controls="tabCine" aria-selected="true">Cine</a>
+                <a class="nav-link active" data-toggle="pill" href="" id="tabCine" role="tab" aria-controls="tabCine" aria-selected="true">Cine</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" data-toggle="pill" href="#tabTeatro" role="tab" aria-controls="tabTeatro" aria-selected="false">Teatro</a>
+                <a class="nav-link" data-toggle="pill" href="" role="tab" id="tabTeatro" aria-controls="tabTeatro" aria-selected="false">Teatro</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link"  data-toggle="pill" href="#tabConcierto" role="tab" aria-controls="tabConcierto" aria-selected="false">Concieto</a>
+                <a class="nav-link"  data-toggle="pill" href="" role="tab" id="tabConcierto" aria-controls="tabConcierto" aria-selected="false">Concieto</a>
                 </li>
           </ul>
         </div>
-          <div class="tab-content " id="pills-tabContent">
-            <div class="row form-group">
-                <div class="col-2"></div>
-                <div class="col-8 card card-body ">
+        <div class="row ">
+                  <div class="col-2"></div>
+        <div class="card card-body ">
+          <div class="tab-content" id="pills-tabContent">
                     <!-- CINE -->
                     <div class="tab-pane fade show active" id="tabCine" role="tabpanel" >
                         <form>
@@ -63,7 +63,7 @@
                                         </select>
                                 </div>
                                 <div class="form-group col-4">
-                                        <label for="selectEventoCine">Seleccione una pelicula</label>
+                                        <label for="selectEventoCine">Seleccione un evento</label>
                                         <select class="form-control" id="selectEventoCine">
                                         <option value="" >Seleccione</option>
                                         </select>
@@ -83,21 +83,21 @@
                                     </div>  
                                     <div class="row ">
                                     	<div class="form-group" >
-                                            <div class="col-5 ">
+                                            <div class="col ">
                                                     <label for="selectSector">Seleccione un sector:</label>
-                                            </div>
-                                            <select class="form-control" id="selectSector">
+                                                    <select class="form-control" id="selectSector">
                                         		<option value="" >Seleccione</option>
                                         	</select>
-                                        </div>
-                                        <div >
-                                            <div class="col-5">
-                                                    <label for="selectAuditorioCine">Ingrese Codigo de descuento(Opcional):</label>
-                                            </div>
-                                            <div class="input-group col-5 form-group">
-                                                <input type="text" class="form-control" placeholder="Codigo" name="codigoDescuento" id="codigoDescuento">
                                             </div>
                                         </div>
+<!--                                         <div > -->
+<!--                                             <div class="col-5"> -->
+<!--                                                     <label for="selectAuditorioCine">Ingrese Codigo de descuento(Opcional):</label> -->
+<!--                                             </div> -->
+<!--                                             <div class="input-group col-5 form-group"> -->
+<!--                                                 <input type="text" class="form-control" placeholder="Codigo" name="codigoDescuento" id="codigoDescuento"> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
                                     </div>
                                 </div>
                                 <div class="col-6 card card-body form-group">
@@ -125,10 +125,10 @@
                             </div>
                             <label>Valor de entrada por persona: $</label><label id="valorEntrada"></label>
                             <div class="row">
-                            	<label>Descuento: </label><label id="descuentoTipo"></label>
+                            	<label class="">Descuento: </label><label id="descuentoTipo"></label>
                             	<div class="col-6"></div>
 	                            <div >
-	                            	<label >TOTAL:$</label><label  id="labelPrecioTotal"></label>
+	                            	<label>TOTAL:$</label><label  id="labelPrecioTotal"></label>
 	                            </div>
                             </div>
                         </form>
@@ -137,17 +137,17 @@
                                 
                     <!-- TEATRO -->
                     <div class="tab-pane fade" id="tabTeatro" role="tabpanel" >
-
+						<h1>AS1</h1>
                     </div>
                     
                     <!-- CONCIERTO -->
                     <div class="tab-pane fade" id="tabConcierto" role="tabpanel" >
-
+						<h1>AS2</h1>
                     </div>
-                </div>
-                <div class="col-2"></div>
-            </div>
           </div>
+          </div>
+          <div class="col-2"></div>
+           </div>
         
       </div>
 </body>

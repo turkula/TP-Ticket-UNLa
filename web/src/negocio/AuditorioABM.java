@@ -87,7 +87,7 @@ public class AuditorioABM {
 
 	public List<AuditorioX> traerAuditoriosPorTipoX(int idTipoAuditorio) throws Exception {
 		
-		List<Auditorio> auditoriosXtipo = traerAuditoriosPorTipo(3);
+		List<Auditorio> auditoriosXtipo = traerAuditoriosPorTipo(idTipoAuditorio);
 		List<AuditorioX> listaAuditorios= new ArrayList<AuditorioX>();
 		
 		for(Auditorio auditorio: auditoriosXtipo){

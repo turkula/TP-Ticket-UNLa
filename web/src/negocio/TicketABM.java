@@ -119,7 +119,7 @@ public class TicketABM {
     	return dao.traerTicketsPorSectorPopular(idFuncion,idSector);
     }
     
-    public String hacerReservaNumerada(int idSector,int idFuncion,String listaButacas) throws Exception {
+    public String hacerReservaNumerada(int idSector,int idFuncion,String listaButacas,int idUsuario) throws Exception {
 		UsuarioABM usuarioABM = new UsuarioABM();
 		FuncionABM funcionABM = new FuncionABM();
 		SectorABM sectorABM = new SectorABM();
@@ -129,7 +129,7 @@ public class TicketABM {
 		listaButacas = listaButacas.replace("[","");
 		String[] butacas = listaButacas.split(",");
 		
-		Cliente cliente = (Cliente)new UsuarioABM().traer(1);
+		Cliente cliente = (Cliente) usuarioABM.traer(idUsuario);
 		Funcion funcion = funcionABM.traerFuncion(idFuncion);
 		Sector sector = sectorABM.traerSector(idSector);
 		
@@ -141,11 +141,11 @@ public class TicketABM {
 		return "OK";
     }
     
-    public String hacerReservaPopular(int idSector,int idFuncion,int cantidadButacas) throws Exception {
+    public String hacerReservaPopular(int idSector,int idFuncion,int cantidadButacas,int idUsuario) throws Exception {
     	UsuarioABM usuarioABM =  new UsuarioABM();
 		FuncionABM funcionABM = new FuncionABM();
 		SectorABM sectorABM = new SectorABM();
-		Cliente cliente = (Cliente) new UsuarioABM().traer(1);
+		Cliente cliente = (Cliente)usuarioABM.traer(idUsuario);
 		
 		Funcion funcion = funcionABM.traerFuncion(idFuncion);
 		Sector sector = sectorABM.traerSector(idSector);

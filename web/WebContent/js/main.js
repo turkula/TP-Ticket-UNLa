@@ -6,6 +6,7 @@ var precioEntrada;
 var user;
 var descuento;
 var precioTotal=0;
+var tipoEvento=3
 
 if(sessionStorage.getItem("userId")==null){
 	window.location.replace("login.jsp");
@@ -61,7 +62,7 @@ $( document ).ready(function() {
 	$.ajax({
 		method:"POST",
 		url:"ControladorTraerAuditorio",
-		data:{tipo:3},
+		data:{tipo:tipoEvento},
 		async:true
 	}).done(function (data){
 	    populateSelect('selectAuditorioCine',JSON.parse(data),false)
@@ -83,7 +84,7 @@ $( "#selectAuditorioCine" ).change(function() {
 		url:"ControladorTraerEvento",
 		data:{
 				idAuditorio:idComplejo,
-				idTipo:3
+				idTipo:tipoEvento
 			},
 		async:true
 	}).done(function (data){
@@ -107,7 +108,7 @@ $( "#selectAuditorioCine" ).change(function() {
 		method:"POST",
 		url:"ControladorTraerFuncion",
 		data:{
-				idTipo:3,
+				idTipo:tipoEvento,
 				idAuditorio:idAuditorio,
 				idEvento:idEvento
 			},
@@ -186,8 +187,8 @@ $( "#selectAuditorioCine" ).change(function() {
 		    		$('#flagTipoReserva').val(0);
 		    		$('#divPopular').removeClass('d-none');	
 		    		
-		    		cantidadEntradasMaximas=data[0]
-		    		cantidadEntradasVendidas=data[1]
+		    		cantidadEntradasMaximas=parseInt(data[0])
+		    		cantidadEntradasVendidas=parseInt(data[1])
 		    		
 		    		$('#labelVendida').text(cantidadEntradasVendidas)
 		    		$('#labelMaxima').text(cantidadEntradasMaximas)
@@ -200,16 +201,7 @@ $( "#selectAuditorioCine" ).change(function() {
   
   
   
-  
-$('#btnLogin').click(function(){
 
-    var data = {
-        user:$('#user').val(),
-        pass:$('#password').val()
-    }
-
-    // console.log(data);
-} )
 
 // SUMAR ENTRADA
 $('#masEntrada').click(function(){
@@ -255,7 +247,7 @@ function hacerGrilla(arrayButacas,arrayButacasOcupadas){
     }
     grilla+='</tr>';
     grilla+='</table>'
-
+<
     $('#tablaAsientos').append(grilla);
 }
 
@@ -297,7 +289,7 @@ $('#btnReservar').click(function(){
 	var flag = $('#flagTipoReserva').val();
     var idSector = $('#selectSector').val();
     var idFuncion = $('#selectFuncionCine').val();
-    var cantidadEntradas = $('#cantidadEntradas').val();
+    var cantidadEntradas = parseInt($('#cantidadEntradas').val());
     var response=[]; 
     var controlador='';
 
@@ -346,6 +338,7 @@ $('#btnReservar').click(function(){
     		data:{
     				idSector:idSector,
     				idFuncion:idFuncion,
+    				idUsuario:idUser,
     				array:response
     			},
     		async:true
@@ -406,3 +399,65 @@ $("#masEntrada").click(function() {
 $("#menosEntrada").click(function() {
 	calcularTotal($("#cantidadEntradas").val())
 });
+
+
+//change value del tab
+$("#tabCine").click(function() {
+	clearPage();
+	tipoEvento=3
+	//leno select auditorio
+	$.ajax({
+		method:"POST",
+		url:"ControladorTraerAuditorio",
+		data:{tipo:tipoEvento},
+		async:true
+	}).done(function (data){
+	    populateSelect('selectAuditorioCine',JSON.parse(data),false)
+	})
+});
+
+$("#tabTeatro").click(function() {
+	clearPage();
+	tipoEvento=2
+	//leno select auditorio
+	$.ajax({
+		method:"POST",
+		url:"ControladorTraerAuditorio",
+		data:{tipo:tipoEvento},
+		async:true
+	}).done(function (data){
+	    populateSelect('selectAuditorioCine',JSON.parse(data),false)
+	})
+});
+
+$("#tabConcierto").click(function() {
+	clearPage();
+	tipoEvento=1
+	//leno select auditorio
+	$.ajax({
+		method:"POST",
+		url:"ControladorTraerAuditorio",
+		data:{tipo:1},
+		async:true
+	}).done(function (data){
+	    populateSelect('selectAuditorioCine',JSON.parse(data),false)
+	})
+});
+
+function clearPage(){
+	
+	 $("#tablaAsientos tr").remove();
+    $("#divPopular").addClass("d-none")
+    $("#cantidadEntradas tr").val(0);
+    $('#selectFuncionCine').val('')
+    $('#selectSector').val('')
+    $('#selectEventoCine').val('')
+    totalFinal=0
+    arrayButacasCine=[];
+	$('#labelPrecioTotal').text(0);
+	$('#valorEntrada').text(0);
+
+
+
+}
+

@@ -43,8 +43,6 @@ public class ControladorTraerAuditorio extends HttpServlet {
 	}
 	
 	private void procesarPeticion(HttpServletRequest request,HttpServletResponse response)throws Exception {
-
-//		response.setContentType("text/html;charset=UTF8");
 		response.setContentType("text/plain");
 		
 		AuditorioABM auditorioABM = new AuditorioABM();
@@ -52,6 +50,7 @@ public class ControladorTraerAuditorio extends HttpServlet {
 		ObjectMapper mapper = new ObjectMapper();
 		
 		int idTipo = Integer.parseInt(request.getParameter("tipo"));
+		System.out.println(idTipo);
 		
 		List<AuditorioX> listaAuditorios = auditorioABM.traerAuditoriosPorTipoX(idTipo);
 		

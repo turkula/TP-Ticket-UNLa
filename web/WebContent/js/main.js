@@ -457,7 +457,11 @@ function clearPage(){
 	$('#labelPrecioTotal').text(0);
 	$('#valorEntrada').text(0);
 
-
-
 }
 
+$("#labelUserName").click(function() {
+	alertify.confirm('¿Desea cerrar la session?',function(){ 
+		sessionStorage.setItem("userId",0);
+		window.location.replace("login.jsp");
+	});
+})

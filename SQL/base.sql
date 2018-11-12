@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.24, for Linux (x86_64)
 --
 -- Host: localhost    Database: tpticketunla
 -- ------------------------------------------------------
--- Server version	5.7.13-log
+-- Server version	5.7.24-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -41,7 +41,6 @@ CREATE TABLE `administrador` (
 
 LOCK TABLES `administrador` WRITE;
 /*!40000 ALTER TABLE `administrador` DISABLE KEYS */;
-INSERT INTO `administrador` VALUES (1,1,NULL);
 /*!40000 ALTER TABLE `administrador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +58,7 @@ CREATE TABLE `auditorio` (
   PRIMARY KEY (`idAuditorio`),
   KEY `auditorio-tipo_idx` (`idTipoAuditorio`),
   CONSTRAINT `auditorio-tipo` FOREIGN KEY (`idTipoAuditorio`) REFERENCES `tipoauditorio` (`idTipoAuditorio`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +67,7 @@ CREATE TABLE `auditorio` (
 
 LOCK TABLES `auditorio` WRITE;
 /*!40000 ALTER TABLE `auditorio` DISABLE KEYS */;
-INSERT INTO `auditorio` VALUES (1,'River Plate',1),(2,'Maipo',2),(3,'Village Avellaneda',3);
+INSERT INTO `auditorio` VALUES (1,'River Plate',1),(2,'Maipo',2),(3,'Village Avellaneda',3),(4,'VIIage Recoleta',3),(6,'Estadio Unico LP',1),(7,'Luna Park',2);
 /*!40000 ALTER TABLE `auditorio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,10 +83,8 @@ CREATE TABLE `butaca` (
   `fila` int(11) DEFAULT NULL,
   `columna` int(11) DEFAULT NULL,
   `idSector` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idButaca`),
-  KEY `butaca-sector_idx` (`idSector`),
-  CONSTRAINT `butaca-sector` FOREIGN KEY (`idSector`) REFERENCES `sector` (`idSector`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`idButaca`)
+) ENGINE=InnoDB AUTO_INCREMENT=277 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +93,7 @@ CREATE TABLE `butaca` (
 
 LOCK TABLES `butaca` WRITE;
 /*!40000 ALTER TABLE `butaca` DISABLE KEYS */;
-INSERT INTO `butaca` VALUES (1,1,1,2),(2,1,2,2),(3,1,3,2),(4,1,4,2),(5,1,5,2),(6,2,1,2),(7,2,2,2),(8,2,3,2),(9,2,4,2),(10,2,5,2),(11,1,1,4),(12,1,2,4),(13,1,3,4),(14,1,4,4),(15,1,5,4),(16,2,1,4),(17,2,2,4),(18,2,3,4),(19,2,4,4),(20,2,5,4),(21,1,1,6),(22,1,2,6),(23,1,3,6),(24,1,4,6),(25,1,5,6),(26,2,1,6),(27,2,2,6),(28,2,3,6),(29,2,4,6),(30,2,5,6);
+INSERT INTO `butaca` VALUES (1,1,1,2),(2,1,2,2),(3,1,3,2),(4,1,4,2),(5,1,5,2),(6,2,1,2),(7,2,2,2),(8,2,3,2),(9,2,4,2),(10,2,5,2),(11,1,1,4),(12,1,2,4),(13,1,3,4),(14,1,4,4),(15,1,5,4),(16,2,1,4),(17,2,2,4),(18,2,3,4),(19,2,4,4),(20,2,5,4),(21,1,1,6),(22,1,2,6),(23,1,3,6),(24,1,4,6),(25,1,5,6),(26,2,1,6),(27,2,2,6),(28,2,3,6),(29,2,4,6),(30,2,5,6),(31,1,1,10),(32,1,2,10),(33,1,3,10),(34,1,4,10),(35,1,5,10),(36,1,6,10),(37,1,7,10),(38,2,1,10),(39,2,2,10),(40,2,3,10),(41,2,4,10),(42,2,5,10),(43,2,6,10),(44,2,7,10),(45,3,1,10),(46,3,2,10),(47,3,3,10),(48,3,4,10),(49,3,5,10),(50,3,6,10),(51,3,7,10),(52,4,1,10),(53,4,2,10),(54,4,3,10),(55,4,4,10),(56,4,5,10),(57,4,6,10),(58,4,7,10),(59,5,1,10),(60,5,2,10),(61,5,3,10),(62,5,4,10),(63,5,5,10),(64,5,6,10),(65,5,7,10),(66,6,1,10),(67,6,2,10),(68,6,3,10),(69,6,4,10),(70,6,5,10),(71,6,6,10),(72,6,7,10),(73,7,1,10),(74,7,2,10),(75,7,3,10),(76,7,4,10),(77,7,5,10),(78,7,6,10),(79,7,7,10),(129,1,1,12),(130,1,2,12),(131,1,3,12),(132,1,4,12),(133,1,5,12),(134,1,6,12),(135,1,7,12),(136,2,1,12),(137,2,2,12),(138,2,3,12),(139,2,4,12),(140,2,5,12),(141,2,6,12),(142,2,7,12),(143,3,1,12),(144,3,2,12),(145,3,3,12),(146,3,4,12),(147,3,5,12),(148,3,6,12),(149,3,7,12),(150,4,1,12),(151,4,2,12),(152,4,3,12),(153,4,4,12),(154,4,5,12),(155,4,6,12),(156,4,7,12),(157,5,1,12),(158,5,2,12),(159,5,3,12),(160,5,4,12),(161,5,5,12),(162,5,6,12),(163,5,7,12),(164,1,1,13),(165,1,2,13),(166,1,3,13),(167,1,4,13),(168,1,5,13),(169,2,1,13),(170,2,2,13),(171,2,3,13),(172,2,4,13),(173,2,5,13),(174,3,1,13),(175,3,2,13),(176,3,3,13),(177,3,4,13),(178,3,5,13),(179,4,1,13),(180,4,2,13),(181,4,3,13),(182,4,4,13),(183,4,5,13),(184,5,1,13),(185,5,2,13),(186,5,3,13),(187,5,4,13),(188,5,5,13),(189,1,1,14),(190,1,2,14),(191,1,3,14),(192,1,4,14),(193,1,5,14),(194,1,6,14),(195,2,1,14),(196,2,2,14),(197,2,3,14),(198,2,4,14),(199,2,5,14),(200,2,6,14),(201,3,1,14),(202,3,2,14),(203,3,3,14),(204,3,4,14),(205,3,5,14),(206,3,6,14),(207,4,1,14),(208,4,2,14),(209,4,3,14),(210,4,4,14),(211,4,5,14),(212,4,6,14),(213,5,1,14),(214,5,2,14),(215,5,3,14),(216,5,4,14),(217,5,5,14),(218,5,6,14),(219,6,1,14),(220,6,2,14),(221,6,3,14),(222,6,4,14),(223,6,5,14),(224,6,6,14),(225,1,1,15),(226,1,2,15),(227,1,3,15),(228,1,4,15),(229,1,5,15),(230,1,6,15),(231,2,1,15),(232,2,2,15),(233,2,3,15),(234,2,4,15),(235,2,5,15),(236,2,6,15),(237,3,1,15),(238,3,2,15),(239,3,3,15),(240,3,4,15),(241,3,5,15),(242,3,6,15),(243,4,1,15),(244,4,2,15),(245,4,3,15),(246,4,4,15),(247,4,5,15),(248,4,6,15),(249,5,1,15),(250,5,2,15),(251,5,3,15),(252,5,4,15),(253,5,5,15),(254,5,6,15),(255,6,1,15),(256,6,2,15),(257,6,3,15),(258,6,4,15),(259,6,5,15),(260,6,6,15),(261,1,1,16),(262,1,2,16),(263,1,3,16),(264,1,4,16),(265,2,1,16),(266,2,2,16),(267,2,3,16),(268,2,4,16),(269,3,1,16),(270,3,2,16),(271,3,3,16),(272,3,4,16),(273,4,1,16),(274,4,2,16),(275,4,3,16),(276,4,4,16);
 /*!40000 ALTER TABLE `butaca` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,8 +110,7 @@ CREATE TABLE `cliente` (
   `idTipoCliente` int(11) DEFAULT NULL,
   PRIMARY KEY (`idCliente`),
   KEY `cliente-tipo_idx` (`idTipoCliente`),
-  CONSTRAINT `cliente-tipo` FOREIGN KEY (`idTipoCliente`) REFERENCES `tipocliente` (`idTipoCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `cliente-usuario` FOREIGN KEY (`idCliente`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `cliente-tipo` FOREIGN KEY (`idTipoCliente`) REFERENCES `tipocliente` (`idTipoCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -124,7 +120,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,NULL,1),(2,NULL,2);
+INSERT INTO `cliente` VALUES (1,NULL,1),(2,NULL,2),(4,NULL,1),(6,NULL,1),(7,NULL,3);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +145,6 @@ CREATE TABLE `codigo` (
 
 LOCK TABLES `codigo` WRITE;
 /*!40000 ALTER TABLE `codigo` DISABLE KEYS */;
-INSERT INTO `codigo` VALUES (1,'codigo'),(2,'codigo'),(3,'codigo'),(4,'codigo'),(7,'codigo');
 /*!40000 ALTER TABLE `codigo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,7 +175,6 @@ CREATE TABLE `descuento` (
 
 LOCK TABLES `descuento` WRITE;
 /*!40000 ALTER TABLE `descuento` DISABLE KEYS */;
-INSERT INTO `descuento` VALUES (1,5,'\0',1,1),(2,5,'\0',2,2),(3,5,'\0',3,3),(4,5,'\0',4,4),(5,5,'\0',5,5),(6,5,'\0',6,6),(7,5,'\0',6,6);
 /*!40000 ALTER TABLE `descuento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,7 +199,6 @@ CREATE TABLE `dia` (
 
 LOCK TABLES `dia` WRITE;
 /*!40000 ALTER TABLE `dia` DISABLE KEYS */;
-INSERT INTO `dia` VALUES (5,NULL),(6,NULL);
 /*!40000 ALTER TABLE `dia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,8 +218,8 @@ CREATE TABLE `evento` (
   KEY `evento-auditorio_idx` (`idAuditorio`),
   KEY `evento-tipo_idx` (`idTipoEvento`),
   CONSTRAINT `evento-auditorio` FOREIGN KEY (`idAuditorio`) REFERENCES `auditorio` (`idAuditorio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `evento-tipo` FOREIGN KEY (`idTipoEvento`) REFERENCES `tipoevento` (`idTipoevento`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  CONSTRAINT `evento-tipo` FOREIGN KEY (`idTipoEvento`) REFERENCES `tipoevento` (`idTipoevento`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +228,7 @@ CREATE TABLE `evento` (
 
 LOCK TABLES `evento` WRITE;
 /*!40000 ALTER TABLE `evento` DISABLE KEYS */;
-INSERT INTO `evento` VALUES (1,'Fito Paez',1,1),(2,'Gordofobia',2,2),(3,'El ptro',3,3),(4,'Indio Solari',1,1);
+INSERT INTO `evento` VALUES (1,'Fito Paez',1,1),(2,'Gordofobia',2,2),(3,'El potro',3,3),(4,'Harry Potter 9',3,4),(5,'Duro de matar 15',3,4),(6,'Esperando la carroza',3,3),(7,'El otro lado de la cama',2,7),(8,'Wos',1,6);
 /*!40000 ALTER TABLE `evento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,7 +247,7 @@ CREATE TABLE `funcion` (
   PRIMARY KEY (`idFuncion`),
   KEY `funcion-evento_idx` (`idEvento`),
   CONSTRAINT `funcion-evento` FOREIGN KEY (`idEvento`) REFERENCES `evento` (`idEvento`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,32 +256,8 @@ CREATE TABLE `funcion` (
 
 LOCK TABLES `funcion` WRITE;
 /*!40000 ALTER TABLE `funcion` DISABLE KEYS */;
-INSERT INTO `funcion` VALUES (1,'14:00',NULL,1),(2,'18:00',NULL,1),(3,'14:00',NULL,2),(4,'18:00',NULL,2),(5,'14:00',NULL,3),(6,'18:00',NULL,3),(9,'18:00','2018-10-24 00:00:00',1);
+INSERT INTO `funcion` VALUES (1,'19/11 21:00',NULL,1),(2,'20/11 21:00',NULL,1),(3,'19/11 14:00',NULL,2),(4,'19/11 18:00',NULL,2),(5,'19/11 14:00',NULL,3),(6,'19/11 18:00',NULL,3),(7,'19/11 14:00',NULL,4),(8,'19/11 18:00',NULL,4),(9,'19/11 14:00',NULL,5),(10,'19/11 1800',NULL,5),(11,'19/11 14:00',NULL,6),(12,'19/11 18:00',NULL,6),(13,'19/11 14:00',NULL,7),(14,'19/11 18:00',NULL,7),(15,'19/11 14:00',NULL,8),(16,'19/11 18:00',NULL,8);
 /*!40000 ALTER TABLE `funcion` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `numerada`
---
-
-DROP TABLE IF EXISTS `numerada`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `numerada` (
-  `idNumerada` int(11) NOT NULL,
-  PRIMARY KEY (`idNumerada`),
-  CONSTRAINT `numerada-sector` FOREIGN KEY (`idNumerada`) REFERENCES `sector` (`idSector`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `numerada`
---
-
-LOCK TABLES `numerada` WRITE;
-/*!40000 ALTER TABLE `numerada` DISABLE KEYS */;
-INSERT INTO `numerada` VALUES (2),(4),(5),(6);
-/*!40000 ALTER TABLE `numerada` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -315,31 +284,6 @@ LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
 INSERT INTO `persona` VALUES (1,'Juan','Perez',11111111),(2,'Roberto','Gomez',11111112),(3,'Maria','Ramirez',11111113);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `popular`
---
-
-DROP TABLE IF EXISTS `popular`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `popular` (
-  `idPopular` int(11) NOT NULL,
-  `cantidadMaxima` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idPopular`),
-  CONSTRAINT `popular-sector` FOREIGN KEY (`idPopular`) REFERENCES `sector` (`idSector`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `popular`
---
-
-LOCK TABLES `popular` WRITE;
-/*!40000 ALTER TABLE `popular` DISABLE KEYS */;
-INSERT INTO `popular` VALUES (1,100),(3,50);
-/*!40000 ALTER TABLE `popular` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -375,12 +319,12 @@ DROP TABLE IF EXISTS `sector`;
 CREATE TABLE `sector` (
   `idSector` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
-  `idAuditorio` int(11) DEFAULT NULL,
   `popularCantidadMaxima` int(11) DEFAULT NULL,
+  `idAuditorio` int(11) DEFAULT NULL,
   PRIMARY KEY (`idSector`),
   KEY `sector-auditorio_idx` (`idAuditorio`),
   CONSTRAINT `sector-auditorio` FOREIGN KEY (`idAuditorio`) REFERENCES `auditorio` (`idAuditorio`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -389,7 +333,7 @@ CREATE TABLE `sector` (
 
 LOCK TABLES `sector` WRITE;
 /*!40000 ALTER TABLE `sector` DISABLE KEYS */;
-INSERT INTO `sector` VALUES (1,'popular1',1,100),(2,'numerada1',1,NULL),(3,'popular1',2,50),(4,'numerada1',2,NULL),(5,'popular1',3,80),(6,'numerada1',3,NULL);
+INSERT INTO `sector` VALUES (6,'SALA 1',0,3),(10,'SALA 1',0,4),(12,'SALA 2',0,4),(13,'SALA A',0,2),(14,'Sala principal',0,7),(15,'PLATEA',0,1),(16,'PLATEA',0,6),(17,'Popular',70,6),(18,'Popular',100,1);
 /*!40000 ALTER TABLE `sector` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -411,7 +355,7 @@ CREATE TABLE `tarifa` (
   KEY `tarifa-funcion_idx1` (`idFuncion`),
   CONSTRAINT `tarifa-funcion` FOREIGN KEY (`idFuncion`) REFERENCES `funcion` (`idFuncion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `tarifa-sector` FOREIGN KEY (`idSector`) REFERENCES `sector` (`idSector`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -420,7 +364,7 @@ CREATE TABLE `tarifa` (
 
 LOCK TABLES `tarifa` WRITE;
 /*!40000 ALTER TABLE `tarifa` DISABLE KEYS */;
-INSERT INTO `tarifa` VALUES (1,20,1,1),(2,10,2,1),(3,15,3,2),(4,5,4,2),(5,15,5,3),(6,5,6,3),(7,2,NULL,NULL);
+INSERT INTO `tarifa` VALUES (1,100,6,5),(2,100,6,6),(3,100,6,11),(4,100,6,12),(5,120,10,7),(6,120,12,7),(7,120,10,8),(8,120,12,8),(9,120,10,9),(10,120,12,9),(11,120,10,10),(12,120,12,10),(13,150,13,3),(14,150,13,4),(15,150,13,13),(16,150,13,14),(17,200,18,1),(18,300,15,1),(19,200,18,2),(20,300,15,2),(21,200,17,15),(22,250,16,15),(23,200,17,16),(24,250,16,16);
 /*!40000 ALTER TABLE `tarifa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -449,7 +393,7 @@ CREATE TABLE `ticket` (
   CONSTRAINT `ticket-funcion` FOREIGN KEY (`idFuncion`) REFERENCES `funcion` (`idFuncion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `ticket-reserva` FOREIGN KEY (`idReserva`) REFERENCES `reserva` (`idreserva`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `ticket-sector` FOREIGN KEY (`idSector`) REFERENCES `sector` (`idSector`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -458,7 +402,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (1,1,1,2,1,1),(2,2,1,2,2,1);
+INSERT INTO `ticket` VALUES (1,4,15,16,268,NULL),(2,4,15,17,NULL,NULL),(3,4,15,17,NULL,NULL),(4,4,15,17,NULL,NULL),(5,4,15,17,NULL,NULL),(6,4,15,17,NULL,NULL),(7,4,15,17,NULL,NULL),(8,4,15,17,NULL,NULL),(9,4,15,17,NULL,NULL),(10,4,15,17,NULL,NULL),(11,4,15,17,NULL,NULL),(12,4,15,17,NULL,NULL),(13,4,15,17,NULL,NULL),(14,4,15,17,NULL,NULL),(15,4,15,17,NULL,NULL),(16,4,15,17,NULL,NULL),(17,4,15,17,NULL,NULL),(18,4,15,17,NULL,NULL),(19,4,15,17,NULL,NULL),(20,4,15,17,NULL,NULL),(21,4,15,17,NULL,NULL),(22,4,15,17,NULL,NULL),(23,4,15,17,NULL,NULL),(24,4,15,17,NULL,NULL),(25,4,15,17,NULL,NULL),(26,4,15,17,NULL,NULL),(27,4,15,17,NULL,NULL),(28,4,15,17,NULL,NULL),(29,4,15,17,NULL,NULL),(30,4,15,17,NULL,NULL),(31,4,15,17,NULL,NULL),(32,4,15,17,NULL,NULL),(33,4,15,17,NULL,NULL),(34,4,15,17,NULL,NULL),(35,4,15,17,NULL,NULL),(36,4,15,17,NULL,NULL),(37,4,15,17,NULL,NULL),(38,4,15,17,NULL,NULL),(39,4,15,17,NULL,NULL),(40,4,15,17,NULL,NULL),(41,4,15,17,NULL,NULL),(42,4,15,17,NULL,NULL),(43,4,15,17,NULL,NULL),(44,4,15,17,NULL,NULL),(45,4,15,17,NULL,NULL),(46,4,15,17,NULL,NULL),(47,4,15,17,NULL,NULL),(48,4,15,17,NULL,NULL),(49,4,15,17,NULL,NULL),(50,4,15,17,NULL,NULL),(51,4,15,17,NULL,NULL),(52,4,15,17,NULL,NULL),(53,4,15,17,NULL,NULL),(54,4,15,17,NULL,NULL),(55,4,15,17,NULL,NULL),(56,4,15,17,NULL,NULL),(57,4,15,17,NULL,NULL),(58,4,15,17,NULL,NULL),(59,4,15,17,NULL,NULL),(60,4,15,17,NULL,NULL),(61,4,15,17,NULL,NULL),(62,4,15,17,NULL,NULL),(63,4,15,17,NULL,NULL),(64,4,15,17,NULL,NULL),(65,4,15,17,NULL,NULL),(66,4,15,17,NULL,NULL),(67,4,15,17,NULL,NULL),(68,4,15,17,NULL,NULL),(69,4,15,17,NULL,NULL),(70,4,15,17,NULL,NULL),(71,4,15,17,NULL,NULL);
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -569,11 +513,9 @@ CREATE TABLE `usuario` (
   `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombreUsuario` varchar(45) DEFAULT NULL,
   `clave` varchar(45) DEFAULT NULL,
-  `idPersona` int(11) NOT NULL,
-  PRIMARY KEY (`idUsuario`),
-  KEY `usuario-persona_idx` (`idPersona`),
-  CONSTRAINT `usuario-persona` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `idPersona` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idUsuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -582,7 +524,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'juan','juan1',1),(2,'roberto','roberto2',2),(3,'maria','maria3',3);
+INSERT INTO `usuario` VALUES (1,'juan','juan1',1),(2,'roberto','roberto2',2),(3,'maria','maria3',3),(4,'gonza','gonza',NULL),(6,'gonzax96','gonza',NULL),(7,'jubilado','gonza',NULL);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -595,4 +537,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-26  9:35:55
+-- Dump completed on 2018-11-11 23:30:52

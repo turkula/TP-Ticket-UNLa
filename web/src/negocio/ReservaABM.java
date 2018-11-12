@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import dao.ReservaDao;
+import datos.Cliente;
 import datos.Reserva;
 
 import datos.Ticket;
@@ -18,8 +19,8 @@ public class ReservaABM {
         return d;
     }
 
-    public int agregarReserva(Set<Ticket> tickets)throws Exception{
-        Reserva d = new Reserva( tickets);
+    public int agregarReserva(Cliente cliente,int total)throws Exception{
+        Reserva d = new Reserva( cliente,total);
         return dao.agregar(d);
     }
     

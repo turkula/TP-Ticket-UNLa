@@ -4,19 +4,16 @@ import java.util.Set;
 
 public class Reserva {
 	private int idReserva;
-	private Set<Ticket>tickets; //modificar en el diagrama por ubicaciones ELIMINA CLASE UBICACION
-
-
-	public Reserva() {
-		super();
-	}
+	private Cliente cliente;
+	private int total;
 	
-
-	public Reserva(Set<Ticket> tickets) {
+	public Reserva() {};
+	
+	public Reserva(Cliente cliente, int total) {
 		super();
-		this.tickets = tickets;
+		this.cliente = cliente;
+		this.total = total;
 	}
-
 
 	public int getIdReserva() {
 		return idReserva;
@@ -26,16 +23,21 @@ public class Reserva {
 		this.idReserva = idReserva;
 	}
 
-	public Set<Ticket> getTickets() {
-		return tickets;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setTickets(Set<Ticket> tickets) {
-		this.tickets = tickets;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
-	
-	
-	
+
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
 	
 	
 }

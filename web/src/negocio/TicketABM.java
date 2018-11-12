@@ -8,6 +8,7 @@ import datos.Ticket;
 import datos.Butaca;
 import datos.Cliente;
 import datos.Funcion;
+import datos.Reserva;
 import datos.Sector;
 
 public class TicketABM {
@@ -91,13 +92,13 @@ public class TicketABM {
         return d;
     }
 
-    public int agregarTicket(Cliente cliente, Funcion funcion, Sector sector, Butaca butaca )throws Exception{
-        Ticket d = new Ticket( cliente, funcion, sector, butaca);
+    public int agregarTicket( Funcion funcion, Sector sector, Butaca butaca,Reserva reserva )throws Exception{
+        Ticket d = new Ticket(  funcion, sector, butaca,reserva);
         return dao.agregar(d);
     }
     
-    public int agregarTicket(Cliente cliente, Funcion funcion, Sector sector )throws Exception{
-        Ticket d = new Ticket( cliente, funcion, sector, null);
+    public int agregarTicket( Funcion funcion, Sector sector ,Reserva reserva)throws Exception{
+        Ticket d = new Ticket( funcion, sector, null,reserva);
         return dao.agregar(d);
     }
 
@@ -119,11 +120,12 @@ public class TicketABM {
     	return dao.traerTicketsPorSectorPopular(idFuncion,idSector);
     }
     
-    public String hacerReservaNumerada(int idSector,int idFuncion,String listaButacas,int idUsuario) throws Exception {
+    public String hacerReservaNumerada(int idSector,int idFuncion,String listaButacas,int idUsuario,int precioTotal) throws Exception {
 		UsuarioABM usuarioABM = new UsuarioABM();
 		FuncionABM funcionABM = new FuncionABM();
 		SectorABM sectorABM = new SectorABM();
 		ButacaABM butacaABM = new ButacaABM();
+		ReservaABM reservaABM = new ReservaABM();
     	
     	listaButacas = listaButacas.replace("]","");
 		listaButacas = listaButacas.replace("[","");
@@ -132,26 +134,33 @@ public class TicketABM {
 		Cliente cliente = (Cliente) usuarioABM.traer(idUsuario);
 		Funcion funcion = funcionABM.traerFuncion(idFuncion);
 		Sector sector = sectorABM.traerSector(idSector);
+		int idReserva = reservaABM.agregarReserva(cliente, precioTotal);
+		Reserva reserva=reservaABM.traerReserva(idReserva);
 		
 		for(String b:butacas){
 			int idButaca =Integer.parseInt(b);
-			agregarTicket(cliente, funcion, sector, butacaABM.traerButaca(idButaca));
+			agregarTicket( funcion, sector, butacaABM.traerButaca(idButaca),reserva);
 		}
 		
 		return "OK";
     }
     
-    public String hacerReservaPopular(int idSector,int idFuncion,int cantidadButacas,int idUsuario) throws Exception {
+    public String hacerReservaPopular(int idSector,int idFuncion,int cantidadButacas,int idUsuario,int precioTotal) throws Exception {
     	UsuarioABM usuarioABM =  new UsuarioABM();
 		FuncionABM funcionABM = new FuncionABM();
 		SectorABM sectorABM = new SectorABM();
+		ReservaABM reservaABM = new ReservaABM();
+
 		Cliente cliente = (Cliente)usuarioABM.traer(idUsuario);
 		
 		Funcion funcion = funcionABM.traerFuncion(idFuncion);
 		Sector sector = sectorABM.traerSector(idSector);
 		
+		int idReserva = reservaABM.agregarReserva(cliente, precioTotal);
+		Reserva reserva=reservaABM.traerReserva(idReserva);
+		
 		for(int i=1;i<=cantidadButacas;i++) {
-			agregarTicket(cliente, funcion, sector);
+			agregarTicket( funcion, sector,reserva);
 		}
 		return "OK";
     }

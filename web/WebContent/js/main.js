@@ -5,7 +5,7 @@ var idUser;
 var precioEntrada;
 var user;
 var descuento;
-var precioTotal=0;
+var totalFinal=0;
 var tipoEvento=3
 
 if(sessionStorage.getItem("userId")==null){
@@ -242,7 +242,7 @@ function hacerGrilla(arrayButacas,arrayButacasOcupadas){
     		}
     	}
     	
-    	grilla+='<td><div id="butaca'+butacasArray[i].id+'" class="circle text-center '+color+'" onclick=reservarButaca('+butacasArray[i].fila+','+butacasArray[i].columna+','+butacasArray[i].id+')>'+butacasArray[i].id+'</div></td>';	
+    	grilla+='<td><div id="butaca'+butacasArray[i].id+'" style="height:25px; width:40px" class="circle text-center '+color+'" onclick=reservarButaca('+butacasArray[i].fila+','+butacasArray[i].columna+','+butacasArray[i].id+')>'+butacasArray[i].id+'</div></td>';	
     	fila=arrayButacas[i].fila
     }
     grilla+='</tr>';
@@ -331,6 +331,7 @@ $('#btnReservar').click(function(){
    
     
     }
+    console.log(totalFinal);
 
         $.ajax({
     		method:"POST",
@@ -339,6 +340,7 @@ $('#btnReservar').click(function(){
     				idSector:idSector,
     				idFuncion:idFuncion,
     				idUsuario:idUser,
+    				precioTotal:totalFinal,
     				array:response
     			},
     		async:true

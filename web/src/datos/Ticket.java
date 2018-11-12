@@ -2,21 +2,21 @@ package datos;
 
 public class Ticket {
 	private int idTicket;
-	private Cliente cliente;
 	private Funcion funcion;
 	private Sector sector;
 	private Butaca butaca;
+	private Reserva reserva;
 	
 	public Ticket() {
 		super();
 	}
 
-	public Ticket(Cliente cliente, Funcion funcion, Sector sector, Butaca butaca) {
+	public Ticket( Funcion funcion, Sector sector, Butaca butaca,Reserva reserva) {
 		super();
-		this.cliente = cliente;
 		this.funcion = funcion;
 		this.sector = sector;
 		this.butaca = butaca;
+		this.reserva = reserva;
 	}
 
 	public int getIdTicket() {
@@ -27,13 +27,6 @@ public class Ticket {
 		this.idTicket = idTicket;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
 
 	public Funcion getFuncion() {
 		return funcion;
@@ -58,10 +51,18 @@ public class Ticket {
 	public void setButaca(Butaca butaca) {
 		this.butaca = butaca;
 	}
+	
+	public Reserva getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
+	}
 
 	@Override
 	public String toString() {
-		return "Ticket [idTicket=" + idTicket + ", cliente=" + cliente + ", funcion=" + funcion + ", sector=" + sector
+		return "Ticket [idTicket=" + idTicket + ", funcion=" + funcion + ", sector=" + sector
 				+ ", butaca=" + butaca + "]";
 	}
 	

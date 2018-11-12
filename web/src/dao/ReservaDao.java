@@ -69,7 +69,7 @@ public class ReservaDao {
 	}
 
 	
-	public Reserva traerReserva(long idReserva) throws HibernateException {
+	public Reserva traerReserva(int idReserva) throws HibernateException {
 		Reserva objeto = null;
 		try {
 			iniciaOperacion();

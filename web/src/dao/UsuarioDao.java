@@ -52,12 +52,18 @@ public class UsuarioDao {
 		iniciaOperacion();
 		objeto = (Usuario) session.createQuery( "from Usuario c where c.idUsuario ="+idUsuario).uniqueResult();
 		} finally {
-		session .close();
+		cerrarSesion(session) ;
 		}
 		System.out.println("asddsa "+objeto);
 
 		return objeto ;
 		}
+	
+    private void cerrarSesion(Session session) {
+        if (session != null) {
+            session.close();
+        }
+    }
 	
 	public void actualizar(Usuario objeto) throws HibernateException {
 		try {

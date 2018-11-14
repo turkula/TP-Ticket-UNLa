@@ -1,6 +1,6 @@
-/test/
-/datos/
-/negocio/
-/mapeos/
-/dao/
 /controladores/
+/dao/
+/datos/
+/funciones/
+/negocio/
+/test/
